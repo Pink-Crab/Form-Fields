@@ -63,7 +63,7 @@ class Raw_HTML extends Abstract_Field {
 	/**
 	 * Set the field to render
 	 *
-	 * @param string $content  The field to render
+	 * @param callable(Abstract_Field): string $content Callable to return content
 	 * @return self
 	 */
 	public function content( callable $content ): self {
