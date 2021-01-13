@@ -3,6 +3,8 @@
 use PinkCrab\Form_Fields\Field_Parser;
 use PinkCrab\Form_Fields\Label_Config;
 use PinkCrab\Form_Fields\Fields\Select;
+use PinkCrab\Form_Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Fields\Raw_HTML;
 use PinkCrab\Form_Fields\Fields\Input_Date;
 use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Form_Fields\Fields\Input_Email;
@@ -403,4 +405,22 @@ print_code( $multi_select->as_string() );
 
 hr();
 
+/**
+ * Raw HTML
+ */
 
+print( '<h2>Raw HTML</h2>' );
+
+
+heading( 'Free Form Colour Picker' );
+$html = Raw_HTML::create( 'free-form' )
+	->content(
+		function( Abstract_Field $field ) {
+			return '<input type="color" name="' . $field->get_key() . '" id="' . $field->get_key() . '"><br><span>Pick your tone</span>';
+		}
+	);
+
+$html->render();
+print_code( $html->as_string() );
+
+hr();
