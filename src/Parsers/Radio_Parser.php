@@ -145,8 +145,8 @@ class Radio_Parser extends Field_Parser {
 			$template,
 			$label_config->get_classes() ?? '',
 			$key,
-			( $label_config->is_positioned_after() ? $name : "\t" . $input_html ) . \PHP_EOL,
-			( ! $label_config->is_positioned_after() ? $name : "\t" . $input_html ) . \PHP_EOL,
+			( $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL,
+			( ! $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL,
 		);
 	}
 
@@ -157,7 +157,7 @@ class Radio_Parser extends Field_Parser {
 	 */
 	protected function link_to( string $key, string $name ): string {
 		$label_config = $this->field->label_config();
-		$template     = $label_config->is_positioned_after()
+		$template     = $label_config->is_positioned_before()
 			? '<label%1$s for="%2$s">%3$s</label>%5$s%4$s'
 			: '%3$s%5$s<label%1$s for="%2$s">%4$s</label>';
 		$input_html   = $this->generate_input_field( $key, $name );
@@ -166,8 +166,8 @@ class Radio_Parser extends Field_Parser {
 			$template,
 			$label_config->get_classes() ?? '',
 			$key,
-			$label_config->is_positioned_after() ? $name : $input_html,
-			! $label_config->is_positioned_after() ? $name : $input_html,
+			$label_config->is_positioned_before() ? $name : $input_html,
+			! $label_config->is_positioned_before() ? $name : $input_html,
 			\PHP_EOL
 		);
 	}
