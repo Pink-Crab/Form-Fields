@@ -91,8 +91,8 @@ class Field_Parser implements Parser {
 			$template,
 			$label_config->get_classes() ?? '',
 			$this->field->get_key(),
-			\PHP_EOL . ( $label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html() ),
-			\PHP_EOL . ( ! $label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html() ),
+			\PHP_EOL . ( $label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html() ),
+			\PHP_EOL . ( ! $label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html() ),
 		);
 	}
 
@@ -104,7 +104,7 @@ class Field_Parser implements Parser {
 	protected function linked_to_label(): string {
 
 		$label_config = $this->field->label_config();
-		$template     = $label_config->is_positioned_above()
+		$template     = $label_config->is_positioned_before()
 			? '<label%1$s for="%2$s">%5$s%3$s%5$s</label>%4$s'
 			: '%3$s%5$s<label%1$s for="%2$s">%4$s</label>';
 
@@ -112,8 +112,8 @@ class Field_Parser implements Parser {
 			$template,
 			$label_config->get_classes() ?? '',
 			$this->field->get_key(),
-			$label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html(),
-			! $label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html(),
+			$label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html(),
+			! $label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html(),
 			\PHP_EOL
 		);
 	}
