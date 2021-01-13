@@ -7,10 +7,10 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Tests;
+namespace PinkCrab\Form_Fields\Tests\Fields;
 
 trait Trait_General_Field_Tests {
 
@@ -29,9 +29,11 @@ trait Trait_General_Field_Tests {
 	 * @return void
 	 */
 	public function test_current_value(): void {
+		/** @var Abstract_Field self::$field */
 		self::$field->current( 'CURRENT' );
-		$this->assertEquals( 'CURRENT', self::$field->get_current() );
-		$this->assertNotEquals( 'NOTCURRENT', self::$field->get_current() );
+		$this->assertArrayHasKey( 'value', self::$field->get_attributes() );
+		$this->assertEquals( 'CURRENT', self::$field->get_attributes()['value'] );
+		$this->assertNotEquals( 'NOTCURRENT', self::$field->get_attributes()['value'] );
 	}
 
 	/**
@@ -95,8 +97,9 @@ trait Trait_General_Field_Tests {
 	 */
 	public function test_placeholder(): void {
 		self::$field->placeholder( 'placeholder' );
-		$this->assertEquals( 'placeholder', self::$field->get_placeholder() );
-		$this->assertNotEquals( 'NOTplaceholder', self::$field->get_placeholder() );
+		$this->assertArrayHasKey( 'placeholder', self::$field->get_attributes() );
+		$this->assertEquals( 'placeholder', self::$field->get_attributes()['placeholder'] );
+		$this->assertNotEquals( 'NOTplaceholder', self::$field->get_attributes()['placeholder'] );
 	}
 
 	/**
@@ -121,27 +124,38 @@ trait Trait_General_Field_Tests {
 		$this->assertNotEquals( 'NOTdescription', self::$field->get_description() );
 	}
 
-
 	/**
-	 * Test can toggle is include_label.
+	 * Test can set and get the label
 	 *
 	 * @return void
 	 */
-	public function test_include_label(): void {
-
-		// As True
-		self::$field->include_label( true );
-		$this->assertTrue( self::$field->get_include_label() );
-
-		// As False
-		self::$field->include_label( false );
-		$this->assertFalse( self::$field->get_include_label() );
-
-		// TRUE by defualt if no arg passed
-		self::$field->include_label();
-		$this->assertTrue( self::$field->get_include_label() );
-
+	public function test_label(): void {
+		self::$field->label( 'label' );
+		$this->assertEquals( 'label', self::$field->get_label() );
+		$this->assertNotEquals( 'NOTlabel', self::$field->get_label() );
 	}
+
+
+	// /**
+	//  * Test can toggle is include_label.
+	//  *
+	//  * @return void
+	//  */
+	// public function test_include_label(): void {
+
+	// 	// As True
+	// 	self::$field->include_label( true );
+	// 	$this->assertTrue( self::$field->get_include_label() );
+
+	// 	// As False
+	// 	self::$field->include_label( false );
+	// 	$this->assertFalse( self::$field->get_include_label() );
+
+	// 	// TRUE by defualt if no arg passed
+	// 	self::$field->include_label();
+	// 	$this->assertTrue( self::$field->get_include_label() );
+
+	// }
 
 	/**
 	 * Test can set and get the attributes

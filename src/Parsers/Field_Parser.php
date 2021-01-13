@@ -19,14 +19,15 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields;
+namespace PinkCrab\Form_Fields\Parsers;
 
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Parser;
+use PinkCrab\Form_Fields\Abstract_Field;
 
-class Field_Parser {
+class Field_Parser implements Parser {
 
 	/**
 	 * Field to be rendered.
@@ -45,7 +46,7 @@ class Field_Parser {
 	 * @return void
 	 */
 	public function print(): void {
-		# code...
+		print $this->compose_input(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
@@ -54,26 +55,75 @@ class Field_Parser {
 	 * @return string
 	 */
 	public function as_string(): string {
-		return $this->wrapped_in_label();
+		return $this->compose_input();
 	}
 
+	/**
+	 * Based on the label settings, render with or without label.
+	 *
+	 * @return string
+	 */
+	protected function compose_input(): string {
+		switch ( true ) {
+			// If no label to render.
+			case ! $this->field->label_config()->is_visible():
+				return $this->no_label();
+
+			// Wrapped
+			case $this->field->label_config()->is_wrapped():
+				return $this->wrapped_in_label();
+
+			default:
+				return $this->linked_to_label();
+		}
+	}
+
+	/**
+	 * Renders the form filed wrapped in the label
+	 *
+	 * @return string
+	 */
 	protected function wrapped_in_label(): string {
-		$template     = '<label %1$s for="%2$s">
-%3$s
-%4$s
-</label>';
+		$template     = '<label%1$s for="%2$s">%3$s%4$s</label>';
 		$label_config = $this->field->label_config();
+
+		return \sprintf(
+			$template,
+			$label_config->get_classes() ?? '',
+			$this->field->get_key(),
+			\PHP_EOL . ( $label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html() ),
+			\PHP_EOL . ( ! $label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html() ),
+		);
+	}
+
+	/**
+	 * Renders the form field with the label linked.
+	 *
+	 * @return string
+	 */
+	protected function linked_to_label(): string {
+
+		$label_config = $this->field->label_config();
+		$template     = $label_config->is_positioned_above()
+			? '<label%1$s for="%2$s">%5$s%3$s%5$s</label>%4$s'
+			: '%3$s%5$s<label%1$s for="%2$s">%4$s</label>';
+
 		return \sprintf(
 			$template,
 			$label_config->get_classes() ?? '',
 			$this->field->get_key(),
 			$label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html(),
 			! $label_config->is_positioned_above() ? $this->field->get_label() : $this->field->generate_field_html(),
+			\PHP_EOL
 		);
 	}
 
-	protected function linked_to_label(): string {
-		# code...
+	/**
+	 * Render the field with no label.
+	 *
+	 * @return string
+	 */
+	protected function no_label(): string {
+		return $this->field->generate_field_html();
 	}
 }
-// public

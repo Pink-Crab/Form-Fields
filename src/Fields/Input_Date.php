@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * A settings field data.
+ * Date input field
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -19,14 +19,17 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Fields;
+namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Traits\Range;
+use PinkCrab\Form_Fields\Fields\Input_Text;
 
-class Input_Password extends Input_Text {
+class Input_Date extends Input_Text {
+
+	use Range;
 
 	/**
 	 * The field type.
@@ -40,86 +43,32 @@ class Input_Password extends Input_Text {
 	 *
 	 * @var string
 	 */
-	protected $input_type = 'password';
+	protected $input_type = 'date';
 
 	/**
-	 * The min value
+	 * Pattern for mapping values.
 	 *
-	 * @var float
+	 * @var string|null
 	 */
-	protected $min;
+	protected $pattern;
 
 	/**
-	 * The max value
+	 * Get pattern for mapping values.
 	 *
-	 * @var float
+	 * @return string|null
 	 */
-	protected $max;
-
-	/**
-	 * Stepg value.
-	 *
-	 * @var float
-	 */
-	protected $step;
-
-
-	/**
-	 * Get the min value
-	 *
-	 * @return float
-	 */
-	public function get_min(): float {
-		return $this->min;
+	public function get_pattern(): ?string {
+		return $this->pattern;
 	}
 
 	/**
-	 * Set the min value
+	 * Set pattern for mapping values.
 	 *
-	 * @param float $min  The min value
+	 * @param string $pattern  Pattern for mapping values.
 	 * @return self
 	 */
-	public function min( float $min ): self {
-		$this->min = $min;
-		return $this;
-	}
-
-	/**
-	 * Get the max value
-	 *
-	 * @return float
-	 */
-	public function get_max(): float {
-		return $this->max;
-	}
-
-	/**
-	 * Set the max value
-	 *
-	 * @param float $max  The max value
-	 * @return self
-	 */
-	public function max( float $max ): self {
-		$this->max = $max;
-		return $this;
-	}
-
-	/**
-	 * Get stepg value.
-	 * @return float
-	 */
-	public function get_step(): float {
-		return $this->step;
-	}
-
-	/**
-	 * Set stepg value.
-	 *
-	 * @param float $step  Stepg value.
-	 * @return self
-	 */
-	public function step( float $step ): self {
-		$this->step = $step;
+	public function pattern( string $pattern ): self {
+		$this->pattern = $pattern;
 		return $this;
 	}
 
@@ -129,17 +78,41 @@ class Input_Password extends Input_Text {
 	 * @return void
 	 */
 	public function render(): void {
-		if ( $this->min ) {
-			$this->attribute( 'min', (string) $this->get_min() );
-		}
-		if ( $this->max ) {
-			$this->attribute( 'max', (string) $this->get_max() );
-		}
-		if ( $this->step ) {
-			$this->attribute( 'step', (string) $this->get_step() );
-		}
+		$this->_populate_attributes();
 		parent::render();
 	}
+
+	/**
+	 * Returns the input HTML
+	 *
+	 * @return string
+	 */
+	public function generate_field_html(): string {
+		$this->_populate_attributes();
+		return parent::generate_field_html();
+	}
+
+	/**
+	 * If the mix/max/step/pattern values are set, add to attributes.
+	 * Run before generating the HTML
+	 *
+	 * @return void
+	 */
+	protected function _populate_attributes() {
+		if ( ! is_null( $this->get_min() ) ) {
+			$this->attribute( 'min', (string) $this->get_min() );
+		}
+		if ( ! is_null( $this->get_max() ) ) {
+			$this->attribute( 'max', (string) $this->get_max() );
+		}
+		if ( ! is_null( $this->get_step() ) ) {
+			$this->attribute( 'step', (string) $this->get_step() );
+		}
+		if ( ! is_null( $this->get_pattern() ) ) {
+			$this->attribute( 'pattern', (string) $this->get_pattern() );
+		}
+	}
+
+
+
 }
-
-

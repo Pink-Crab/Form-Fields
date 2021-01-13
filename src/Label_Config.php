@@ -19,12 +19,20 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields;
+namespace PinkCrab\Form_Fields;
 
 class Label_Config {
+
+	/**
+	 * Label positioning flags.
+	 */
+	public const WRAP_LABEL   = 1;
+	public const LINKED_LABEL = 2;
+	public const BEFORE_INPUT  = 4;
+	public const AFTER_INPUT  = 8;
 
 	/**
 	 * Is the label displayed
@@ -50,25 +58,22 @@ class Label_Config {
 	/**
 	 * The classes for the label
 	 *
-	 * @var string|null
+	 * @var string
 	 */
-	protected $classes;
+	protected $class = '';
+
 
 	/**
-	 * Creates a static instance of a label.
+	 * Sets the positioning and wrapping of the label.
 	 *
-	 * @param bool $wrapped
-	 * @param bool $position_above
+	 * @constants WRAP_LABEL, LINKED_LABEL, BEFORE_INPUT, AFTER_INPUT
+	 * @param int $mode
 	 * @return self
 	 */
-	public static function include(
-		bool $wrapped = true,
-		bool $position_above = true
-	): self {
-		$instance = new self();
-		$instance->wrapped( $wrapped );
-		$instance->position_above( $position_above );
-		return $instance;
+	public function set_position( int $mode = self::WRAP_LABEL ) {
+		$this->wrapped( ( $mode & self::LINKED_LABEL ) !== self::LINKED_LABEL );
+		$this->position_above( ( $mode & self::AFTER_INPUT ) !== self::AFTER_INPUT );
+		return $this;
 	}
 
 	/**
@@ -86,12 +91,12 @@ class Label_Config {
 	/**
 	 * Set the classes for the label
 	 *
-	 * @param string|null $classes  The classes for the label
+	 * @param string|null $class  The classes for the label
 	 *
 	 * @return self
 	 */
-	public function classes( string $classes ): self {
-		$this->classes = $classes;
+	public function classes( ?string $class = null ): self {
+		$this->class = $class ?? '';
 		return $this;
 	}
 
@@ -151,8 +156,7 @@ class Label_Config {
 	 * @return string|null
 	 */
 	public function get_classes(): ?string {
-		return $this->classes;
+		return ! empty( $this->class ) ? " class=\"{$this->class}\"" : '';
 	}
-
 
 }

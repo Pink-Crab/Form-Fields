@@ -19,26 +19,16 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Fields;
+namespace PinkCrab\Form_Fields;
 
-use PinkCrab\Modules\Form_Fields\Label_Config;
-use PinkCrab\Modules\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Parser;
+use PinkCrab\Form_Fields\Label_Config;
+use PinkCrab\Form_Fields\Parsers\Field_Parser;
 
 abstract class Abstract_Field {
-
-	/**
-	 * All field type constants.
-	 */
-	public const TEXT     = Input_Text::class;
-	public const TEXTAREA = Input_Text::class;
-	public const CHECKBOX = 'text';
-	public const COLOUR   = 'text';
-	public const SELECT   = 'text';
-	public const RADIO    = 'text';
-
 
 	/**
 	 * Defined the option key.
@@ -59,7 +49,7 @@ abstract class Abstract_Field {
 	 *
 	 * @var string
 	 */
-	protected $label;
+	protected $label = '';
 
 	/**
 	 * Is field disabled
@@ -76,14 +66,6 @@ abstract class Abstract_Field {
 	protected $class = '';
 
 	/**
-	 * Placeholder if input supports.
-	 * If select, will be set as first option with no value.
-	 *
-	 * @var string
-	 */
-	protected $placeholder = '';
-
-	/**
 	 * Field descriptiion.
 	 *
 	 * @var string
@@ -91,58 +73,106 @@ abstract class Abstract_Field {
 	protected $description = '';
 
 	/**
-	 * Holds the fields options.
-	 * [ ['key1'=>'value1'], ['key2'=>'value2'] ]
-	 *
-	 * @var array<string, string>
-	 */
-	protected $options;
-
-	/**
 	 * Initial values.
 	 * Based on input type can be any type.
 	 *
-	 * @var string|int|float|array
+	 * @var string|int|float|array<mixed>
 	 */
 	protected $default;
 
 	/**
 	 * The current value(s)
 	 *
-	 * @var string|int|float|array
+	 * @var string|int|float|array<mixed>|null
 	 */
 	protected $current;
 
 	/**
 	 * Holds additonal attributes for the field.
 	 *
-	 * @var array<string,  string>
+	 * @var array<string,  mixed>
 	 */
 	protected $attributes = array();
 
 	/**
+	 * Sets if the input is required.
+	 *
+	 * @var bool
+	 */
+	protected $required = false;
+
+
+	/**
 	 * Should the field be rendered with the label
 	 *
-	 * @var Label_Config|null
+	 * @var Label_Config
 	 */
 	protected $label_config;
+
+	/**
+	 * Parses the field
+	 *
+	 * @var Parser
+	 */
+	protected $parser;
 
 	/**
 	 * Creates a field with a defined key.
 	 *
 	 * @param string $key
 	 */
-	protected function __construct( string $key ) {
+	final protected function __construct( string $key ) {
 		$this->key          = $key;
-		$this->label_config = new Label_Config;
+		$this->label_config = new Label_Config();
+		$this->set_parser();
 	}
+
+	/**
+	 * Sets the parser (called on construct)
+	 *
+	 * @return void
+	 */
+	protected function set_parser(): void {
+		$this->parser = new Field_Parser( $this );
+	}
+
+	/**
+	 * Creates an instance of the field.
+	 *
+	 * @param string $key
+	 * @return static
+	 */
+	public static function create( string $key ): self {
+		$self = get_called_class();
+		return new static( $key );
+	}
+
+	/**
+	 * Generates the inner HTML used to render the inner field
+	 * Should not include the wrapping label.
+	 *
+	 * @return string
+	 */
+	abstract public function generate_field_html(): string;
 
 	/**
 	 * Field used to render the field.
 	 *
 	 * @return void
 	 */
-	abstract public function render(): void;
+	public function render(): void {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		print $this->parser->as_string();
+	}
+
+	/**
+	 * Returns the field as string.
+	 *
+	 * @return string
+	 */
+	public function as_string(): string {
+		return $this->parser->as_string();
+	}
 
 	/** Setters */
 
@@ -150,11 +180,15 @@ abstract class Abstract_Field {
 	/**
 	 * Set the current value(s)
 	 *
-	 * @param string|int|float|array $current  The current value(s)
+	 * @param string|int|float|array<mixed>|null $current  The current value(s)
 	 * @return self
 	 */
-	public function current( $current ): self {
-		$this->current = $current;
+	public function current( $current = null ) {
+		if ( ! empty( $current ) ) {
+			$this->attributes['value'] = $current;
+		} else {
+			$this->unset_attribute( 'value' );
+		}
 		return $this;
 	}
 
@@ -170,12 +204,28 @@ abstract class Abstract_Field {
 	}
 
 	/**
-	 * Set the field type.
+	 * Set is field read only.
 	 *
-	 * @param string $type  The field type.
+	 * @param bool $read_only  Is field read only (true by default.)
 	 * @return self
 	 */
-	public function type( string $type ): self {
+	public function read_only( bool $read_only = true ): self {
+		if ( $read_only ) {
+			$this->attribute( 'readonly', 'readonly' );
+		} else {
+			$this->unset_attribute( 'readonly' );
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Set the field type.
+	 *
+	 * @param string $type The field type.
+	 * @return self
+	 */
+	protected function type( string $type ): self {
 		$this->type = $type;
 		return $this;
 	}
@@ -183,7 +233,7 @@ abstract class Abstract_Field {
 	/**
 	 * Set based on input type can be any type.
 	 *
-	 * @param string|int|float|array $default  Based on input type can be any type.
+	 * @param string|int|float|array<mixed> $default  Based on input type can be any type.
 	 * @return self
 	 */
 	public function default( $default ): self {
@@ -214,28 +264,6 @@ abstract class Abstract_Field {
 	}
 
 	/**
-	 * Set if select, will be set as first option with no value.
-	 *
-	 * @param string $placeholder  If select, will be set as first option with no value.
-	 * @return self
-	 */
-	public function placeholder( string $placeholder ): self {
-		$this->placeholder = $placeholder;
-		return $this;
-	}
-
-	/**
-	 * Set the options.
-	 *
-	 * @param $options array<string, string>
-	 * @return self
-	 */
-	public function options( array $options ): self {
-		$this->options = $options;
-		return $this;
-	}
-
-	/**
 	 * Set field descriptiion.
 	 *
 	 * @param string $description  Field descriptiion.
@@ -261,7 +289,7 @@ abstract class Abstract_Field {
 	/**
 	 * Set Attributes as an array.
 	 *
-	 * @param $attributes array<string, string>
+	 * @param array<string, string> $attributes
 	 *
 	 * @return self
 	 */
@@ -281,7 +309,16 @@ abstract class Abstract_Field {
 		return $this;
 	}
 
-
+	/**
+	 * Replaces the label config with a new instance.
+	 *
+	 * @param int $mode Bitwise values for positioning.
+	 * @return self
+	 */
+	public function label_position( int $mode = 0 ): self {
+		$this->label_config->set_position( $mode );
+		return $this;
+	}
 
 	/** GETTERs */
 
@@ -314,15 +351,6 @@ abstract class Abstract_Field {
 	}
 
 	/**
-	 * Get if select, will be set as first option with no value.
-	 *
-	 * @return string
-	 */
-	public function get_placeholder(): string {
-		return $this->placeholder;
-	}
-
-	/**
 	 * Get is field disabled
 	 *
 	 * @return bool
@@ -332,19 +360,9 @@ abstract class Abstract_Field {
 	}
 
 	/**
-	 * Get Options
-	 *
-	 * @return array<string, string>
-	 */
-	public function get_options(): array {
-		return $this->options;
-	}
-
-
-	/**
 	 * Get based on input type can be any type.
 	 *
-	 * @return string|int|float|array
+	 * @return string|int|float|array<mixed>
 	 */
 	public function get_default() {
 		return $this->default;
@@ -372,7 +390,7 @@ abstract class Abstract_Field {
 	/**
 	 * Get the current value(s)
 	 *
-	 * @return string|int|float|array
+	 * @return string|int|float|array<mixed>|null
 	 */
 	public function get_current() {
 		return $this->current;
@@ -396,6 +414,17 @@ abstract class Abstract_Field {
 		return $this->label_config;
 	}
 
+	/**
+	 * Unsets an attribute if its been set.
+	 *
+	 * @param string $key
+	 * @return void
+	 */
+	protected function unset_attribute( string $key ): void {
+		if ( array_key_exists( $key, $this->attributes ) ) {
+			unset( $this->attributes[ $key ] );
+		}
+	}
 
 	/** RENDER HELPERS. */
 
@@ -404,18 +433,18 @@ abstract class Abstract_Field {
 	 *
 	 * @return string
 	 */
-	protected function render_disabled(): string {
-		return $this->get_disabled() ? 'DISABLED' : '';
+	public function render_disabled(): string {
+		return $this->get_disabled() ? 'DISABLED ' : '';
 	}
 
 	/**
-	 * Renders if the description set.
+	 * Renders the class if its set.
 	 *
 	 * @return string
 	 */
-	protected function render_description(): string {
-		return ! empty( $this->get_description() )
-			? sprintf( '<p class="description">%s</p>', \wp_kses_post( $this->get_description() ) )
+	public function render_class(): string {
+		return ! empty( $this->get_class() )
+			? "class=\"{$this->get_class()}\" "
 			: '';
 	}
 
@@ -424,32 +453,21 @@ abstract class Abstract_Field {
 	 *
 	 * @return string
 	 */
-	protected function render_attributes(): string {
+	public function render_attributes(): string {
 		return \array_reduce(
 			\array_keys( $this->attributes ),
 			function( string $output, string $attribute_key ): string {
 				return $output .= \sprintf(
 					' %s="%s"',
-					esc_attr( $attribute_key ),
-					esc_attr( $this->attributes[ $attribute_key ] )
+					function_exists( 'esc_attr' )
+						? esc_attr( $attribute_key )
+						: $attribute_key,
+					function_exists( 'esc_attr' )
+						? esc_attr( $this->attributes[ $attribute_key ] )
+						: $this->attributes[ $attribute_key ]
 				);
 			},
 			''
 		);
 	}
-
-	public function render_screenreader_legend(): string {
-		return 'SCREEN READER LEGEND';
-	}
-
-	/**
-	 * Generates the inner HTML used to render the inner field
-	 * Should not include the wrapping label.
-	 *
-	 * @return string
-	 */
-	abstract public function generate_field_html(): string;
-
-
-
 }

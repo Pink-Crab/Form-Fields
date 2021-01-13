@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * A settings field data.
+ * Range field trait, adds min, max and step
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -19,47 +19,31 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Fields;
+namespace PinkCrab\Form_Fields\Traits;
 
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+trait Range {
 
-class Input_Number extends Input_Text {
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
-
-	/**
-	 * Sets the input type
-	 *
-	 * @var string
-	 */
-	protected $input_type = 'number';
-
-	/**
+		/**
 	 * The min value
 	 *
-	 * @var float
+	 * @var mixed
 	 */
 	protected $min;
 
 	/**
 	 * The max value
 	 *
-	 * @var float
+	 * @var mixed
 	 */
 	protected $max;
 
 	/**
-	 * Stepg value.
+	 * Step value.
 	 *
-	 * @var float
+	 * @var mixed
 	 */
 	protected $step;
 
@@ -67,19 +51,19 @@ class Input_Number extends Input_Text {
 	/**
 	 * Get the min value
 	 *
-	 * @return float
+	 * @return mixed
 	 */
-	public function get_min(): float {
+	public function get_min() {
 		return $this->min;
 	}
 
 	/**
 	 * Set the min value
 	 *
-	 * @param float $min  The min value
+	 * @param mixed $min  The min value
 	 * @return self
 	 */
-	public function min( float $min ): self {
+	public function min( $min ): self {
 		$this->min = $min;
 		return $this;
 	}
@@ -87,59 +71,39 @@ class Input_Number extends Input_Text {
 	/**
 	 * Get the max value
 	 *
-	 * @return float
+	 * @return mixed
 	 */
-	public function get_max(): float {
+	public function get_max() {
 		return $this->max;
 	}
 
 	/**
 	 * Set the max value
 	 *
-	 * @param float $max  The max value
+	 * @param mixed $max  The max value
 	 * @return self
 	 */
-	public function max( float $max ): self {
+	public function max( $max ): self {
 		$this->max = $max;
 		return $this;
 	}
 
 	/**
-	 * Get stepg value.
-	 * @return float
+	 * Get step value.
+	 * @return mixed
 	 */
-	public function get_step(): float {
+	public function get_step() {
 		return $this->step;
 	}
 
 	/**
-	 * Set stepg value.
+	 * Set step value.
 	 *
-	 * @param float $step  Stepg value.
+	 * @param mixed $step  Step value.
 	 * @return self
 	 */
-	public function step( float $step ): self {
+	public function step( $step ): self {
 		$this->step = $step;
 		return $this;
 	}
-
-	/**
-	 * Renders the text input.
-	 *
-	 * @return void
-	 */
-	public function render(): void {
-		if ( $this->min ) {
-			$this->attribute( 'min', (string) $this->get_min() );
-		}
-		if ( $this->max ) {
-			$this->attribute( 'max', (string) $this->get_max() );
-		}
-		if ( $this->step ) {
-			$this->attribute( 'step', (string) $this->get_step() );
-		}
-		parent::render();
-	}
 }
-
-

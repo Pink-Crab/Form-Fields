@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * A settings field data.
+ * Email Input
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -19,47 +19,43 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Fields;
+namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Traits\Multiple;
+use PinkCrab\Form_Fields\Fields\Input_Text;
 
-class Raw_HTML extends Abstract_Field {
+class Input_Email extends Input_Text {
+
+	/**
+	 * Allow use of Multiple input.
+	 */
+	use Multiple;
 
 	/**
 	 * The field type.
 	 *
 	 * @var string
 	 */
-	protected $type = 'html';
-
-	protected $content = '';
-
+	protected $type = 'input';
 
 	/**
-	 * Creates an instance of the field.
+	 * Sets the input type
 	 *
-	 * @param string $key
-	 * @param string $title
-	 * @return self
+	 * @var string
 	 */
-	public static function create( string $key, string $title ): self {
-		$field = new static( $key );
-		return $field->label( $title );
-	}
+	protected $input_type = 'email';
 
 	/**
-	 * Renders the text input.
+	 * Returns the input HTML
 	 *
-	 * @return void
+	 * @return string
 	 */
-	public function render(): void {
-		echo <<<HTML
-<fieldset>
-	{$this->content}
-</fieldset>
+	public function generate_field_html(): string {
+		return <<<HTML
+<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_key()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}/>
 HTML;
 	}
 }
