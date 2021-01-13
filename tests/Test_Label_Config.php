@@ -29,7 +29,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 		$label = new Label_Config;
 		$this->assertFalse( $label->is_visible() );
 		$this->assertTrue( $label->is_wrapped() );
-		$this->assertTrue( $label->is_positioned_above() );
+		$this->assertTrue( $label->is_positioned_after() );
 	}
 
 	/**
@@ -45,25 +45,25 @@ class Test_Label_Config extends WP_UnitTestCase {
 		$label = new Label_Config;
 		$label->set_position( Label_Config::WRAP_LABEL | Label_Config::BEFORE_INPUT );
 		$this->assertTrue( $label->is_wrapped() );
-		$this->assertTrue( $label->is_positioned_above() );
+		$this->assertTrue( $label->is_positioned_after() );
 
 		// Wrapped & Below
 		$label = new Label_Config;
 		$label->set_position( Label_Config::WRAP_LABEL | Label_Config::AFTER_INPUT );
 		$this->assertTrue( $label->is_wrapped() );
-		$this->assertFalse( $label->is_positioned_above() );
+		$this->assertFalse( $label->is_positioned_after() );
 
 		// Linked & Above
 		$label = new Label_Config;
 		$label->set_position( Label_Config::LINKED_LABEL | Label_Config::BEFORE_INPUT );
 		$this->assertFalse( $label->is_wrapped() );
-		$this->assertTrue( $label->is_positioned_above() );
+		$this->assertTrue( $label->is_positioned_after() );
 
 		// Linked & Below
 		$label = new Label_Config;
 		$label->set_position( Label_Config::LINKED_LABEL | Label_Config::AFTER_INPUT );
 		$this->assertFalse( $label->is_wrapped() );
-		$this->assertFalse( $label->is_positioned_above() );
+		$this->assertFalse( $label->is_positioned_after() );
 
 		/* 1 Value */
 
@@ -71,25 +71,25 @@ class Test_Label_Config extends WP_UnitTestCase {
 		$label = new Label_Config;
 		$label->set_position( Label_Config::WRAP_LABEL );
 		$this->assertTrue( $label->is_wrapped() );
-		$this->assertTrue( $label->is_positioned_above() );
+		$this->assertTrue( $label->is_positioned_after() );
 
 		// Linked
 		$label = new Label_Config;
 		$label->set_position( Label_Config::LINKED_LABEL );
 		$this->assertFalse( $label->is_wrapped() );
-		$this->assertTrue( $label->is_positioned_above() );
+		$this->assertTrue( $label->is_positioned_after() );
 
 		// Above
 		$label = new Label_Config;
 		$label->set_position( Label_Config::BEFORE_INPUT );
 		$this->assertTrue( $label->is_wrapped() );
-		$this->assertTrue( $label->is_positioned_above() );
+		$this->assertTrue( $label->is_positioned_after() );
 
 		// Below
 		$label = new Label_Config;
 		$label->set_position( Label_Config::AFTER_INPUT );
 		$this->assertTrue( $label->is_wrapped() );
-		$this->assertFalse( $label->is_positioned_above() );
+		$this->assertFalse( $label->is_positioned_after() );
 
 		// Test overloading.
 		$label->set_position(
@@ -99,7 +99,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 			| Label_Config::WRAP_LABEL
 		);
 		$this->assertFalse( $label->is_wrapped() );
-		$this->assertFalse( $label->is_positioned_above() );
+		$this->assertFalse( $label->is_positioned_after() );
 	}
 
 	/**
@@ -140,12 +140,12 @@ class Test_Label_Config extends WP_UnitTestCase {
 	 */
 	public function test_can_position_label(): void {
 		$label = new Label_Config;
-		$label->position_above();
-		$this->assertTrue( $label->is_positioned_above() );
+		$label->position_after();
+		$this->assertTrue( $label->is_positioned_after() );
 
 		// Set as linked
-		$label->position_above( false );
-		$this->assertFalse( $label->is_positioned_above() );
+		$label->position_after( false );
+		$this->assertFalse( $label->is_positioned_after() );
 	}
 
 	/**
@@ -168,14 +168,14 @@ class Test_Label_Config extends WP_UnitTestCase {
 	 *
 	 * @return void
 	 */
-	public function test_positioned_above(): void {
+	public function test_positioned_after(): void {
 		$label = new Label_Config;
-		$label->position_above( true );
-		$this->assertTrue( $label->is_positioned_above() );
+		$label->position_after( true );
+		$this->assertTrue( $label->is_positioned_after() );
 
 		$label = new Label_Config;
-		$label->position_above( false );
-		$this->assertFalse( $label->is_positioned_above() );
+		$label->position_after( false );
+		$this->assertFalse( $label->is_positioned_after() );
 	}
 
 	/**

@@ -53,7 +53,7 @@ class Label_Config {
 	 *
 	 * @var bool
 	 */
-	protected $position_above = true;
+	protected $position_after = true;
 
 	/**
 	 * The classes for the label
@@ -72,7 +72,7 @@ class Label_Config {
 	 */
 	public function set_position( int $mode = self::WRAP_LABEL ) {
 		$this->wrapped( ( $mode & self::LINKED_LABEL ) !== self::LINKED_LABEL );
-		$this->position_above( ( $mode & self::AFTER_INPUT ) !== self::AFTER_INPUT );
+		$this->position_after( ( $mode & self::AFTER_INPUT ) !== self::AFTER_INPUT );
 		return $this;
 	}
 
@@ -115,11 +115,11 @@ class Label_Config {
 	/**
 	 * Set is label positioned above input.
 	 *
-	 * @param bool $position_above  Is label positioned above input.
+	 * @param bool $position_after  Is label positioned above input.
 	 * @return self
 	 */
-	public function position_above( bool $position_above = true ): self {
-		$this->position_above = $position_above;
+	public function position_after( bool $position_after = true ): self {
+		$this->position_after = $position_after;
 		return $this;
 	}
 
@@ -137,8 +137,8 @@ class Label_Config {
 	 *
 	 * @return bool
 	 */
-	public function is_positioned_above(): bool {
-		return $this->position_above;
+	public function is_positioned_after(): bool {
+		return $this->position_after;
 	}
 
 	/**
