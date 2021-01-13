@@ -21,7 +21,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 	 * Test the defaults are set as expected.
 	 * Visible = false
 	 * Wrap = true
-	 * Above = true
+	 * Before = true
 	 *
 	 * @return void
 	 */
@@ -41,7 +41,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 
 		/* 2 Values */
 
-		// Wrapped & Above
+		// Wrapped & Before
 		$label = new Label_Config;
 		$label->set_position( Label_Config::WRAP_LABEL | Label_Config::BEFORE_INPUT );
 		$this->assertTrue( $label->is_wrapped() );
@@ -53,7 +53,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 		$this->assertTrue( $label->is_wrapped() );
 		$this->assertFalse( $label->is_positioned_before() );
 
-		// Linked & Above
+		// Linked & Before
 		$label = new Label_Config;
 		$label->set_position( Label_Config::LINKED_LABEL | Label_Config::BEFORE_INPUT );
 		$this->assertFalse( $label->is_wrapped() );
@@ -79,7 +79,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 		$this->assertFalse( $label->is_wrapped() );
 		$this->assertTrue( $label->is_positioned_before() );
 
-		// Above
+		// Before
 		$label = new Label_Config;
 		$label->set_position( Label_Config::BEFORE_INPUT );
 		$this->assertTrue( $label->is_wrapped() );
@@ -134,7 +134,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Check the position can be set to above or below.
+	 * Check the position can be set to Before or below.
 	 *
 	 * @return void
 	 */
@@ -164,7 +164,7 @@ class Test_Label_Config extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test the positioned above setter and getter
+	 * Test the positioned Before setter and getter
 	 *
 	 * @return void
 	 */
