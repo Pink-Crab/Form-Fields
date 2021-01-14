@@ -5,6 +5,7 @@ use PinkCrab\Form_Fields\Label_Config;
 use PinkCrab\Form_Fields\Fields\Select;
 use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Fields\Raw_HTML;
+use PinkCrab\Form_Fields\Fields\Textarea;
 use PinkCrab\Form_Fields\Fields\Input_Date;
 use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Form_Fields\Fields\Input_Email;
@@ -61,6 +62,8 @@ label{
     flex-grow: 1;
 }
 </style>' );
+
+
 
 
 /**
@@ -315,7 +318,7 @@ $hidden_field = Input_Hidden::create( 'hidden' )
 	->current( 'val' )
 	->set_attributes(
 		array(
-			'key1'  => 'Value1',
+			'key1' => 'Value1',
 			'key2' => 'Value2',
 		)
 	);
@@ -345,6 +348,33 @@ $basic_radio->render();
 print_code( $basic_radio->as_string() );
 
 hr();
+
+/**
+ * Textarea
+ */
+print( '<h2>Select</h2>' );
+
+
+heading( 'Basic Textarea' );
+$basic_textarea = Textarea::create( 'basic_textarea' );
+
+$basic_textarea->render();
+print_code( $basic_textarea->as_string() );
+
+
+
+heading( 'Detailed Textarea' );
+$detailed_textarea = Textarea::create( 'detailed_textarea' )
+	->columns( 80 )
+	->rows( 10 )
+	->autocomplete( 'words' )
+	->current( 'Once upon a time.....' )
+	->label( 'Textareas are great' )
+	->show_label();
+
+$detailed_textarea->render();
+print_code( $detailed_textarea->as_string() );
+
 
 
 /**
