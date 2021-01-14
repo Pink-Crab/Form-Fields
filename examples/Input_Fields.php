@@ -5,6 +5,7 @@ use PinkCrab\Form_Fields\Label_Config;
 use PinkCrab\Form_Fields\Fields\Select;
 use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Fields\Raw_HTML;
+use PinkCrab\Form_Fields\Fields\Textarea;
 use PinkCrab\Form_Fields\Fields\Input_Date;
 use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Form_Fields\Fields\Input_Email;
@@ -61,6 +62,10 @@ label{
     flex-grow: 1;
 }
 </style>' );
+
+$html = Textarea::create( 'test' )->columns( 80 )->rows( 10 )->attribute('test', 'g')->current( '1234' );
+$html->render();
+print_code( $html->as_string() );
 
 
 /**
@@ -315,7 +320,7 @@ $hidden_field = Input_Hidden::create( 'hidden' )
 	->current( 'val' )
 	->set_attributes(
 		array(
-			'key1'  => 'Value1',
+			'key1' => 'Value1',
 			'key2' => 'Value2',
 		)
 	);
