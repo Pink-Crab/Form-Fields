@@ -7,10 +7,12 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Tests;
+namespace PinkCrab\Form_Fields\Tests\Trait_Test_Cases;
+
+use PinkCrab\PHPUnit_Helpers\Objects;
 
 trait Trait_General_Field_Tests {
 
@@ -29,9 +31,11 @@ trait Trait_General_Field_Tests {
 	 * @return void
 	 */
 	public function test_current_value(): void {
+		/** @var Abstract_Field self::$field */
 		self::$field->current( 'CURRENT' );
-		$this->assertEquals( 'CURRENT', self::$field->get_current() );
-		$this->assertNotEquals( 'NOTCURRENT', self::$field->get_current() );
+		$this->assertArrayHasKey( 'value', self::$field->get_attributes() );
+		$this->assertEquals( 'CURRENT', self::$field->get_attributes()['value'] );
+		$this->assertNotEquals( 'NOTCURRENT', self::$field->get_attributes()['value'] );
 	}
 
 	/**
@@ -61,7 +65,8 @@ trait Trait_General_Field_Tests {
 	 * @return void
 	 */
 	public function test_type(): void {
-		self::$field->type( 'type' );
+		// This is used when creating a new Field, can only be called internally.
+		Objects::invoke_private_method( self::$field, 'type', array( 'type' ) );
 		$this->assertEquals( 'type', self::$field->get_type() );
 		$this->assertNotEquals( 'NOTtype', self::$field->get_type() );
 	}
@@ -88,27 +93,18 @@ trait Trait_General_Field_Tests {
 		$this->assertNotEquals( 'NOTclass', self::$field->get_class() );
 	}
 
-	/**
-	 * Test can set and get the placeholder
-	 *
-	 * @return void
-	 */
-	public function test_placeholder(): void {
-		self::$field->placeholder( 'placeholder' );
-		$this->assertEquals( 'placeholder', self::$field->get_placeholder() );
-		$this->assertNotEquals( 'NOTplaceholder', self::$field->get_placeholder() );
-	}
 
-	/**
-	 * Test can set and get the options
-	 *
-	 * @return void
-	 */
-	public function test_options(): void {
-		self::$field->options( array( 'key' => 'options' ) );
-		$this->assertEquals( array( 'key' => 'options' ), self::$field->get_options() );
-		$this->assertNotEquals( 'NOToptions', self::$field->get_options() );
-	}
+
+	// /**
+	//  * Test can set and get the options
+	//  *
+	//  * @return void
+	//  */
+	// public function test_options(): void {
+	// 	self::$field->options( array( 'key' => 'options' ) );
+	// 	$this->assertEquals( array( 'key' => 'options' ), self::$field->get_options() );
+	// 	$this->assertNotEquals( 'NOToptions', self::$field->get_options() );
+	// }
 
 	/**
 	 * Test can set and get the description
@@ -121,25 +117,39 @@ trait Trait_General_Field_Tests {
 		$this->assertNotEquals( 'NOTdescription', self::$field->get_description() );
 	}
 
-
 	/**
-	 * Test can toggle is include_label.
+	 * Test can set and get the label
 	 *
 	 * @return void
 	 */
-	public function test_include_label(): void {
+	public function test_label(): void {
+		self::$field->label( 'label' );
+		$this->assertEquals( 'label', self::$field->get_label() );
+		$this->assertNotEquals( 'NOTlabel', self::$field->get_label() );
+	}
+
+
+	/**
+	 * Test can toggle is show_label.
+	 *
+	 * @return void
+	 */
+	public function test_show_label(): void {
+
+		self::$field->label( 'label' );
+
 
 		// As True
-		self::$field->include_label( true );
-		$this->assertTrue( self::$field->get_include_label() );
+		self::$field->show_label( true );
+		$this->assertTrue( self::$field->label_config()->is_visible() );
 
 		// As False
-		self::$field->include_label( false );
-		$this->assertFalse( self::$field->get_include_label() );
+		self::$field->show_label( false );
+		$this->assertFalse( self::$field->label_config()->is_visible() );
 
 		// TRUE by defualt if no arg passed
-		self::$field->include_label();
-		$this->assertTrue( self::$field->get_include_label() );
+		self::$field->show_label();
+		$this->assertTrue( self::$field->label_config()->is_visible() );
 
 	}
 

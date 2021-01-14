@@ -19,14 +19,19 @@ declare(strict_types=1);
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
- * @package PinkCrab\ExtLibs\Admin_Pages
+ * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Modules\Form_Fields\Fields;
+namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Modules\Form_Fields\Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Traits\Pattern;
+use PinkCrab\Form_Fields\Traits\Placeholder;
+use PinkCrab\Form_Fields\Traits\Autocomplete;
 
 class Input_Text extends Abstract_Field {
+
+	use Placeholder, Autocomplete, Pattern;
 
 	/**
 	 * The field type.
@@ -43,66 +48,16 @@ class Input_Text extends Abstract_Field {
 	protected $input_type = 'text';
 
 	/**
-	 * Denotes if the field has auto complete.
-	 *
-	 * @var bool
-	 */
-	protected $autocomplete = false;
-
-	/**
-	 * Creates an instance of the field.
-	 *
-	 * @param string $key
-	 * @param string $title
-	 * @return self
-	 */
-	public static function create( string $key, string $title ): self {
-		$field = new static( $key );
-		return $field->label( $title );
-	}
-
-	/**
 	 * Returns the input HTML
 	 *
 	 * @return string
 	 */
 	public function generate_field_html(): string {
 		return <<<HTML
-	<input 
-		class="input-text regular-text {$this->get_class()}" 
-		type="{$this->input_type}" 
-		name="{$this->get_key()}" 
-		id="{$this->get_key()}" 
-		value="{$this->get_current()}" 
-		placeholder="{$this->get_placeholder()}" 
-		{$this->render_disabled()}
-		{$this->render_attributes()}
-	/>
+<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_key()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
 HTML;
 	}
 
-	/**
-	 * Renders the text input.
-	 *
-	 * @return void
-	 */
-	public function render(): void {
-		echo <<<HTML
-<fieldset>
-	<input 
-		class="input-text regular-text {$this->get_class()}" 
-		type="{$this->input_type}" 
-		name="{$this->get_key()}" 
-		id="{$this->get_key()}" 
-		value="{$this->get_current()}" 
-		placeholder="{$this->get_placeholder()}" 
-		{$this->render_disabled()}
-		{$this->render_attributes()}
-	/>
-	{$this->render_description()}
-</fieldset>
-HTML;
-	}
 }
 
 
