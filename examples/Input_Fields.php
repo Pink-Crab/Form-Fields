@@ -10,6 +10,7 @@ use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Form_Fields\Fields\Input_Email;
 use PinkCrab\Form_Fields\Fields\Input_Radio;
 use PinkCrab\Form_Fields\Fields\Input_Range;
+use PinkCrab\Form_Fields\Fields\Input_Hidden;
 use PinkCrab\Form_Fields\Fields\Input_Number;
 use PinkCrab\Form_Fields\Fields\Input_Checkbox;
 use PinkCrab\Form_Fields\Fields\Input_Password;
@@ -60,8 +61,6 @@ label{
     flex-grow: 1;
 }
 </style>' );
-
-echo '<br><br><br>';
 
 
 /**
@@ -279,8 +278,7 @@ $checked_checkbox->render();
 print_code( $checked_checkbox->as_string() );
 
 hr();
-// dump($_POST);
-// print('<FORM method="post">');
+
 heading( 'Checkbox Collection' );
 $collection_checkbox1 = Input_Checkbox::create( 'collection_checkbox[opt1]' )
 	->label( 'Option 1' )
@@ -304,7 +302,26 @@ print_code(
 	. PHP_EOL . $collection_checkbox3->as_string()
 );
 
-// echo '<input type=submit></form>';
+hr();
+
+/**
+ * Hidden Input
+ */
+print( '<h2>Radio</h2>' );
+
+
+heading( 'Hidden Field' );
+$hidden_field = Input_Hidden::create( 'hidden' )
+	->current( 'val' )
+	->set_attributes(
+		array(
+			'key1'  => 'Value1',
+			'key2' => 'Value2',
+		)
+	);
+$hidden_field->render();
+print_code( $hidden_field->as_string() );
+
 hr();
 
 /**
