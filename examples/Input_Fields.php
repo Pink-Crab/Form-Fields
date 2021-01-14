@@ -63,9 +63,7 @@ label{
 }
 </style>' );
 
-$html = Textarea::create( 'test' )->columns( 80 )->rows( 10 )->attribute('test', 'g')->current( '1234' );
-$html->render();
-print_code( $html->as_string() );
+
 
 
 /**
@@ -350,6 +348,33 @@ $basic_radio->render();
 print_code( $basic_radio->as_string() );
 
 hr();
+
+/**
+ * Textarea
+ */
+print( '<h2>Select</h2>' );
+
+
+heading( 'Basic Textarea' );
+$basic_textarea = Textarea::create( 'basic_textarea' );
+
+$basic_textarea->render();
+print_code( $basic_textarea->as_string() );
+
+
+
+heading( 'Detailed Textarea' );
+$detailed_textarea = Textarea::create( 'detailed_textarea' )
+	->columns( 80 )
+	->rows( 10 )
+	->autocomplete( 'words' )
+	->current( 'Once upon a time.....' )
+	->label( 'Textareas are great' )
+	->show_label();
+
+$detailed_textarea->render();
+print_code( $detailed_textarea->as_string() );
+
 
 
 /**
