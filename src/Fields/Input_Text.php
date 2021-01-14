@@ -25,12 +25,13 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Traits\Pattern;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 
 class Input_Text extends Abstract_Field {
 
-	use Placeholder, Autocomplete;
+	use Placeholder, Autocomplete, Pattern;
 
 	/**
 	 * The field type.
@@ -45,9 +46,6 @@ class Input_Text extends Abstract_Field {
 	 * @var string
 	 */
 	protected $input_type = 'text';
-
-
-
 
 	/**
 	 * Returns the input HTML

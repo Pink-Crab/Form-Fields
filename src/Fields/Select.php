@@ -46,16 +46,16 @@ class Select extends Abstract_Field {
 	 * Set the current value(s)
 	 *
 	 * @param string|int|float|array<mixed> $current  The current value(s)
-	 * @return self
+	 * @return static
 	 */
-	public function current( $current = null ) {
-		if ( ! empty( $current ) ) {
-			$this->current = is_array( $current ) ? $current : array( $current );
-		} else {
-			$this->current = array();
-		}
-		return $this;
-	}
+	// public function current( $current = null ) {
+	// 	if ( ! empty( $current ) ) {
+	// 		$this->current = is_array( $current ) ? $current : array( $current );
+	// 	} else {
+	// 		$this->current = array();
+	// 	}
+	// 	return $this;
+	// }
 
 	/**
 	 * Generates an array of the options from the detined values.

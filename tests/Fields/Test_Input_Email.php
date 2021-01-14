@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Input with type NUMBER tests.
+ * Input with type EMAIL tests.
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -13,13 +13,15 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
 use WP_UnitTestCase;
-use PinkCrab\Form_Fields\Fields\Input_Number;
+use PinkCrab\Form_Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Fields\Input_Email;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Multiple_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Number extends WP_UnitTestCase {
+class Test_Input_Email extends WP_UnitTestCase {
 
 
 	/**
@@ -27,12 +29,12 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 *
 	 * @var string
 	 */
-	protected $field_type = Input_Number::class;
+	protected $field_type = Input_Email::class;
 
 	/**
 	 * Rendered isntance of the field.
 	 *
-	 * @var Input_Number
+	 * @var Abstract_Field
 	 */
 	protected static $field;
 
@@ -42,7 +44,8 @@ class Test_Input_Number extends WP_UnitTestCase {
 	use Trait_General_Field_Tests, 
 		Trait_Placeholder_Tests, 
 		Trait_Autocomplete_Tests,
-		Trait_Pattern_Tests;
+		Trait_Pattern_Tests,
+		Trait_Multiple_Tests;
 
 	/**
 	 * Create new input.
@@ -51,9 +54,8 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Number::create( 'key');
+		self::$field = Input_Email::create( 'key');
 	}
-
 
 	/**
 	 * Test the rendered HTML contains the defined values & Keys
@@ -61,15 +63,7 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_html_has_expected_properties(): void {
-		$html = self::$field
-		    ->min( 0 )
-		    ->max( 10 )
-		    ->step( 2.5 )
-			->as_string();
-
-		$this->assertStringContainsString( 'type="number"', $html );
-		$this->assertStringContainsString( 'min="0"', $html );
-		$this->assertStringContainsString( 'max="10"', $html );
-		$this->assertStringContainsString( 'step="2.5"', $html );
+		$html = self::$field->as_string();
+		$this->assertStringContainsString( 'type="email"', $html );
 	}
 }

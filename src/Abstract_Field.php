@@ -181,7 +181,7 @@ abstract class Abstract_Field {
 	 * Set the current value(s)
 	 *
 	 * @param string|int|float|array<mixed>|null $current  The current value(s)
-	 * @return self
+	 * @return static
 	 */
 	public function current( $current = null ) {
 		if ( ! empty( $current ) ) {
@@ -196,7 +196,7 @@ abstract class Abstract_Field {
 	 * Set is field disabled
 	 *
 	 * @param bool $disabled  Is field disabled (true by default.)
-	 * @return self
+	 * @return static
 	 */
 	public function disabled( bool $disabled = true ): self {
 		$this->disabled = $disabled;
@@ -207,7 +207,7 @@ abstract class Abstract_Field {
 	 * Set is field read only.
 	 *
 	 * @param bool $read_only  Is field read only (true by default.)
-	 * @return self
+	 * @return static
 	 */
 	public function read_only( bool $read_only = true ): self {
 		if ( $read_only ) {
@@ -223,7 +223,7 @@ abstract class Abstract_Field {
 	 * Set the field type.
 	 *
 	 * @param string $type The field type.
-	 * @return self
+	 * @return static
 	 */
 	protected function type( string $type ): self {
 		$this->type = $type;
@@ -234,7 +234,7 @@ abstract class Abstract_Field {
 	 * Set based on input type can be any type.
 	 *
 	 * @param string|int|float|array<mixed> $default  Based on input type can be any type.
-	 * @return self
+	 * @return static
 	 */
 	public function default( $default ): self {
 		$this->default = $default;
@@ -245,7 +245,7 @@ abstract class Abstract_Field {
 	 * Set the fields label.
 	 *
 	 * @param string $label  The fields label.
-	 * @return self
+	 * @return static
 	 */
 	public function label( string $label ): self {
 		$this->label = $label;
@@ -256,7 +256,7 @@ abstract class Abstract_Field {
 	 * Set field classes.
 	 *
 	 * @param string $class  Field classes.
-	 * @return self
+	 * @return static
 	 */
 	public function class( string $class ): self {
 		$this->class = $class;
@@ -267,7 +267,7 @@ abstract class Abstract_Field {
 	 * Set field descriptiion.
 	 *
 	 * @param string $description  Field descriptiion.
-	 * @return self
+	 * @return static
 	 */
 	public function description( string $description ): self {
 		$this->description = $description;
@@ -279,7 +279,7 @@ abstract class Abstract_Field {
 	 *
 	 * @param string $key
 	 * @param string $value
-	 * @return self
+	 * @return static
 	 */
 	public function attribute( string $key, string $value ): self {
 		$this->attributes[ $key ] = $value;
@@ -291,7 +291,7 @@ abstract class Abstract_Field {
 	 *
 	 * @param array<string, string> $attributes
 	 *
-	 * @return self
+	 * @return static
 	 */
 	public function set_attributes( array $attributes ): self {
 		$this->attributes = $attributes;
@@ -302,7 +302,7 @@ abstract class Abstract_Field {
 	 * Sets the visibility of the label
 	 *
 	 * @param bool $show
-	 * @return self
+	 * @return static
 	 */
 	public function show_label( bool $show = true ): self {
 		$this->label_config->visibility( $show );
@@ -313,7 +313,7 @@ abstract class Abstract_Field {
 	 * Replaces the label config with a new instance.
 	 *
 	 * @param int $mode Bitwise values for positioning.
-	 * @return self
+	 * @return static
 	 */
 	public function label_position( int $mode = 0 ): self {
 		$this->label_config->set_position( $mode );
@@ -393,7 +393,9 @@ abstract class Abstract_Field {
 	 * @return string|int|float|array<mixed>|null
 	 */
 	public function get_current() {
-		return $this->current;
+		return array_key_exists( 'value', $this->attributes )
+			? $this->attributes['value']
+			: null;
 	}
 
 	/**
@@ -457,6 +459,12 @@ abstract class Abstract_Field {
 		return \array_reduce(
 			\array_keys( $this->attributes ),
 			function( string $output, string $attribute_key ): string {
+
+				// If we have an array, skip
+				if ( is_array( $this->attributes[ $attribute_key ] ) ) {
+					return $output;
+				}
+
 				return $output .= \sprintf(
 					' %s="%s"',
 					function_exists( 'esc_attr' )

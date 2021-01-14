@@ -31,7 +31,7 @@ trait Options {
 	 *
 	 * @var array<string, mixed>
 	 */
-	protected $options;
+	protected $options = array();
 
 
 	/**

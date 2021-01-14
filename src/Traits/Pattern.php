@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Multiple field trait
+ * Adds Pattern Attribute functionality
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,41 +24,33 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Traits;
 
-trait Multiple {
+trait Pattern {
 
 	/**
-	 * Sets the select type
+	 * Pattern for mapping values.
 	 *
-	 * @var bool
+	 * @var string|null
 	 */
-	protected $select_type = false;
+	protected $pattern;
 
 	/**
-	 * Sets if the field is multiple.
+	 * Get pattern for mapping values.
 	 *
-	 * @param bool $multiple
-	 * @return self
+	 * @return string|null
 	 */
-	public function multiple( bool $multiple = true ): self {
-		$this->select_type = $multiple;
+	public function get_pattern(): ?string {
+		return $this->pattern;
+	}
+
+	/**
+	 * Set pattern for mapping values.
+	 *
+	 * @param string $pattern  Pattern for mapping values.
+	 * @return static
+	 */
+	public function pattern( string $pattern = '' ): self {
+		$this->pattern = ! empty( $pattern ) ? $pattern : null;
 		return $this;
 	}
 
-	/**
-	 * Is multiple select.
-	 *
-	 * @return bool
-	 */
-	public function is_multiple(): bool {
-		return $this->select_type;
-	}
-
-	/**
-	 * Renders the multiple flag.
-	 *
-	 * @return string
-	 */
-	protected function render_multiple(): string {
-		return $this->is_multiple() ? 'MULTIPLE ' : '';
-	}
 }

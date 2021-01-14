@@ -28,11 +28,27 @@ function hr() {
 }
 
 function print_code( string $html ): void {
-	print '<p><pre style="background: #ffebf9;padding: 9px 9px 15px;color: #000000c7;font-size: 10px;tab-size: 4;scroll-behavior: smooth;overflow: overlay;"><code >' . htmlspecialchars( $html, ENT_QUOTES ) . '</pre></code></p>';
+	print '<p><pre style="white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+	background: #ffebf9;
+	padding: 9px 9px 15px;
+	color: #000000c7;
+	font-size: 10px;
+	tab-size: 0;
+	scroll-behavior: smooth;
+	overflow: overlay;">
+	<code>' . htmlspecialchars( $html, ENT_QUOTES ) . '</pre></code></p>';
 }
 
 function heading( string $string ): void {
 	print( "<p style='color: #732a5d; font-family: sans-serif;  font-weight: bold; margin-bottom: 5px;'><strong>{$string}</strong></p>" );
+}
+
+function get_option( $key, $val ) {
+	return $val;
 }
 
 print( '<style> 
@@ -44,6 +60,8 @@ label{
     flex-grow: 1;
 }
 </style>' );
+
+echo '<br><br><br>';
 
 
 /**
@@ -210,7 +228,6 @@ hr();
 heading( 'Comprehensive Date' );
 $comp_date = Input_Date::create( 'comprehensive_date' )
 	->label( 'Comprehensive Date Label' )
-	->placeholder( 'Please enter your value' )
 	->class( 'some classes' )
 	->min( '1983-12-25' )
 	->max( '2025-12-25' )
@@ -276,7 +293,7 @@ $collection_checkbox2 = Input_Checkbox::create( 'collection_checkbox[opt2]' )
 $collection_checkbox3 = Input_Checkbox::create( 'collection_checkbox[opt3]' )
 	->label( 'Option 3' )
 	->show_label()
-	->checked( true === (bool) 1 );
+	->checked( false );
 
 $collection_checkbox1->render();
 $collection_checkbox2->render();

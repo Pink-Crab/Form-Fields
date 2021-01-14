@@ -61,10 +61,7 @@ class Input_Radio extends Input_Text {
 	}
 
 	/**
-	 * Set the current value(s)
-	 *
-	 * @param string|int|float|array<mixed> $current  The current value(s)
-	 * @return self
+	 * @inheritdoc
 	 */
 	public function current( $current = null ) {
 		if ( ! empty( $current ) ) {
@@ -73,6 +70,15 @@ class Input_Radio extends Input_Text {
 			$this->current = array();
 		}
 		return $this;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function get_current() {
+		return is_array( $this->current )
+			? $this->current
+			: array( $this->current );
 	}
 
 	/**

@@ -14,7 +14,10 @@ namespace PinkCrab\Form_Fields\Tests\Fields;
 
 use WP_UnitTestCase;
 use PinkCrab\Form_Fields\Fields\Input_Text;
-use PinkCrab\Form_Fields\Tests\Fields\Trait_General_Field_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
 class Test_Input_Text extends WP_UnitTestCase {
 
@@ -36,7 +39,10 @@ class Test_Input_Text extends WP_UnitTestCase {
 	/**
 	 * Include all shared tests via trait.
 	 */
-	use Trait_General_Field_Tests;
+	use Trait_General_Field_Tests, 
+		Trait_Placeholder_Tests, 
+		Trait_Autocomplete_Tests,
+		Trait_Pattern_Tests;
 
 	/**
 	 * Create new input.
@@ -45,7 +51,7 @@ class Test_Input_Text extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Text::create( 'key', 'label' );
+		self::$field = Input_Text::create( 'key' );
 	}
 
 	/**
@@ -80,7 +86,7 @@ class Test_Input_Text extends WP_UnitTestCase {
 			->read_only()
 			->attribute( 'att1', 'val1' )
 			->attribute( 'att2', 'val2' )
-			->generate_field_html();
+			->as_string();
 
 		$this->assertStringContainsString( '<input', $html );
 		$this->assertStringContainsString( 'DISABLED', $html );

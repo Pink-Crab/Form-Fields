@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Input with type TEXT tests.
+ * Input with type PASSWORD tests.
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -15,7 +15,10 @@ namespace PinkCrab\Form_Fields\Tests\Fields;
 use WP_UnitTestCase;
 use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Fields\Input_Password;
-use PinkCrab\Form_Fields\Tests\Fields\Trait_General_Field_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
 class Test_Input_Password extends WP_UnitTestCase {
 
@@ -37,7 +40,10 @@ class Test_Input_Password extends WP_UnitTestCase {
 	/**
 	 * Include all shared tests via trait.
 	 */
-	use Trait_General_Field_Tests;
+	use Trait_General_Field_Tests, 
+		Trait_Placeholder_Tests, 
+		Trait_Autocomplete_Tests,
+		Trait_Pattern_Tests;
 
 	/**
 	 * Create new input.
@@ -46,7 +52,7 @@ class Test_Input_Password extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Password::create( 'key', 'label' );
+		self::$field = Input_Password::create( 'key');
 	}
 
 	/**
@@ -55,7 +61,7 @@ class Test_Input_Password extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function test_html_has_expected_properties(): void {
-		$html = self::$field->generate_field_html();
+		$html = self::$field->as_string();
 		$this->assertStringContainsString( 'type="password"', $html );
 	}
 }

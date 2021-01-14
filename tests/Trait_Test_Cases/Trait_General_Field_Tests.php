@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Form_Fields\Tests\Fields;
+namespace PinkCrab\Form_Fields\Tests\Trait_Test_Cases;
 
 use PinkCrab\PHPUnit_Helpers\Objects;
 
@@ -93,17 +93,7 @@ trait Trait_General_Field_Tests {
 		$this->assertNotEquals( 'NOTclass', self::$field->get_class() );
 	}
 
-	/**
-	 * Test can set and get the placeholder
-	 *
-	 * @return void
-	 */
-	public function test_placeholder(): void {
-		self::$field->placeholder( 'placeholder' );
-		$this->assertArrayHasKey( 'placeholder', self::$field->get_attributes() );
-		$this->assertEquals( 'placeholder', self::$field->get_attributes()['placeholder'] );
-		$this->assertNotEquals( 'NOTplaceholder', self::$field->get_attributes()['placeholder'] );
-	}
+
 
 	// /**
 	//  * Test can set and get the options
@@ -139,26 +129,29 @@ trait Trait_General_Field_Tests {
 	}
 
 
-	// /**
-	//  * Test can toggle is include_label.
-	//  *
-	//  * @return void
-	//  */
-	// public function test_include_label(): void {
+	/**
+	 * Test can toggle is show_label.
+	 *
+	 * @return void
+	 */
+	public function test_show_label(): void {
 
-	// 	// As True
-	// 	self::$field->include_label( true );
-	// 	$this->assertTrue( self::$field->get_include_label() );
+		self::$field->label( 'label' );
 
-	// 	// As False
-	// 	self::$field->include_label( false );
-	// 	$this->assertFalse( self::$field->get_include_label() );
 
-	// 	// TRUE by defualt if no arg passed
-	// 	self::$field->include_label();
-	// 	$this->assertTrue( self::$field->get_include_label() );
+		// As True
+		self::$field->show_label( true );
+		$this->assertTrue( self::$field->label_config()->is_visible() );
 
-	// }
+		// As False
+		self::$field->show_label( false );
+		$this->assertFalse( self::$field->label_config()->is_visible() );
+
+		// TRUE by defualt if no arg passed
+		self::$field->show_label();
+		$this->assertTrue( self::$field->label_config()->is_visible() );
+
+	}
 
 	/**
 	 * Test can set and get the attributes

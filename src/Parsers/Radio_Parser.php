@@ -89,6 +89,15 @@ class Radio_Parser extends Field_Parser {
 	 * @return string
 	 */
 	protected function generate_input( string $key, string $name ): string {
+		
+		// Unset value from attributes.
+		// This is beacuse we are not using the attribute value or value
+		// Due to this being a group not a single item.
+		// @TODO redo this at somepoint!
+		if ( array_key_exists( 'value', $this->field->get_attributes() ) ) {
+			$this->field->current();
+		}
+
 		switch ( true ) {
 			case ! $this->field->label_config()->is_visible():  // No label
 				return $this->generate_input_field( $key, $name );
@@ -108,13 +117,14 @@ class Radio_Parser extends Field_Parser {
 	 */
 	protected function generate_input_field( string $key, string $value ):string {
 		return sprintf(
-			'<input type="radio"%s name="%s" id="%s" value="%s"%s%s>',
+			'<input type="radio"%s name="%s" id="%s" value="%s"%s%s%s>',
 			$this->field->render_class(),
 			$this->field->get_key(),
 			$key,
 			$value,
 			$this->field->render_attributes(),
-			$this->is_selected( $key ) ? ' CHECKED' : ''
+			$this->is_selected( $key ) ? ' CHECKED' : '',
+			! empty( $this->field->render_disabled() ) ? ' DISABLED' : ''
 		);
 	}
 

@@ -25,6 +25,7 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
+use PinkCrab\Form_Fields\Traits\Pattern;
 use PinkCrab\Form_Fields\Fields\Input_Text;
 
 class Input_Date extends Input_Text {
@@ -44,33 +45,6 @@ class Input_Date extends Input_Text {
 	 * @var string
 	 */
 	protected $input_type = 'date';
-
-	/**
-	 * Pattern for mapping values.
-	 *
-	 * @var string|null
-	 */
-	protected $pattern;
-
-	/**
-	 * Get pattern for mapping values.
-	 *
-	 * @return string|null
-	 */
-	public function get_pattern(): ?string {
-		return $this->pattern;
-	}
-
-	/**
-	 * Set pattern for mapping values.
-	 *
-	 * @param string $pattern  Pattern for mapping values.
-	 * @return self
-	 */
-	public function pattern( string $pattern ): self {
-		$this->pattern = $pattern;
-		return $this;
-	}
 
 	/**
 	 * Renders the text input.
@@ -108,7 +82,7 @@ class Input_Date extends Input_Text {
 		if ( ! is_null( $this->get_step() ) ) {
 			$this->attribute( 'step', (string) $this->get_step() );
 		}
-		if ( ! is_null( $this->get_pattern() ) ) {
+		if ( ! empty( $this->get_pattern() ) ) {
 			$this->attribute( 'pattern', (string) $this->get_pattern() );
 		}
 	}
