@@ -48,14 +48,14 @@ class Select extends Abstract_Field {
 	 * @param string|int|float|array<mixed> $current  The current value(s)
 	 * @return static
 	 */
-	// public function current( $current = null ) {
-	// 	if ( ! empty( $current ) ) {
-	// 		$this->current = is_array( $current ) ? $current : array( $current );
-	// 	} else {
-	// 		$this->current = array();
-	// 	}
-	// 	return $this;
-	// }
+	public function current( $current = null ) {
+		if ( ! empty( $current ) ) {
+			$this->current = is_array( $current ) ? $current : array( $current );
+		} else {
+			$this->current = array();
+		}
+		return $this;
+	}
 
 	/**
 	 * Generates an array of the options from the detined values.
@@ -132,9 +132,9 @@ class Select extends Abstract_Field {
 	 * @return string
 	 */
 	public function generate_option_html( string $key, string $value ): string {
-		$current = is_array( $this->get_current() )
-			? $this->get_current()
-			: array( $this->get_current() );
+		$current = is_array( $this->current )
+			? $this->current
+			: array( $this->current );
 
 		return \sprintf(
 			"\t<option value=\"%s\"%s>%s</option>",
@@ -167,16 +167,18 @@ class Select extends Abstract_Field {
 		);
 	}
 
-
-
 	/**
 	 * Returns the select HTML
 	 *
 	 * @return string
 	 */
 	public function generate_field_html(): string {
+
+		// Maybe generate multiple options.
+		$name = $this->render_multiple() !== '' ? "{$this->get_key()}[]" : $this->get_key();
+
 		return <<<HTML
-<select {$this->render_class()}name="{$this->get_key()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}> 
+<select {$this->render_class()}name="{$name}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}> 
 {$this->generate_options()}
 </select>
 HTML;
