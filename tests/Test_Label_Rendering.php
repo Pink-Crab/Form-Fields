@@ -43,8 +43,9 @@ class Test_Label_Rendering extends DOMTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
+		//
 		parent::setup();
-		self::$field = Input_Number::create( 'key' )
+		self::$field = Input_Number::create( 'key' ) 
 			->label( 'LABEL' )
 			->show_label();
 	}
