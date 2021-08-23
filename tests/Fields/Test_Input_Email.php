@@ -53,7 +53,8 @@ class Test_Input_Email extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-		parent::setup();
+//		
+parent::setup();
 		self::$field = Input_Email::create( 'key');
 	}
 

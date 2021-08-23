@@ -46,7 +46,8 @@ class Test_Input_Date extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-		parent::setup();
+//		
+parent::setup();
 		self::$field = Input_Date::create( 'key');
 	}
 

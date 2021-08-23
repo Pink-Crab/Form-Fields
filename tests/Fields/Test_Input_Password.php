@@ -51,7 +51,8 @@ class Test_Input_Password extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-		parent::setup();
+//		
+parent::setup();
 		self::$field = Input_Password::create( 'key');
 	}
 

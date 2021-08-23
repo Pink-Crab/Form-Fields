@@ -50,7 +50,8 @@ class Test_Input_Text extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-		parent::setup();
+//		
+parent::setup();
 		self::$field = Input_Text::create( 'key' );
 	}
 

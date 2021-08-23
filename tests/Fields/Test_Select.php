@@ -45,7 +45,8 @@ class Test_Select extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-		parent::setup();
+//		
+parent::setup();
 		self::$field = Select::create( 'key' );
 	}
 

@@ -40,7 +40,8 @@ class Test_Raw_HTML extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-		parent::setup();
+//		
+parent::setup();
 		self::$field = Raw_HTML::create( 'key' );
 	}
 
