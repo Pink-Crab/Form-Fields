@@ -89,11 +89,10 @@ class Radio_Parser extends Field_Parser {
 	 * @return string
 	 */
 	protected function generate_input( string $key, string $name ): string {
-		
+
 		// Unset value from attributes.
 		// This is beacuse we are not using the attribute value or value
 		// Due to this being a group not a single item.
-		// @TODO redo this at somepoint!
 		if ( array_key_exists( 'value', $this->field->get_attributes() ) ) {
 			$this->field->current();
 		}
@@ -115,13 +114,14 @@ class Radio_Parser extends Field_Parser {
 	 * @param string $value
 	 * @return string
 	 */
+	// phpcs:ignore
 	protected function generate_input_field( string $key, string $value ):string {
 		return sprintf(
 			'<input type="radio"%s name="%s" id="%s" value="%s"%s%s%s>',
 			$this->field->render_class(),
-			$this->field->get_key(),
-			$key,
-			$value,
+			$this->field->get_key(), // name=
+			"{$this->field->get_key()}[{$key}]", // id=
+			$key, // value=
 			$this->field->render_attributes(),
 			$this->is_selected( $key ) ? ' CHECKED' : '',
 			! empty( $this->field->render_disabled() ) ? ' DISABLED' : ''
@@ -156,7 +156,7 @@ class Radio_Parser extends Field_Parser {
 			$label_config->get_classes() ?? '',
 			$key,
 			( $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL,
-			( ! $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL,
+			( ! $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL
 		);
 	}
 

@@ -150,4 +150,17 @@ class Test_Select extends WP_UnitTestCase {
 			$this->assertStringContainsString( 'value="a" SELECTED="selected"', $html );
 			$this->assertStringContainsString( 'value="b" SELECTED="selected"', $html );
 	}
+
+	/**
+	 * Test can set and get the current value.
+	 *
+	 * @return void
+	 */
+	public function test_current_value(): void {
+		// /** @var Abstract_Field self::$field */
+		self::$field->current( 'CURRENT' );
+		dump( self::$field, '1', self::$field->get_current() );
+		$this->assertContains( 'CURRENT', self::$field->get_current() );
+		$this->assertNotContains( 'NOTCURRENT', self::$field->get_current() );
+	}
 }

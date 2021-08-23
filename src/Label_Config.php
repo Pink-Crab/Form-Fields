@@ -31,7 +31,7 @@ class Label_Config {
 	 */
 	public const WRAP_LABEL   = 1;
 	public const LINKED_LABEL = 2;
-	public const BEFORE_INPUT  = 4;
+	public const BEFORE_INPUT = 4;
 	public const AFTER_INPUT  = 8;
 
 	/**
