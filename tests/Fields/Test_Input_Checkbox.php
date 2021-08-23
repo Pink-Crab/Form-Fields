@@ -47,7 +47,7 @@ class Test_Input_Checkbox extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Checkbox::create( 'keye' );
+		self::$field = Input_Checkbox::create( 'key' );
 	}
 
 	/**
