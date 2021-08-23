@@ -156,7 +156,7 @@ class Radio_Parser extends Field_Parser {
 			$label_config->get_classes() ?? '',
 			$key,
 			( $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL,
-			( ! $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL,
+			( ! $label_config->is_positioned_before() ? $name : "\t" . $input_html ) . \PHP_EOL
 		);
 	}
 
