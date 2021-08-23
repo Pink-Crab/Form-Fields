@@ -47,7 +47,7 @@ class Test_Label_Rendering extends DOMTestCase {
 		parent::setup();
 		self::$field = Input_Number::create( 'key' ) 
 			->label( 'LABEL' )
-			->show_label();
+			->show_label(true);
 	}
 
 	/**
