@@ -110,7 +110,7 @@ If no value is passed in placeholder\(\) it will unset the existing value.
 
 ```php
 Select::create('car_choice')
-	->placeholder('Choode Car Preference')
+	->placeholder('Choose Car Preference')
 	->options([
 		'volvo' => 'Volvo',
 		'saab' 	=> 'Saab',
