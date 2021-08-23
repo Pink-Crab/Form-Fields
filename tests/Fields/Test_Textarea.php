@@ -48,8 +48,7 @@ class Test_Textarea extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-//		
-parent::setup();
+		parent::setup();
 		self::$field = Textarea::create( 'key' );
 	}
 

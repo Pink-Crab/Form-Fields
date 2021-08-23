@@ -50,8 +50,7 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-//		
-parent::setup();
+		parent::setup();
 		self::$field = Input_Number::create( 'key');
 	}
 

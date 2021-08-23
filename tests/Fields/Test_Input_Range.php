@@ -48,8 +48,7 @@ class Test_Input_Range extends WP_UnitTestCase {
 	 * @return void
 	 */
 	public function setup(): void {
-//		
-parent::setup();
+		parent::setup();
 		self::$field = Input_Range::create( 'key' );
 	}
 
