@@ -92,7 +92,7 @@ class Field_Parser implements Parser {
 			$label_config->get_classes() ?? '',
 			$this->field->get_key(),
 			\PHP_EOL . ( $label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html() ),
-			\PHP_EOL . ( ! $label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html() ),
+			\PHP_EOL . ( ! $label_config->is_positioned_before() ? $this->field->get_label() : $this->field->generate_field_html() )
 		);
 	}
 
