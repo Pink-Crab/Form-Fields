@@ -72,6 +72,7 @@ class Input_Date extends Input_Text {
 	 *
 	 * @return void
 	 */
+	// phpcs:ignore
 	protected function _populate_attributes() {
 		if ( ! is_null( $this->get_min() ) ) {
 			$this->attribute( 'min', (string) $this->get_min() );

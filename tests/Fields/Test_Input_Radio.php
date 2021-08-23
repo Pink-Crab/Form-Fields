@@ -66,10 +66,10 @@ class Test_Input_Radio extends WP_UnitTestCase {
 		$html = self::$field->as_string();
 		$this->assertEquals( 2, substr_count( $html, 'name="key"' ) );
 		$this->assertEquals( 2, substr_count( $html, 'type="radio"' ) );
-		$this->assertStringContainsString( 'id="a"', $html );
-		$this->assertStringContainsString( 'value="alpa"', $html );
-		$this->assertStringContainsString( 'id="b"', $html );
-		$this->assertStringContainsString( 'value="bravo"', $html );
+		$this->assertStringContainsString( 'id="key[a]"', $html );
+		$this->assertStringContainsString( 'value="a"', $html );
+		$this->assertStringContainsString( 'id="key[b]"', $html );
+		$this->assertStringContainsString( 'value="b"', $html );
 	}
 
 	/**
@@ -81,7 +81,7 @@ class Test_Input_Radio extends WP_UnitTestCase {
 		$html = self::$field
 			->current( 'a' );
 		$this->assertEquals( 1, substr_count( $html->as_string(), 'CHECKED' ) );
-		$this->assertStringContainsString( 'value="alpa" CHECKED', $html->as_string() );
+		$this->assertStringContainsString( 'value="a" CHECKED', $html->as_string() );
 	}
 
 	/**

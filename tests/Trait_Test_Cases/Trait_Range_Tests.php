@@ -12,7 +12,8 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Trait_Test_Cases;
 
-use PinkCrab\PHPUnit_Helpers\Objects;
+use Gin0115\WPUnit_Helpers\Objects;
+
 
 trait Trait_Range_Tests {
 
@@ -28,7 +29,7 @@ trait Trait_Range_Tests {
 		self::$field->min( 0 );
 
 		// Test added to property
-		$this->assertEquals( 0, Objects::get_private_property( self::$field, 'min' ) );
+		$this->assertEquals( 0, Objects::get_property( self::$field, 'min' ) );
 
 		// Get
 		$this->assertEquals( 0, self::$field->get_min() );
@@ -52,7 +53,7 @@ trait Trait_Range_Tests {
 		self::$field->max( 99 );
 
 		// Test added to property
-		$this->assertEquals( 99, Objects::get_private_property( self::$field, 'max' ) );
+		$this->assertEquals( 99, Objects::get_property( self::$field, 'max' ) );
 
 		// Get
 		$this->assertEquals( 99, self::$field->get_max() );
@@ -76,7 +77,7 @@ trait Trait_Range_Tests {
 		self::$field->step( 5 );
 
 		// Test added to property
-		$this->assertEquals( 5, Objects::get_private_property( self::$field, 'step' ) );
+		$this->assertEquals( 5, Objects::get_property( self::$field, 'step' ) );
 
 		// Get
 		$this->assertEquals( 5, self::$field->get_step() );

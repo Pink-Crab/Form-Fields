@@ -12,7 +12,8 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Trait_Test_Cases;
 
-use PinkCrab\PHPUnit_Helpers\Objects;
+use Gin0115\WPUnit_Helpers\Objects;
+use PinkCrab\PHPUnit_Helpers\Objects__;
 
 trait Trait_General_Field_Tests {
 
@@ -66,7 +67,7 @@ trait Trait_General_Field_Tests {
 	 */
 	public function test_type(): void {
 		// This is used when creating a new Field, can only be called internally.
-		Objects::invoke_private_method( self::$field, 'type', array( 'type' ) );
+		Objects::invoke_method( self::$field, 'type', array( 'type' ) );
 		$this->assertEquals( 'type', self::$field->get_type() );
 		$this->assertNotEquals( 'NOTtype', self::$field->get_type() );
 	}

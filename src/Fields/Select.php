@@ -57,6 +57,15 @@ class Select extends Abstract_Field {
 		return $this;
 	}
 
+		/**
+	 * Get the current value(s)
+	 *
+	 * @return string|int|float|array<mixed>|null
+	 */
+	public function get_current() {
+		return $this->current ?? array();
+	}
+
 	/**
 	 * Generates an array of the options from the detined values.
 	 *
