@@ -58,6 +58,15 @@ class Select extends Abstract_Field {
 	}
 
 	/**
+	 * Get the current value(s)
+	 *
+	 * @return string|int|float|array<mixed>|null
+	 */
+	public function get_current() {
+		return $this->current ?? array();
+	}
+
+	/**
 	 * Generates an array of the options from the detined values.
 	 *
 	 * @return string
@@ -110,13 +119,13 @@ class Select extends Abstract_Field {
 	 * @param string $key
 	 * @param string|int|float|array<mixed> $value
 	 * @param bool $is_group
-	 * @return object
+	 * @return stdClass
 	 */
 	protected function option_factory(
 		string $key,
 		$value,
 		bool $is_group = false
-	): object {
+	): stdClass {
 		return (object) array(
 			'key'      => $key,
 			'value'    => $value,

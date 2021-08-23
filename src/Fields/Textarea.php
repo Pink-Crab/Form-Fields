@@ -66,7 +66,7 @@ class Textarea extends Abstract_Field {
 	 *
 	 * @var string|null
 	 */
-	protected $curent_value;
+	protected $current_value;
 
 	/**
 	 * Get the columns value
@@ -114,7 +114,7 @@ class Textarea extends Abstract_Field {
 	 * @return string
 	 */
 	protected function render_current_value(): string {
-		return $this->curent_value ?? '';
+		return $this->current_value ?? '';
 	}
 
 	/**
@@ -149,6 +149,7 @@ HTML;
 	 *
 	 * @return void
 	 */
+	// phpcs:ignore
 	protected function _populate_attributes() {
 		if ( ! is_null( $this->get_columns() ) ) {
 			$this->attribute( 'cols', (string) $this->get_columns() );
@@ -157,7 +158,7 @@ HTML;
 			$this->attribute( 'rows', (string) $this->get_rows() );
 		}
 		if ( array_key_exists( 'value', $this->get_attributes() ) ) {
-			$this->curent_value = $this->attributes['value'];
+			$this->current_value = $this->attributes['value'];
 			unset( $this->attributes['value'] );
 		}
 	}
