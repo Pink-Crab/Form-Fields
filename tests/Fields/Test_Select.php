@@ -159,7 +159,6 @@ class Test_Select extends WP_UnitTestCase {
 	public function test_current_value(): void {
 		// /** @var Abstract_Field self::$field */
 		self::$field->current( 'CURRENT' );
-		dump( self::$field, '1', self::$field->get_current() );
 		$this->assertContains( 'CURRENT', self::$field->get_current() );
 		$this->assertNotContains( 'NOTCURRENT', self::$field->get_current() );
 	}
