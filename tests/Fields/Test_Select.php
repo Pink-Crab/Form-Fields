@@ -162,4 +162,20 @@ class Test_Select extends WP_UnitTestCase {
 		$this->assertContains( 'CURRENT', self::$field->get_current() );
 		$this->assertNotContains( 'NOTCURRENT', self::$field->get_current() );
 	}
+
+	/** @testdox It should be possible to use a mix of int and string keys, and still see the connection. */
+	public function test_allow_numerical_option_keys() {
+		$html = self::$field
+			->options(
+				array(
+					'3' => 'Alpha',
+					5   => 'Bravo',
+				)
+			)
+			->current( array( 3, '5' ) )
+			->as_string();
+
+		$this->assertStringContainsString( 'value="3" SELECTED="selected"', $html );
+		$this->assertStringContainsString( 'value="5" SELECTED="selected"', $html );
+	}
 }

@@ -102,6 +102,9 @@ class Select extends Abstract_Field {
 		return array_reduce(
 			array_keys( $options ),
 			function( $compiled, $option_key ) use ( $options ) {
+				// Ensure all ints are treated as strings.
+				$option_key = (string) $option_key;
+
 				$compiled[] = $this->option_factory(
 					$option_key,
 					$options[ $option_key ],
@@ -116,18 +119,18 @@ class Select extends Abstract_Field {
 	/**
 	 * Generates an object used for the rendered options.
 	 *
-	 * @param string $key
+	 * @param string|int $key
 	 * @param string|int|float|array<mixed> $value
 	 * @param bool $is_group
 	 * @return stdClass
 	 */
 	protected function option_factory(
-		string $key,
+		$key,
 		$value,
 		bool $is_group = false
 	): stdClass {
 		return (object) array(
-			'key'      => $key,
+			'key'      => (string) $key,
 			'value'    => $value,
 			'is_group' => $is_group,
 		);
@@ -145,10 +148,14 @@ class Select extends Abstract_Field {
 			? $this->current
 			: array( $this->current );
 
+		// Ensure all numerical values are treated as strings.
+		$current = array_map( 'strval', $current );
+
 		return \sprintf(
 			"\t<option value=\"%s\"%s>%s</option>",
 			$key,
-			in_array( $key, $current, true ) ? ' SELECTED="selected"' : '',
+			// Do not allow "Placeholder" or empty key values to be selected by default.
+			$key !== '' && in_array( (string) $key, $current, true ) ? ' SELECTED="selected"' : '',
 			(string) $value
 		);
 	}
