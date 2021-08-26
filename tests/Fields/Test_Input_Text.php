@@ -99,4 +99,12 @@ class Test_Input_Text extends WP_UnitTestCase {
 		$this->assertStringContainsString( 'att1="val1"', $html );
 		$this->assertStringContainsString( 'att2="val2"', $html );
 	}
+
+	public function test_settings_custom_name(): void 
+	{
+		$html = self::$field
+			->name('name')
+			->as_string();
+		$this->assertStringContainsString( 'name="name"', $html );
+	}
 }

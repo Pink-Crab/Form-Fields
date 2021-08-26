@@ -25,6 +25,11 @@ trait Trait_General_Field_Tests {
 		$this->assertEquals( 'key', self::$field->get_key() );
 	}
 
+	public function test_custom_name(): void
+	{
+		$this->assertEquals( 'name', self::$field->name('name')->get_name() );
+	}
+
 	/**
 	 * Test can set and get the current value.
 	 *

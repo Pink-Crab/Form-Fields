@@ -38,6 +38,13 @@ abstract class Abstract_Field {
 	protected $key;
 
 	/**
+	 * The field name.
+	 *
+	 * @var string|null
+	 */
+	protected $name;
+
+	/**
 	 * The field type.
 	 *
 	 * @var string
@@ -66,7 +73,7 @@ abstract class Abstract_Field {
 	protected $class = '';
 
 	/**
-	 * Field descriptiion.
+	 * Field description.
 	 *
 	 * @var string
 	 */
@@ -176,6 +183,17 @@ abstract class Abstract_Field {
 
 	/** Setters */
 
+	/**
+	 * Sets the name of the field.
+	 *
+	 * @param string $name
+	 * @return self
+	 */
+	public function name( string $name ): self {
+		$this->name = $name;
+		return $this;
+	}
+
 
 	/**
 	 * Set the current value(s)
@@ -264,9 +282,9 @@ abstract class Abstract_Field {
 	}
 
 	/**
-	 * Set field descriptiion.
+	 * Set field description.
 	 *
-	 * @param string $description  Field descriptiion.
+	 * @param string $description  Field description.
 	 * @return static
 	 */
 	public function description( string $description ): self {
@@ -370,7 +388,7 @@ abstract class Abstract_Field {
 
 
 	/**
-	 * Get field descriptiion.
+	 * Get field description.
 	 *
 	 * @return string
 	 */
@@ -385,6 +403,16 @@ abstract class Abstract_Field {
 	 */
 	public function get_key(): string {
 		return $this->key;
+	}
+
+
+	/**
+	 * Get the field name.
+	 *
+	 * @return string
+	 */
+	public function get_name(): string {
+		return $this->name ?? $this->key;
 	}
 
 	/**
@@ -478,4 +506,5 @@ abstract class Abstract_Field {
 			''
 		);
 	}
+
 }
