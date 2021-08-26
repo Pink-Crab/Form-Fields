@@ -35,7 +35,9 @@
         "object-calisthenics/phpcs-calisthenics-rules": "*",
         "yoast/phpunit-polyfills": "^0.2.0",
         "gin0115/wpunit-helpers": "dev-main",
-        "phpunit/phpunit-dom-assertions": "~2"
+        "phpunit/phpunit-dom-assertions": "~2",
+        "symfony/dom-crawler": "^5.3",
+        "symfony/css-selector": "^5.3"
     },
     "require": {
         "php": ">=7.1.0"

@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Tests\Trait_Test_Cases;
 
 use Gin0115\WPUnit_Helpers\Objects;
-use PinkCrab\PHPUnit_Helpers\Objects__;
 
 trait Trait_General_Field_Tests {
 
@@ -94,18 +93,6 @@ trait Trait_General_Field_Tests {
 		$this->assertNotEquals( 'NOTclass', self::$field->get_class() );
 	}
 
-
-
-	// /**
-	//  * Test can set and get the options
-	//  *
-	//  * @return void
-	//  */
-	// public function test_options(): void {
-	// 	self::$field->options( array( 'key' => 'options' ) );
-	// 	$this->assertEquals( array( 'key' => 'options' ), self::$field->get_options() );
-	// 	$this->assertNotEquals( 'NOToptions', self::$field->get_options() );
-	// }
 
 	/**
 	 * Test can set and get the description

@@ -22,7 +22,7 @@ class Test_Input_Checkbox extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Holds the inpout type
 	 *
 	 * @var string
 	 */
