@@ -80,14 +80,6 @@ abstract class Abstract_Field {
 	protected $description = '';
 
 	/**
-	 * Initial values.
-	 * Based on input type can be any type.
-	 *
-	 * @var string|int|float|array<mixed>
-	 */
-	protected $default;
-
-	/**
 	 * The current value(s)
 	 *
 	 * @var string|int|float|array<mixed>|null
@@ -249,17 +241,6 @@ abstract class Abstract_Field {
 	}
 
 	/**
-	 * Set based on input type can be any type.
-	 *
-	 * @param string|int|float|array<mixed> $default  Based on input type can be any type.
-	 * @return static
-	 */
-	public function default( $default ): self {
-		$this->default = $default;
-		return $this;
-	}
-
-	/**
 	 * Set the fields label.
 	 *
 	 * @param string $label  The fields label.
@@ -376,16 +357,6 @@ abstract class Abstract_Field {
 	public function get_disabled(): bool {
 		return $this->disabled;
 	}
-
-	/**
-	 * Get based on input type can be any type.
-	 *
-	 * @return string|int|float|array<mixed>
-	 */
-	public function get_default() {
-		return $this->default;
-	}
-
 
 	/**
 	 * Get field description.
