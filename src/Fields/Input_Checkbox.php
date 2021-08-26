@@ -26,7 +26,6 @@ namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Traits\Checked;
-use PinkCrab\Form_Fields\Fields\Input_Text;
 
 class Input_Checkbox extends Abstract_Field {
 
