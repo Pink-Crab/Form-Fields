@@ -25,6 +25,11 @@ trait Trait_General_Field_Tests {
 		$this->assertEquals( 'key', self::$field->get_key() );
 	}
 
+	public function test_custom_name(): void
+	{
+		$this->assertEquals( 'name', self::$field->name('name')->get_name() );
+	}
+
 	/**
 	 * Test can set and get the current value.
 	 *
@@ -70,18 +75,6 @@ trait Trait_General_Field_Tests {
 		$this->assertEquals( 'type', self::$field->get_type() );
 		$this->assertNotEquals( 'NOTtype', self::$field->get_type() );
 	}
-
-	/**
-	 * Test can set and get the default
-	 *
-	 * @return void
-	 */
-	public function test_default(): void {
-		self::$field->default( (object) array( 'default' ) );
-		$this->assertEquals( (object) array( 'default' ), self::$field->get_default() );
-		$this->assertNotEquals( 'NOTdefault', self::$field->get_default() );
-	}
-
 	/**
 	 * Test can set and get the class
 	 *

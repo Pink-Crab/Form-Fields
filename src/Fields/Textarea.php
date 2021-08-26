@@ -136,7 +136,7 @@ class Textarea extends Abstract_Field {
 	public function generate_field_html(): string {
 		$this->_populate_attributes();
 		return <<<HTML
-<textarea {$this->render_class()}name="{$this->get_key()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()} />
+<textarea {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()} />
 {$this->render_current_value()}
 </textarea>
 HTML;
