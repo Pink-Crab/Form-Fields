@@ -36,9 +36,10 @@ class Test_Checkbox_Group_Rendered extends WP_UnitTestCase {
 		// Check the labels.
 		$labels = $fieldset->filter( 'label' )->each(
 			function ( $node, $i ) {
-				return $node->text();
+				return trim( $node->text() );
 			}
 		);
+
 		$this->assertContains( 'Apple', $labels );
 		$this->assertContains( 'Banana', $labels );
 
@@ -62,7 +63,7 @@ class Test_Checkbox_Group_Rendered extends WP_UnitTestCase {
 		$this->assertEquals( 'on', $attributes[1][3] );
 	}
 
-    /** @testdox It should be possible to render if a checkbox is already checked. */
+	/** @testdox It should be possible to render if a checkbox is already checked. */
 	public function test_checks_selected_checkboxes() {
 		$field = Checkbox_Group::create( 'checked' )
 			->options(
