@@ -1,6 +1,6 @@
 # PinkCrab Form Fields #
 
-![alt text](https://img.shields.io/badge/Current_Version-0.1.3-yellow.svg?style=flat " ") 
+![alt text](https://img.shields.io/badge/Current_Version-0.1.4-yellow.svg?style=flat " ") 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 ![](https://github.com/Pink-Crab/Form-Fields/workflows/GitHub_CI/badge.svg " ")
 [![codecov](https://codecov.io/gh/Pink-Crab/Form-Fields/branch/master/graph/badge.svg?token=ZE140NBNPG)](https://codecov.io/gh/Pink-Crab/Form-Fields)
@@ -79,9 +79,10 @@ Input_Password::create('password')->render();
 ```
 
 ## Version ##
-**Release 0.1.3**
+**Release 0.1.4**
 
 ## Change Log
+* 0.1.4 - Removed default as not implemented and not really suitable for this library. Also included the option to set custom name attributes to fields, falling back to the key (id) if not set.
 * 0.1.3 - Added in the Checkbox Group field
 * 0.1.2 - Various bug fixes
 * 0.1.1 - Various bug fixes
