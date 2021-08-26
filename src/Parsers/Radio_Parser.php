@@ -73,8 +73,8 @@ class Radio_Parser extends Field_Parser {
 		$options = $this->field->get_options();
 		return array_reduce(
 			array_keys( $options ),
-			function ( array $carry, string $key ) use ( $options ): array {
-				$carry[ $key ] = $this->generate_input( $key, $options[ $key ] );
+			function ( array $carry, $key ) use ( $options ): array {
+				$carry[ $key ] = $this->generate_input( (string) $key, $options[ (string) $key ] );
 				return $carry;
 			},
 			array()
