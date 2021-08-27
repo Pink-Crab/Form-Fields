@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * A settings field data.
+ * Checkbox input.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,22 +24,16 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Traits\Checked;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Checkbox extends Abstract_Field {
+class Input_Checkbox extends Abstract_Input {
 
 	/**
 	 * Use the checked property.
 	 */
 	use Checked;
 
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
 
 	/**
 	 * Sets the input type
@@ -48,7 +42,7 @@ class Input_Checkbox extends Abstract_Field {
 	 */
 	protected $input_type = 'checkbox';
 
-			/**
+	/**
 	 * Returns the input HTML
 	 *
 	 * @return string

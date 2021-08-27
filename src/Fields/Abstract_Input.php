@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Email Input
+ * Basis to extend all <INPUT> fields froms.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,23 +24,16 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Traits\Pattern;
-use PinkCrab\Form_Fields\Traits\Multiple;
-use PinkCrab\Form_Fields\Traits\Placeholder;
-use PinkCrab\Form_Fields\Traits\Autocomplete;
-use PinkCrab\Form_Fields\Fields\Abstract_Input;
+use PinkCrab\Form_Fields\Abstract_Field;
 
-class Input_Email extends Abstract_Input {
-
-	use Multiple, Pattern, Placeholder, Autocomplete;
-
+class Abstract_Input extends Abstract_Field {
 
 	/**
-	 * Sets the input type
+	 * The field type.
 	 *
 	 * @var string
 	 */
-	protected $input_type = 'email';
+	protected $type = 'input';
 
 	/**
 	 * Returns the input HTML
@@ -49,9 +42,8 @@ class Input_Email extends Abstract_Input {
 	 */
 	public function generate_field_html(): string {
 		return <<<HTML
-<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}/>
+<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
 HTML;
 	}
+
 }
-
-

@@ -123,7 +123,7 @@ class Textarea extends Abstract_Field {
 	 * @return void
 	 */
 	public function render(): void {
-		$this->_populate_attributes();
+		$this->populate_attributes();
 		parent::render();
 	}
 
@@ -134,7 +134,7 @@ class Textarea extends Abstract_Field {
 	 * @return string
 	 */
 	public function generate_field_html(): string {
-		$this->_populate_attributes();
+		$this->populate_attributes();
 		return <<<HTML
 <textarea {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()} />
 {$this->render_current_value()}
@@ -149,8 +149,7 @@ HTML;
 	 *
 	 * @return void
 	 */
-	// phpcs:ignore
-	protected function _populate_attributes() {
+	protected function populate_attributes() {
 		if ( ! is_null( $this->get_columns() ) ) {
 			$this->attribute( 'cols', (string) $this->get_columns() );
 		}

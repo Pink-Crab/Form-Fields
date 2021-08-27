@@ -41,8 +41,7 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 */
 	use Trait_General_Field_Tests, 
 		Trait_Placeholder_Tests, 
-		Trait_Autocomplete_Tests,
-		Trait_Pattern_Tests;
+		Trait_Autocomplete_Tests;
 
 	/**
 	 * Create new input.

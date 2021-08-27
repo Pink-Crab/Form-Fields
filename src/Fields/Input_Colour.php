@@ -24,7 +24,13 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-class Input_Colour extends Input_Text {
+use PinkCrab\Form_Fields\Traits\Placeholder;
+use PinkCrab\Form_Fields\Traits\Autocomplete;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
+
+class Input_Colour extends Abstract_Input {
+
+	use Placeholder, Autocomplete;
 
 	/**
 	 * Sets the input type

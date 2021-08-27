@@ -25,18 +25,13 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
-use PinkCrab\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Traits\Placeholder;
+use PinkCrab\Form_Fields\Traits\Autocomplete;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Number extends Input_Text {
+class Input_Number extends Abstract_Input {
 
-	use Range;
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
+	use Range, Placeholder, Autocomplete;
 
 	/**
 	 * Sets the input type

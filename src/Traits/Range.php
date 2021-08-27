@@ -26,7 +26,7 @@ namespace PinkCrab\Form_Fields\Traits;
 
 trait Range {
 
-		/**
+	/**
 	 * The min value
 	 *
 	 * @var mixed
