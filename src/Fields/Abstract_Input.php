@@ -36,13 +36,24 @@ class Abstract_Input extends Abstract_Field {
 	protected $type = 'input';
 
 	/**
+	 * Gets the input type, falls back to text if not defined.
+	 *
+	 * @return string
+	 */
+	protected function get_input_type(): string {
+		return \property_exists( $this, 'input_type' )
+			? $this->input_type
+			: 'text'; // fallback
+	}
+
+	/**
 	 * Returns the input HTML
 	 *
 	 * @return string
 	 */
 	public function generate_field_html(): string {
 		return <<<HTML
-<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
+<input type="{$this->get_input_type()}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
 HTML;
 	}
 

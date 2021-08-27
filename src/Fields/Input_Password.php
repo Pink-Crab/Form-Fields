@@ -33,7 +33,7 @@ class Input_Password extends Abstract_Input {
 
 	// Input attributes.
 	use Placeholder, Autocomplete, Pattern;
-	
+
 	/**
 	 * Sets the input type
 	 *
