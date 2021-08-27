@@ -27,7 +27,7 @@ class Test_Raw_HTML extends WP_UnitTestCase {
 	protected $field_type = Raw_HTML::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Raw_HTML
 	 */

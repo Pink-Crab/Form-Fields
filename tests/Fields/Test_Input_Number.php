@@ -30,7 +30,7 @@ class Test_Input_Number extends WP_UnitTestCase {
 	protected $field_type = Input_Number::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Number
 	 */

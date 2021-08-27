@@ -31,7 +31,7 @@ class Test_Input_Password extends WP_UnitTestCase {
 	protected $field_type = Input_Password::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Abstract_Field
 	 */

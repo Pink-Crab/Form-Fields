@@ -28,7 +28,7 @@ class Test_Checkbox_Group extends WP_UnitTestCase {
 	protected $field_type = Checkbox_Group::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Checkbox_Group
 	 */
