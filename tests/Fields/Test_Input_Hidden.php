@@ -20,7 +20,7 @@ class Test_Input_Hidden extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
