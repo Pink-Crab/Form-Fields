@@ -25,7 +25,7 @@ class Test_Select extends WP_UnitTestCase {
 		Trait_Placeholder_Tests;
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */

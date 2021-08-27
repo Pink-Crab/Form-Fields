@@ -20,7 +20,7 @@ class Test_Raw_HTML extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */

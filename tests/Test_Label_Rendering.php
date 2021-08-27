@@ -23,7 +23,7 @@ class Test_Label_Rendering extends DOMTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
