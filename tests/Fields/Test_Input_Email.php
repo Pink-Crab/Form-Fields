@@ -41,8 +41,8 @@ class Test_Input_Email extends WP_UnitTestCase {
 	/**
 	 * Include all shared tests via trait.
 	 */
-	use Trait_General_Field_Tests, 
-		Trait_Placeholder_Tests, 
+	use Trait_General_Field_Tests,
+		Trait_Placeholder_Tests,
 		Trait_Autocomplete_Tests,
 		Trait_Pattern_Tests,
 		Trait_Multiple_Tests;
@@ -54,7 +54,7 @@ class Test_Input_Email extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Email::create( 'key');
+		self::$field = Input_Email::create( 'key' );
 	}
 
 	/**
@@ -65,5 +65,15 @@ class Test_Input_Email extends WP_UnitTestCase {
 	public function test_html_has_expected_properties(): void {
 		$html = self::$field->as_string();
 		$this->assertStringContainsString( 'type="email"', $html );
+	}
+
+	/**
+	 * Test that an email field can be rendered as multiple
+	 *
+	 * @return void
+	 */
+	public function test_multiple(): void {
+		$html = self::$field->multiple()->as_string();
+		$this->assertStringContainsString( 'MULTIPLE', $html );
 	}
 }

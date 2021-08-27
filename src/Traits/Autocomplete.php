@@ -26,7 +26,6 @@ namespace PinkCrab\Form_Fields\Traits;
 
 trait Autocomplete {
 
-
 	/**
 	 * If set will use the value as the autcomplete value.
 	 *

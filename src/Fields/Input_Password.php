@@ -41,5 +41,3 @@ class Input_Password extends Abstract_Input {
 	 */
 	protected $input_type = 'password';
 }
-
-

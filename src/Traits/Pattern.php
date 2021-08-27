@@ -27,30 +27,30 @@ namespace PinkCrab\Form_Fields\Traits;
 trait Pattern {
 
 	/**
-	 * Pattern for mapping values.
+	 * Set pattern value.
 	 *
-	 * @var string|null
+	 * @param string $pattern
+	 * @return self
 	 */
-	protected $pattern;
+	public function pattern( string $pattern = '' ): self {
+		if ( \mb_strlen( $pattern ) !== 0 ) {
+			$this->attribute( 'pattern', $pattern );
+		} else {
+			$this->unset_attribute( 'pattern' );
+		}
+
+		return $this;
+	}
 
 	/**
-	 * Get pattern for mapping values.
+	 * Get pattern value.
 	 *
 	 * @return string|null
 	 */
 	public function get_pattern(): ?string {
-		return $this->pattern;
-	}
-
-	/**
-	 * Set pattern for mapping values.
-	 *
-	 * @param string $pattern  Pattern for mapping values.
-	 * @return static
-	 */
-	public function pattern( string $pattern = '' ): self {
-		$this->pattern = ! empty( $pattern ) ? $pattern : null;
-		return $this;
+		return array_key_exists( 'pattern', $this->attributes )
+			? (string) $this->attributes['pattern']
+			: null;
 	}
 
 }
