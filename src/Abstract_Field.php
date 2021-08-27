@@ -142,7 +142,6 @@ abstract class Abstract_Field {
 	 * @return static
 	 */
 	public static function create( string $key ): self {
-		$self = get_called_class();
 		return new static( $key );
 	}
 

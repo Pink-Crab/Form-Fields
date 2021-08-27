@@ -24,24 +24,16 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Label_Config;
 use PinkCrab\Form_Fields\Traits\Options;
-use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Form_Fields\Parsers\Radio_Parser;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Radio extends Input_Text {
+class Input_Radio extends Abstract_Input {
 
 	/**
 	 * Use the checked property.
 	 */
 	use Options;
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
 
 	/**
 	 * Sets the input type

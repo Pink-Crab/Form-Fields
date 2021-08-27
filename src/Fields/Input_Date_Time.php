@@ -29,13 +29,6 @@ use PinkCrab\Form_Fields\Fields\Input_Date;
 class Input_Date_Time extends Input_Date {
 
 	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
-
-	/**
 	 * Sets the input type
 	 *
 	 * @var string
