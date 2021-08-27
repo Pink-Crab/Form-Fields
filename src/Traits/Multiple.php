@@ -31,7 +31,7 @@ trait Multiple {
 	 *
 	 * @var bool
 	 */
-	protected $select_type = false;
+	protected $multiple = false;
 
 	/**
 	 * Sets if the field is multiple.
@@ -40,7 +40,7 @@ trait Multiple {
 	 * @return self
 	 */
 	public function multiple( bool $multiple = true ): self {
-		$this->select_type = $multiple;
+		$this->multiple = $multiple;
 		return $this;
 	}
 
@@ -50,7 +50,7 @@ trait Multiple {
 	 * @return bool
 	 */
 	public function is_multiple(): bool {
-		return $this->select_type;
+		return $this->multiple;
 	}
 
 	/**

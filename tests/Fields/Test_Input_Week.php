@@ -65,7 +65,6 @@ class Test_Input_Week extends WP_UnitTestCase {
 		    ->min( '01-01-2020' )
 		    ->max( '12-12-2020' )
 			->as_string();
-			dump($html);
 
 		$this->assertStringContainsString( 'type="week"', $html );
 		$this->assertStringContainsString( 'min="01-01-2020"', $html );
