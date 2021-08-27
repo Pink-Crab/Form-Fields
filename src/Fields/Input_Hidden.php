@@ -35,5 +35,3 @@ class Input_Hidden extends Abstract_Input {
 	 */
 	protected $input_type = 'hidden';
 }
-
-

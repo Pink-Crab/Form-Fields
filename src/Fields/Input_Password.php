@@ -42,40 +42,4 @@ class Input_Password extends Abstract_Input {
 	 */
 	protected $input_type = 'password';
 
-		/**
-	 * Renders the text input.
-	 *
-	 * @return void
-	 */
-	public function render(): void {
-		$this->populate_attributes();
-		parent::render();
-	}
-
-	/**
-	 * Returns the input HTML
-	 *
-	 * @return string
-	 */
-	public function generate_field_html(): string {
-		$this->populate_attributes();
-		return parent::generate_field_html();
-	}
-
-	/**
-	 * If the mix/ax/step values are set, add to attributes.
-	 * Run before generating the HTML
-	 *
-	 * @return void
-	 */
-	protected function populate_attributes() {
-		if ( ! is_null( $this->minlength ) ) {
-			$this->attribute( 'minlength', (string) $this->get_minlength() );
-		}
-		if ( ! is_null( $this->maxlength ) ) {
-			$this->attribute( 'maxlength', (string) $this->get_maxlength() );
-		}
-	}
 }
-
-

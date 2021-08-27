@@ -39,7 +39,6 @@ class Input_Colour extends Abstract_Input {
 	 */
 	protected $input_type = 'color';
 
-
 }
 
 

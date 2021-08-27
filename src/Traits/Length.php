@@ -26,19 +26,6 @@ namespace PinkCrab\Form_Fields\Traits;
 
 trait Length {
 
-	/**
-	 * Min length.
-	 *
-	 * @var int|null
-	 */
-	protected $minlength;
-
-	/**
-	 * Max length.
-	 *
-	 * @var int|null
-	 */
-	protected $maxlength;
 
 	/**
 	 * Get the minlength value
@@ -46,7 +33,9 @@ trait Length {
 	 * @return mixed
 	 */
 	public function get_minlength() {
-		return $this->minlength;
+		return array_key_exists( 'minlength', $this->attributes )
+			? (string) $this->attributes['minlength']
+			: '';
 	}
 
 	/**
@@ -56,7 +45,12 @@ trait Length {
 	 * @return self
 	 */
 	public function minlength( $minlength ): self {
-		$this->minlength = (int) $minlength;
+		if ( \mb_strlen( (string) $minlength ) !== 0 ) {
+			$this->attribute( 'minlength', (string) $minlength );
+		} else {
+			$this->unset_attribute( 'minlength' );
+		}
+
 		return $this;
 	}
 
@@ -66,7 +60,9 @@ trait Length {
 	 * @return mixed
 	 */
 	public function get_maxlength() {
-		return $this->maxlength;
+		return array_key_exists( 'maxlength', $this->attributes )
+			? (string) $this->attributes['maxlength']
+			: '';
 	}
 
 	/**
@@ -76,7 +72,13 @@ trait Length {
 	 * @return self
 	 */
 	public function maxlength( $maxlength ): self {
-		$this->maxlength = (int) $maxlength;
+		if ( \mb_strlen( (string) $maxlength ) !== 0 ) {
+			$this->attribute( 'maxlength', (string) $maxlength );
+		} else {
+			$this->unset_attribute( 'maxlength' );
+		}
+
 		return $this;
 	}
+
 }

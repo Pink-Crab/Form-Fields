@@ -42,5 +42,3 @@ class Input_Text extends Abstract_Input {
 	protected $input_type = 'text';
 
 }
-
-

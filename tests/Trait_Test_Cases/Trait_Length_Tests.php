@@ -28,16 +28,13 @@ trait Trait_Length_Tests {
 		// Set
 		self::$field->minlength( 5 );
 
-		// Test added to property
-		$this->assertEquals( 5, Objects::get_property( self::$field, 'minlength' ) );
-
 		// Get
-		$this->assertEquals( 5, self::$field->get_minlength() );
+		$this->assertEquals( '5', self::$field->get_minlength() );
 
 		// In Attributes (run render first)
 		self::$field->as_string();
 		$this->assertArrayHasKey( 'minlength', self::$field->get_attributes() );
-		$this->assertEquals( 5, self::$field->get_attributes()['minlength'] );
+		$this->assertEquals( '5', self::$field->get_attributes()['minlength'] );
 		$this->assertNotEquals( '42', self::$field->get_attributes()['minlength'] );
 
 	}
@@ -50,18 +47,15 @@ trait Trait_Length_Tests {
 	public function test_maxlength_attribute(): void {
 
 		// Set
-		self::$field->maxlength( 99 );
-
-		// Test added to property
-		$this->assertEquals( 99, Objects::get_property( self::$field, 'maxlength' ) );
+		self::$field->maxlength( 99.9);
 
 		// Get
-		$this->assertEquals( 99, self::$field->get_maxlength() );
+		$this->assertEquals( '99.9', self::$field->get_maxlength() );
 
 		// In Attributes (run render first)
 		self::$field->as_string();
 		$this->assertArrayHasKey( 'maxlength', self::$field->get_attributes() );
-		$this->assertEquals( 99, self::$field->get_attributes()['maxlength'] );
+		$this->assertEquals( '99.9', self::$field->get_attributes()['maxlength'] );
 		$this->assertNotEquals( '42', self::$field->get_attributes()['maxlength'] );
 
 	}
