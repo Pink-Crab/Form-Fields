@@ -30,7 +30,7 @@ class Test_Label_Rendering extends DOMTestCase {
 	protected $field_type = Input_Number::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Number
 	 */

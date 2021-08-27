@@ -30,7 +30,7 @@ class Test_Input_Radio extends WP_UnitTestCase {
 	protected $field_type = Input_Radio::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Radio
 	 */

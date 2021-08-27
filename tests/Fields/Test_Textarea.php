@@ -29,7 +29,7 @@ class Test_Textarea extends WP_UnitTestCase {
 	protected $field_type = Textarea::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Textarea
 	 */

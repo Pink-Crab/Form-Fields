@@ -32,7 +32,7 @@ class Test_Select extends WP_UnitTestCase {
 	protected $field_type = Select::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Select
 	 */

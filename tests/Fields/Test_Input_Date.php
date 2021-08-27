@@ -28,7 +28,7 @@ class Test_Input_Date extends WP_UnitTestCase {
 	protected $field_type = Input_Date::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Date
 	 */
