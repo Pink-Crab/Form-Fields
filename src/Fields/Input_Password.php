@@ -24,6 +24,7 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
+use PinkCrab\Form_Fields\Traits\Length;
 use PinkCrab\Form_Fields\Traits\Pattern;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
@@ -32,7 +33,7 @@ use PinkCrab\Form_Fields\Fields\Abstract_Input;
 class Input_Password extends Abstract_Input {
 
 	// Input attributes.
-	use Placeholder, Autocomplete, Pattern;
+	use Placeholder, Autocomplete, Pattern, Length;
 
 	/**
 	 * Sets the input type
@@ -40,6 +41,41 @@ class Input_Password extends Abstract_Input {
 	 * @var string
 	 */
 	protected $input_type = 'password';
+
+		/**
+	 * Renders the text input.
+	 *
+	 * @return void
+	 */
+	public function render(): void {
+		$this->populate_attributes();
+		parent::render();
+	}
+
+	/**
+	 * Returns the input HTML
+	 *
+	 * @return string
+	 */
+	public function generate_field_html(): string {
+		$this->populate_attributes();
+		return parent::generate_field_html();
+	}
+
+	/**
+	 * If the mix/ax/step values are set, add to attributes.
+	 * Run before generating the HTML
+	 *
+	 * @return void
+	 */
+	protected function populate_attributes() {
+		if ( ! is_null( $this->minlength ) ) {
+			$this->attribute( 'minlength', (string) $this->get_minlength() );
+		}
+		if ( ! is_null( $this->maxlength ) ) {
+			$this->attribute( 'maxlength', (string) $this->get_maxlength() );
+		}
+	}
 }
 
 

@@ -15,6 +15,7 @@ namespace PinkCrab\Form_Fields\Tests\Fields;
 use WP_UnitTestCase;
 use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Fields\Input_Password;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Length_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
@@ -43,7 +44,8 @@ class Test_Input_Password extends WP_UnitTestCase {
 	use Trait_General_Field_Tests, 
 		Trait_Placeholder_Tests, 
 		Trait_Autocomplete_Tests,
-		Trait_Pattern_Tests;
+		Trait_Pattern_Tests,
+		Trait_Length_Tests;
 
 	/**
 	 * Create new input.

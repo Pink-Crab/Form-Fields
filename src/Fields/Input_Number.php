@@ -40,8 +40,6 @@ class Input_Number extends Abstract_Input {
 	 */
 	protected $input_type = 'number';
 
-
-
 	/**
 	 * Renders the text input.
 	 *
