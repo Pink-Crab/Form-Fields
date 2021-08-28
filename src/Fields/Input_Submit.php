@@ -56,7 +56,6 @@ class Input_Submit extends Abstract_Input {
 	 * @return string
 	 */
 	public function get_value(): string {
-		dump( $this->get_current() );
 		return \strval( $this->get_current() );
 	}
 
