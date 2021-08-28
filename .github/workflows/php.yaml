@@ -13,20 +13,6 @@ jobs:
         operating-system: [ubuntu-latest]
         php-versions: ['7.1', '7.2', '7.3', '7.4']
     runs-on: ${{ matrix.operating-system }}
-    services:
-      # Setup MYSQL
-      mysql-service:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: 'crab'
-          MYSQL_DATABASE: pc_core_tests
-        ports:
-          - 3306:3306
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -42,7 +28,7 @@ jobs:
         run: php -v
 
       - name: Clear existing composer
-        run: rm -rf wordpress && rm -rf vendor && rm -rf composer.lock 
+        run: rm -rf vendor && rm -rf composer.lock 
 
       - name: Validate composer.json and composer.lock
         run: composer validate

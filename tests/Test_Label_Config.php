@@ -12,10 +12,10 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Label_Config;
 
-class Test_Label_Config extends WP_UnitTestCase {
+class Test_Label_Config extends TestCase {
 
 	/**
 	 * Test the defaults are set as expected.
