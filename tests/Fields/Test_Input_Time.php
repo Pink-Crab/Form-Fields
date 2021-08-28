@@ -12,14 +12,14 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Fields\Input_Time;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Range_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Datalist_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Time extends WP_UnitTestCase {
+class Test_Input_Time extends TestCase {
 
 
 	/**

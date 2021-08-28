@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Fields\Textarea;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Textarea extends WP_UnitTestCase {
+class Test_Textarea extends TestCase {
 
 
 	/**
