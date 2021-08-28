@@ -16,6 +16,7 @@ use WP_UnitTestCase;
 use PinkCrab\Form_Fields\Fields\Input_Date;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Range_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Datalist_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
 class Test_Input_Date extends WP_UnitTestCase {
@@ -39,7 +40,9 @@ class Test_Input_Date extends WP_UnitTestCase {
 	 * Include all shared tests via trait.
 	 */
 	use Trait_General_Field_Tests, 
-		Trait_Pattern_Tests, Trait_Range_Tests;
+		Trait_Pattern_Tests, 
+		Trait_Range_Tests, 
+		Trait_Datalist_Tests;
 
 	/**
 	 * Create new input.

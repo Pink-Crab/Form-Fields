@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Month input field
+ * URL Input Field
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,22 +24,22 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Traits\Range;
 use PinkCrab\Form_Fields\Traits\Pattern;
 use PinkCrab\Form_Fields\Traits\Datalist;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Month extends Abstract_Input {
+class Input_URL extends Abstract_Input {
 
-	use Autocomplete, Placeholder, Pattern, Range, Datalist;
+	// Input attributes.
+	use Placeholder, Autocomplete, Pattern, Datalist;
 
 	/**
 	 * Sets the input type
 	 *
 	 * @var string
 	 */
-	protected $input_type = 'month';
+	protected $input_type = 'url';
 
 }

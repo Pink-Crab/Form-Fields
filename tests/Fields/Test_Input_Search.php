@@ -17,6 +17,7 @@ use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Fields\Input_Search;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Length_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Datalist_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
@@ -44,7 +45,7 @@ class Test_Input_Search extends WP_UnitTestCase {
 		Trait_Placeholder_Tests,
 		Trait_Autocomplete_Tests,
 		Trait_Pattern_Tests,
-		Trait_Length_Tests;
+		Trait_Length_Tests, Trait_Datalist_Tests;
 
 	/**
 	 * Create new input.

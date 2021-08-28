@@ -25,13 +25,14 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
+use PinkCrab\Form_Fields\Traits\Datalist;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
 class Input_Number extends Abstract_Input {
 
-	use Range, Placeholder, Autocomplete;
+	use Range, Placeholder, Autocomplete, Datalist;
 
 	/**
 	 * Sets the input type

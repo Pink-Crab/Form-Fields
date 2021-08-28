@@ -25,6 +25,7 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Pattern;
+use PinkCrab\Form_Fields\Traits\Datalist;
 use PinkCrab\Form_Fields\Traits\Multiple;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
@@ -32,7 +33,7 @@ use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
 class Input_Email extends Abstract_Input {
 
-	use Multiple, Pattern, Placeholder, Autocomplete;
+	use Multiple, Pattern, Placeholder, Autocomplete, Datalist;
 
 
 	/**
@@ -48,7 +49,10 @@ class Input_Email extends Abstract_Input {
 	 * @return string
 	 */
 	public function generate_field_html(): string {
+		$datalist = $this->include_datalist();
+
 		return <<<HTML
+$datalist
 <input type="{$this->input_type}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}/>
 HTML;
 	}
