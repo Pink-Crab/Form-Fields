@@ -27,7 +27,7 @@ Input_Text::create( 'my_input' )
 ```
 
 ![](/docs/assets/simple_input.png)
-![](/docs/assets/basic_input_with_current.pngassets/simple_input.png)
+![](/docs/assets/basic_input_with_current.png)
 
 You can return the HTML string of the input using as\__string_\(\)
 
@@ -41,19 +41,26 @@ Input_Text::create( 'my_input' )
 
 ### Field Types
 
-* [Text](https://glynn-quelch.gitbook.io/pinkcrab/modules/modules/form-fields/input_text)
-* Number
+* [Text](/docs/input_text.md)
+* Search
 * Password
 * Email
+* URL
+* Tel
+* Number
 * Range
+* Text Area
 * Date
 * Date Time
-* Checkbox
+* Checkbox (Single & Group)
 * Radio
 * Select
 * Raw HTML
 * Hidden
-* Text Area
+* Week
+* Month
+* Image (button)
+* Submit
 
 All inputs are extended from the Abstract\_Field class and have all the functionality laid out in the Base Field section.
 
@@ -82,7 +89,7 @@ Input_Password::create('password')->render();
 **Release 0.1.5**
 
 ## Change Log
-* 0.1.6 - Added in missing fields [ Colour(inc alias Color), Week, Time, Month, File, Image, Submit & Tel ] and moved to a new abstract INPUT which is used to extend all <INPUT> fields from a base abstract input. Tests cleaned up and all attributes are now just controlled by attributes, not custom properties.
+* 0.1.6 - Added in missing fields [ Colour(inc alias Color), Week, Time, Month, File, Image, Submit & Tel ] and moved to a new abstract INPUT which is used to extend all \<INPUT\> fields from a base abstract input. Tests cleaned up and all attributes are now just controlled by attributes, not custom properties.
 * 0.1.5 - Allow numerical strings for select options.
 * 0.1.4 - Removed default as not implemented and not really suitable for this library. Also included the option to set custom name attributes to fields, falling back to the key (id) if not set.
 * 0.1.3 - Added in the Checkbox Group field
