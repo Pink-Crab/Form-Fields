@@ -20,14 +20,14 @@ class Test_Raw_HTML extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Raw_HTML::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Raw_HTML
 	 */

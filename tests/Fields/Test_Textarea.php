@@ -22,14 +22,14 @@ class Test_Textarea extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Textarea::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Textarea
 	 */

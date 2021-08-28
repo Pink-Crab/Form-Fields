@@ -20,14 +20,14 @@ use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 class Test_Input_Checkbox extends WP_UnitTestCase {
 
 	/**
-	 * Holds the inpout type
+	 * Holds the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Input_Checkbox::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Checkbox
 	 */

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Adds Placeholder functionality
+ * Submit field.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -22,35 +22,42 @@ declare(strict_types=1);
  * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Form_Fields\Traits;
+namespace PinkCrab\Form_Fields\Fields;
 
-trait Autocomplete {
+use PinkCrab\Form_Fields\Traits\Button;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
+
+class Input_Submit extends Abstract_Input {
+
+	use Button;
 
 	/**
-	 * If set will use the value as the autcomplete value.
+	 * Sets the input type
 	 *
-	 * @param string $autocomplete
+	 * @var string
+	 */
+	protected $input_type = 'submit';
+
+	/**
+	 * Sets the button value
+	 * Alias for self::current() but strict string value.
+	 *
+	 * @param string $value
 	 * @return self
 	 */
-	public function autocomplete( string $autocomplete = 'on' ): self {
-		if ( ! empty( $autocomplete ) ) {
-			$this->attribute( 'autocomplete', $autocomplete );
-		} else {
-			$this->unset_attribute( 'autocomplete' );
-		}
-
-		return $this;
+	public function value( string $value ): self {
+		return $this->current( $value );
 	}
 
 	/**
-	 * Get if select, will be set as first option with no value.
+	 * Gets the current value
+	 * Alias for self::get_current() but strict string value.
 	 *
 	 * @return string
 	 */
-	public function get_autocomplete(): string {
-		return array_key_exists( 'autocomplete', $this->attributes )
-			? $this->attributes['autocomplete']
-			: '';
+	public function get_value(): string {
+		return \strval( $this->get_current() );
 	}
+
 
 }

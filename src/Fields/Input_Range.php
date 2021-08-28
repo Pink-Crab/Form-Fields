@@ -32,13 +32,6 @@ class Input_Range extends Input_Number {
 	use Options;
 
 	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
-
-	/**
 	 * Sets the input type
 	 *
 	 * @var string

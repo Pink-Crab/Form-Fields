@@ -24,21 +24,15 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Traits\Pattern;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Text extends Abstract_Field {
+class Input_Text extends Abstract_Input {
 
+	// Input attributes.
 	use Placeholder, Autocomplete, Pattern;
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
 
 	/**
 	 * Sets the input type
@@ -47,17 +41,4 @@ class Input_Text extends Abstract_Field {
 	 */
 	protected $input_type = 'text';
 
-	/**
-	 * Returns the input HTML
-	 *
-	 * @return string
-	 */
-	public function generate_field_html(): string {
-		return <<<HTML
-<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
-HTML;
-	}
-
 }
-
-

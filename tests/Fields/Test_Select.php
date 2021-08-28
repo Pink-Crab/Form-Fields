@@ -25,14 +25,14 @@ class Test_Select extends WP_UnitTestCase {
 		Trait_Placeholder_Tests;
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Select::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Select
 	 */

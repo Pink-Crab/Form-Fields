@@ -24,16 +24,9 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Hidden extends Input_Text {
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
+class Input_Hidden extends Abstract_Input {
 
 	/**
 	 * Sets the input type
@@ -42,5 +35,3 @@ class Input_Hidden extends Input_Text {
 	 */
 	protected $input_type = 'hidden';
 }
-
-

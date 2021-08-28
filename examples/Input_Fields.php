@@ -11,6 +11,7 @@ use PinkCrab\Form_Fields\Fields\Input_Text;
 use PinkCrab\Form_Fields\Fields\Input_Email;
 use PinkCrab\Form_Fields\Fields\Input_Radio;
 use PinkCrab\Form_Fields\Fields\Input_Range;
+use PinkCrab\Form_Fields\Fields\Input_Colour;
 use PinkCrab\Form_Fields\Fields\Input_Hidden;
 use PinkCrab\Form_Fields\Fields\Input_Number;
 use PinkCrab\Form_Fields\Fields\Input_Checkbox;
@@ -209,9 +210,18 @@ print_code( $number_range_hash->as_string() );
 
 hr();
 
+heading( 'Colour Selector' );
+$colour_selector = Input_Colour::create( 'colour' )
+	->label( 'This is a colour selector' )
+	->placeholder( 'Pick a colour' )
+	->show_label()
+	->label_position( Label_Config::BEFORE_INPUT );
 
 
+$colour_selector->render();
+print_code( $colour_selector->as_string() );
 
+hr();
 
 /**
  * Date Inputs

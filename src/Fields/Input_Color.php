@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Adds Placeholder functionality
+ * Alias for Colour input
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -22,35 +22,8 @@ declare(strict_types=1);
  * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Form_Fields\Traits;
+namespace PinkCrab\Form_Fields\Fields;
 
-trait Autocomplete {
+class Input_Color extends Input_Colour {}
 
-	/**
-	 * If set will use the value as the autcomplete value.
-	 *
-	 * @param string $autocomplete
-	 * @return self
-	 */
-	public function autocomplete( string $autocomplete = 'on' ): self {
-		if ( ! empty( $autocomplete ) ) {
-			$this->attribute( 'autocomplete', $autocomplete );
-		} else {
-			$this->unset_attribute( 'autocomplete' );
-		}
 
-		return $this;
-	}
-
-	/**
-	 * Get if select, will be set as first option with no value.
-	 *
-	 * @return string
-	 */
-	public function get_autocomplete(): string {
-		return array_key_exists( 'autocomplete', $this->attributes )
-			? $this->attributes['autocomplete']
-			: '';
-	}
-
-}

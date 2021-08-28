@@ -25,18 +25,13 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
-use PinkCrab\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Traits\Placeholder;
+use PinkCrab\Form_Fields\Traits\Autocomplete;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Number extends Input_Text {
+class Input_Number extends Abstract_Input {
 
-	use Range;
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
+	use Range, Placeholder, Autocomplete;
 
 	/**
 	 * Sets the input type
@@ -45,43 +40,4 @@ class Input_Number extends Input_Text {
 	 */
 	protected $input_type = 'number';
 
-
-
-	/**
-	 * Renders the text input.
-	 *
-	 * @return void
-	 */
-	public function render(): void {
-		$this->populate_attributes();
-		parent::render();
-	}
-
-	/**
-	 * Returns the input HTML
-	 *
-	 * @return string
-	 */
-	public function generate_field_html(): string {
-		$this->populate_attributes();
-		return parent::generate_field_html();
-	}
-
-	/**
-	 * If the mix/ax/step values are set, add to attributes.
-	 * Run before generating the HTML
-	 *
-	 * @return void
-	 */
-	protected function populate_attributes() {
-		if ( ! is_null( $this->min ) ) {
-			$this->attribute( 'min', (string) $this->get_min() );
-		}
-		if ( ! is_null( $this->max ) ) {
-			$this->attribute( 'max', (string) $this->get_max() );
-		}
-		if ( ! is_null( $this->step ) ) {
-			$this->attribute( 'step', (string) $this->get_step() );
-		}
-	}
 }

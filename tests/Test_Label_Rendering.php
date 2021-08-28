@@ -23,14 +23,14 @@ class Test_Label_Rendering extends DOMTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Input_Number::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Number
 	 */

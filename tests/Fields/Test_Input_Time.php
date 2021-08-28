@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Input with type NUMBER tests.
+ * Input with type DATE tests.
  *
  * @author Glynn Quelch <glynn.quelch@gmail.com>
  * @license http://www.opensource.org/licenses/mit-license.html  MIT License
@@ -13,13 +13,12 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
 use WP_UnitTestCase;
-use PinkCrab\Form_Fields\Fields\Input_Number;
+use PinkCrab\Form_Fields\Fields\Input_Time;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Range_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
-use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
-use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Number extends WP_UnitTestCase {
+class Test_Input_Time extends WP_UnitTestCase {
 
 
 	/**
@@ -27,12 +26,12 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 *
 	 * @var string
 	 */
-	protected $field_type = Input_Number::class;
+	protected $field_type = Input_Time::class;
 
 	/**
 	 * Rendered instance of the field.
 	 *
-	 * @var Input_Number
+	 * @var Input_Time
 	 */
 	protected static $field;
 
@@ -40,8 +39,7 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 * Include all shared tests via trait.
 	 */
 	use Trait_General_Field_Tests, 
-		Trait_Placeholder_Tests, 
-		Trait_Autocomplete_Tests;
+		Trait_Pattern_Tests, Trait_Range_Tests;
 
 	/**
 	 * Create new input.
@@ -50,7 +48,7 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Number::create( 'key');
+		self::$field = Input_Time::create( 'key');
 	}
 
 
@@ -61,14 +59,14 @@ class Test_Input_Number extends WP_UnitTestCase {
 	 */
 	public function test_html_has_expected_properties(): void {
 		$html = self::$field
-		    ->min( 0 )
-		    ->max( 10 )
-		    ->step( 2.5 )
+		    ->min( '12:00' )
+		    ->max( '18:00' )
+			->pattern('[0-9]{2}:[0-9]{2}')
 			->as_string();
 
-		$this->assertStringContainsString( 'type="number"', $html );
-		$this->assertStringContainsString( 'min="0"', $html );
-		$this->assertStringContainsString( 'max="10"', $html );
-		$this->assertStringContainsString( 'step="2.5"', $html );
+		$this->assertStringContainsString( 'type="time"', $html );
+		$this->assertStringContainsString( 'min="12:00"', $html );
+		$this->assertStringContainsString( 'max="18:00"', $html );
+		$this->assertStringContainsString( 'pattern="[0-9]{2}:[0-9]{2}"', $html );
 	}
 }

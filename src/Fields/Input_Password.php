@@ -24,16 +24,16 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Traits\Length;
+use PinkCrab\Form_Fields\Traits\Pattern;
+use PinkCrab\Form_Fields\Traits\Placeholder;
+use PinkCrab\Form_Fields\Traits\Autocomplete;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Password extends Input_Text {
+class Input_Password extends Abstract_Input {
 
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
+	// Input attributes.
+	use Placeholder, Autocomplete, Pattern, Length;
 
 	/**
 	 * Sets the input type
@@ -41,6 +41,5 @@ class Input_Password extends Input_Text {
 	 * @var string
 	 */
 	protected $input_type = 'password';
+
 }
-
-

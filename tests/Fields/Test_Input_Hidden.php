@@ -20,14 +20,14 @@ class Test_Input_Hidden extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Input_Hidden::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Hidden
 	 */

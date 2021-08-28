@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Email Input
+ * File field.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,34 +24,71 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Traits\Pattern;
 use PinkCrab\Form_Fields\Traits\Multiple;
-use PinkCrab\Form_Fields\Traits\Placeholder;
-use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Email extends Abstract_Input {
+class Input_File extends Abstract_Input {
 
-	use Multiple, Pattern, Placeholder, Autocomplete;
-
+	use Multiple;
 
 	/**
 	 * Sets the input type
 	 *
 	 * @var string
 	 */
-	protected $input_type = 'email';
+	protected $input_type = 'file';
 
 	/**
-	 * Returns the input HTML
+	 * Get the accept value
 	 *
-	 * @return string
+	 * @return mixed
 	 */
-	public function generate_field_html(): string {
-		return <<<HTML
-<input type="{$this->input_type}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}/>
-HTML;
+	public function get_accept() {
+		return array_key_exists( 'accept', $this->attributes )
+			? (string) $this->attributes['accept']
+			: '';
+	}
+
+	/**
+	 * Set the accept value
+	 *
+	 * @param string $accept  The accept value
+	 * @return self
+	 */
+	public function accept( string $accept = '' ): self {
+		if ( \mb_strlen( (string) $accept ) !== 0 ) {
+			$this->attribute( 'accept', (string) $accept );
+		} else {
+			$this->unset_attribute( 'accept' );
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Get the capture value
+	 *
+	 * @return mixed
+	 */
+	public function get_capture() {
+		return array_key_exists( 'capture', $this->attributes )
+			? (string) $this->attributes['capture']
+			: '';
+	}
+
+	/**
+	 * Set the capture value
+	 *
+	 * @param string $capture  The capture value
+	 * @return self
+	 */
+	public function capture( string $capture = '' ): self {
+		if ( \mb_strlen( (string) $capture ) !== 0 ) {
+			$this->attribute( 'capture', (string) $capture );
+		} else {
+			$this->unset_attribute( 'capture' );
+		}
+
+		return $this;
 	}
 }
-
-

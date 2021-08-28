@@ -21,14 +21,14 @@ class Test_Input_Date_Time extends WP_UnitTestCase {
 
 
 	/**
-	 * Hols the inpout type
+	 * Hols the input type
 	 *
 	 * @var string
 	 */
 	protected $field_type = Input_Date_Time::class;
 
 	/**
-	 * Rendered isntance of the field.
+	 * Rendered instance of the field.
 	 *
 	 * @var Input_Date_Time
 	 */

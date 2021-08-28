@@ -26,84 +26,84 @@ namespace PinkCrab\Form_Fields\Traits;
 
 trait Range {
 
-		/**
-	 * The min value
-	 *
-	 * @var mixed
-	 */
-	protected $min;
-
 	/**
-	 * The max value
+	 * Set min value.
 	 *
-	 * @var mixed
-	 */
-	protected $max;
-
-	/**
-	 * Step value.
-	 *
-	 * @var mixed
-	 */
-	protected $step;
-
-
-	/**
-	 * Get the min value
-	 *
-	 * @return mixed
-	 */
-	public function get_min() {
-		return $this->min;
-	}
-
-	/**
-	 * Set the min value
-	 *
-	 * @param mixed $min  The min value
+	 * @param mixed $min
 	 * @return self
 	 */
 	public function min( $min ): self {
-		$this->min = $min;
+		if ( \mb_strlen( (string) $min ) !== 0 ) {
+			$this->attribute( 'min', (string) $min );
+		} else {
+			$this->unset_attribute( 'min' );
+		}
+
 		return $this;
 	}
 
 	/**
-	 * Get the max value
+	 * Get min value.
 	 *
-	 * @return mixed
+	 * @return string
 	 */
-	public function get_max() {
-		return $this->max;
+	public function get_min(): string {
+		return array_key_exists( 'min', $this->attributes )
+			? (string) $this->attributes['min']
+			: '';
 	}
 
 	/**
-	 * Set the max value
+	 * Set max value.
 	 *
-	 * @param mixed $max  The max value
+	 * @param mixed $max
 	 * @return self
 	 */
 	public function max( $max ): self {
-		$this->max = $max;
+		if ( \mb_strlen( (string) $max ) !== 0 ) {
+			$this->attribute( 'max', (string) $max );
+		} else {
+			$this->unset_attribute( 'max' );
+		}
+
 		return $this;
 	}
 
 	/**
-	 * Get step value.
-	 * @return mixed
+	 * Get max value.
+	 *
+	 * @return string
 	 */
-	public function get_step() {
-		return $this->step;
+	public function get_max(): string {
+		return array_key_exists( 'max', $this->attributes )
+			? (string) $this->attributes['max']
+			: '';
 	}
 
 	/**
 	 * Set step value.
 	 *
-	 * @param mixed $step  Step value.
+	 * @param mixed $step
 	 * @return self
 	 */
 	public function step( $step ): self {
-		$this->step = $step;
+		if ( \mb_strlen( (string) $step ) !== 0 ) {
+			$this->attribute( 'step', (string) $step );
+		} else {
+			$this->unset_attribute( 'step' );
+		}
+
 		return $this;
+	}
+
+	/**
+	 * Get step value.
+	 *
+	 * @return string
+	 */
+	public function get_step(): string {
+		return array_key_exists( 'step', $this->attributes )
+			? (string) $this->attributes['step']
+			: '';
 	}
 }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Adds Placeholder functionality
+ * Length property.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,33 +24,61 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Traits;
 
-trait Autocomplete {
+trait Length {
+
 
 	/**
-	 * If set will use the value as the autcomplete value.
+	 * Get the minlength value
 	 *
-	 * @param string $autocomplete
+	 * @return mixed
+	 */
+	public function get_minlength() {
+		return array_key_exists( 'minlength', $this->attributes )
+			? (string) $this->attributes['minlength']
+			: '';
+	}
+
+	/**
+	 * Set the minlength value
+	 *
+	 * @param int|string|float $minlength  The minlength value
 	 * @return self
 	 */
-	public function autocomplete( string $autocomplete = 'on' ): self {
-		if ( ! empty( $autocomplete ) ) {
-			$this->attribute( 'autocomplete', $autocomplete );
+	public function minlength( $minlength = '' ): self {
+		if ( \mb_strlen( (string) $minlength ) !== 0 ) {
+			$this->attribute( 'minlength', (string) $minlength );
 		} else {
-			$this->unset_attribute( 'autocomplete' );
+			$this->unset_attribute( 'minlength' );
 		}
 
 		return $this;
 	}
 
 	/**
-	 * Get if select, will be set as first option with no value.
+	 * Get the maxlength value
 	 *
-	 * @return string
+	 * @return mixed
 	 */
-	public function get_autocomplete(): string {
-		return array_key_exists( 'autocomplete', $this->attributes )
-			? $this->attributes['autocomplete']
+	public function get_maxlength() {
+		return array_key_exists( 'maxlength', $this->attributes )
+			? (string) $this->attributes['maxlength']
 			: '';
+	}
+
+	/**
+	 * Set the maxlength value
+	 *
+	 * @param int|string|float $maxlength  The maxlength value
+	 * @return self
+	 */
+	public function maxlength( $maxlength = '' ): self {
+		if ( \mb_strlen( (string) $maxlength ) !== 0 ) {
+			$this->attribute( 'maxlength', (string) $maxlength );
+		} else {
+			$this->unset_attribute( 'maxlength' );
+		}
+
+		return $this;
 	}
 
 }

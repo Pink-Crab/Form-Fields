@@ -26,18 +26,13 @@ namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
 use PinkCrab\Form_Fields\Traits\Pattern;
-use PinkCrab\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Traits\Placeholder;
+use PinkCrab\Form_Fields\Traits\Autocomplete;
+use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Date extends Input_Text {
+class Input_Date extends Abstract_Input {
 
-	use Range;
-
-	/**
-	 * The field type.
-	 *
-	 * @var string
-	 */
-	protected $type = 'input';
+	use Range, Autocomplete, Placeholder, Pattern;
 
 	/**
 	 * Sets the input type
@@ -45,49 +40,5 @@ class Input_Date extends Input_Text {
 	 * @var string
 	 */
 	protected $input_type = 'date';
-
-	/**
-	 * Renders the text input.
-	 *
-	 * @return void
-	 */
-	public function render(): void {
-		$this->_populate_attributes();
-		parent::render();
-	}
-
-	/**
-	 * Returns the input HTML
-	 *
-	 * @return string
-	 */
-	public function generate_field_html(): string {
-		$this->_populate_attributes();
-		return parent::generate_field_html();
-	}
-
-	/**
-	 * If the mix/max/step/pattern values are set, add to attributes.
-	 * Run before generating the HTML
-	 *
-	 * @return void
-	 */
-	// phpcs:ignore
-	protected function _populate_attributes() {
-		if ( ! is_null( $this->get_min() ) ) {
-			$this->attribute( 'min', (string) $this->get_min() );
-		}
-		if ( ! is_null( $this->get_max() ) ) {
-			$this->attribute( 'max', (string) $this->get_max() );
-		}
-		if ( ! is_null( $this->get_step() ) ) {
-			$this->attribute( 'step', (string) $this->get_step() );
-		}
-		if ( ! empty( $this->get_pattern() ) ) {
-			$this->attribute( 'pattern', (string) $this->get_pattern() );
-		}
-	}
-
-
 
 }

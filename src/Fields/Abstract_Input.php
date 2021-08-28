@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Adds Placeholder functionality
+ * Basis to extend all <INPUT> fields froms.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -22,35 +22,39 @@ declare(strict_types=1);
  * @package PinkCrab\Form_Fields
  */
 
-namespace PinkCrab\Form_Fields\Traits;
+namespace PinkCrab\Form_Fields\Fields;
 
-trait Autocomplete {
+use PinkCrab\Form_Fields\Abstract_Field;
+
+class Abstract_Input extends Abstract_Field {
 
 	/**
-	 * If set will use the value as the autcomplete value.
+	 * The field type.
 	 *
-	 * @param string $autocomplete
-	 * @return self
+	 * @var string
 	 */
-	public function autocomplete( string $autocomplete = 'on' ): self {
-		if ( ! empty( $autocomplete ) ) {
-			$this->attribute( 'autocomplete', $autocomplete );
-		} else {
-			$this->unset_attribute( 'autocomplete' );
-		}
-
-		return $this;
-	}
+	protected $type = 'input';
 
 	/**
-	 * Get if select, will be set as first option with no value.
+	 * Gets the input type, falls back to text if not defined.
 	 *
 	 * @return string
 	 */
-	public function get_autocomplete(): string {
-		return array_key_exists( 'autocomplete', $this->attributes )
-			? $this->attributes['autocomplete']
-			: '';
+	protected function get_input_type(): string {
+		return \property_exists( $this, 'input_type' )
+			? $this->input_type
+			: 'text'; // fallback
+	}
+
+	/**
+	 * Returns the input HTML
+	 *
+	 * @return string
+	 */
+	public function generate_field_html(): string {
+		return <<<HTML
+<input type="{$this->get_input_type()}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
+HTML;
 	}
 
 }
