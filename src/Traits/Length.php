@@ -44,7 +44,7 @@ trait Length {
 	 * @param int|string|float $minlength  The minlength value
 	 * @return self
 	 */
-	public function minlength( $minlength ): self {
+	public function minlength( $minlength = '' ): self {
 		if ( \mb_strlen( (string) $minlength ) !== 0 ) {
 			$this->attribute( 'minlength', (string) $minlength );
 		} else {
@@ -71,7 +71,7 @@ trait Length {
 	 * @param int|string|float $maxlength  The maxlength value
 	 * @return self
 	 */
-	public function maxlength( $maxlength ): self {
+	public function maxlength( $maxlength = '' ): self {
 		if ( \mb_strlen( (string) $maxlength ) !== 0 ) {
 			$this->attribute( 'maxlength', (string) $maxlength );
 		} else {
