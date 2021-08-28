@@ -16,6 +16,7 @@ use WP_UnitTestCase;
 use PinkCrab\Form_Fields\Fields\Input_Week;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Range_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Datalist_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
@@ -42,7 +43,8 @@ class Test_Input_Week extends WP_UnitTestCase {
 	use Trait_General_Field_Tests, 
 		Trait_Pattern_Tests, 
 		Trait_Range_Tests,
-		Trait_Autocomplete_Tests;
+		Trait_Autocomplete_Tests, 
+		Trait_Datalist_Tests;
 
 	/**
 	 * Create new input.

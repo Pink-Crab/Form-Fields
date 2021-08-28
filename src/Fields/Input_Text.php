@@ -25,6 +25,7 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Pattern;
+use PinkCrab\Form_Fields\Traits\Datalist;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
@@ -32,7 +33,7 @@ use PinkCrab\Form_Fields\Fields\Abstract_Input;
 class Input_Text extends Abstract_Input {
 
 	// Input attributes.
-	use Placeholder, Autocomplete, Pattern;
+	use Placeholder, Autocomplete, Pattern, Datalist;
 
 	/**
 	 * Sets the input type

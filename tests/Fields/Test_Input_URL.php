@@ -13,14 +13,14 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
 use WP_UnitTestCase;
-use PinkCrab\Form_Fields\Fields\Input_Text;
+use PinkCrab\Form_Fields\Fields\Input_URL;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Datalist_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Text extends WP_UnitTestCase {
+class Test_Input_URL extends WP_UnitTestCase {
 
 
 	/**
@@ -28,22 +28,23 @@ class Test_Input_Text extends WP_UnitTestCase {
 	 *
 	 * @var string
 	 */
-	protected $field_type = Input_Text::class;
+	protected $field_type = Input_URL::class;
 
 	/**
 	 * Rendered instance of the field.
 	 *
-	 * @var Input_Text
+	 * @var Input_URL
 	 */
 	protected static $field;
 
 	/**
 	 * Include all shared tests via trait.
 	 */
-	use Trait_General_Field_Tests, 
-		Trait_Placeholder_Tests, 
+	use Trait_General_Field_Tests,
+		Trait_Placeholder_Tests,
 		Trait_Autocomplete_Tests,
-		Trait_Pattern_Tests, Trait_Datalist_Tests;
+		Trait_Pattern_Tests,
+		Trait_Datalist_Tests;
 
 	/**
 	 * Create new input.
@@ -52,7 +53,7 @@ class Test_Input_Text extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Text::create( 'key' );
+		self::$field = Input_URL::create( 'key' );
 	}
 
 	/**
@@ -91,7 +92,7 @@ class Test_Input_Text extends WP_UnitTestCase {
 
 		$this->assertStringContainsString( '<input', $html );
 		$this->assertStringContainsString( 'DISABLED', $html );
-		$this->assertStringContainsString( 'type="text"', $html );
+		$this->assertStringContainsString( 'type="url"', $html );
 		$this->assertStringContainsString( 'name="key"', $html );
 		$this->assertStringContainsString( 'autocomplete="name"', $html );
 		$this->assertStringContainsString( 'placeholder="the placeholder"', $html );
@@ -101,10 +102,9 @@ class Test_Input_Text extends WP_UnitTestCase {
 		$this->assertStringContainsString( 'att2="val2"', $html );
 	}
 
-	public function test_settings_custom_name(): void 
-	{
+	public function test_settings_custom_name(): void {
 		$html = self::$field
-			->name('name')
+			->name( 'name' )
 			->as_string();
 		$this->assertStringContainsString( 'name="name"', $html );
 	}

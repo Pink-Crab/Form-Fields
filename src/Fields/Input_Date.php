@@ -26,13 +26,14 @@ namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
 use PinkCrab\Form_Fields\Traits\Pattern;
+use PinkCrab\Form_Fields\Traits\Datalist;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
 class Input_Date extends Abstract_Input {
 
-	use Range, Autocomplete, Placeholder, Pattern;
+	use Range, Autocomplete, Placeholder, Pattern, Datalist;
 
 	/**
 	 * Sets the input type

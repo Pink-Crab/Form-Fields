@@ -25,6 +25,7 @@ declare(strict_types=1);
 namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Abstract_Field;
+use PinkCrab\Form_Fields\Traits\Datalist;
 
 class Abstract_Input extends Abstract_Field {
 
@@ -47,12 +48,26 @@ class Abstract_Input extends Abstract_Field {
 	}
 
 	/**
+	 * Includes the datalist if it is defined.
+	 *
+	 * @return string
+	 */
+	protected function include_datalist(): string {
+		return \method_exists( $this, 'maybe_render_datalist' )
+			? $this->maybe_render_datalist()
+			: '';
+	}
+
+	/**
 	 * Returns the input HTML
 	 *
 	 * @return string
 	 */
 	public function generate_field_html(): string {
+		$datalist = $this->include_datalist();
+
 		return <<<HTML
+$datalist
 <input type="{$this->get_input_type()}" {$this->render_class()}name="{$this->get_name()}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}/>
 HTML;
 	}
