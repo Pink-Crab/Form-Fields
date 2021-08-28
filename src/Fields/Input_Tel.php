@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Password field.
+ * Telephone field.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -30,7 +30,7 @@ use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
-class Input_Password extends Abstract_Input {
+class Input_Tel extends Abstract_Input {
 
 	// Input attributes.
 	use Placeholder, Autocomplete, Pattern, Length;
@@ -40,6 +40,6 @@ class Input_Password extends Abstract_Input {
 	 *
 	 * @var string
 	 */
-	protected $input_type = 'password';
+	protected $input_type = 'tel';
 
 }

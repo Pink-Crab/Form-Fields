@@ -14,22 +14,21 @@ namespace PinkCrab\Form_Fields\Tests\Fields;
 
 use WP_UnitTestCase;
 use PinkCrab\Form_Fields\Abstract_Field;
-use PinkCrab\Form_Fields\Fields\Input_Password;
+use PinkCrab\Form_Fields\Fields\Input_Tel;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Length_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Pattern_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Autocomplete_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Password extends WP_UnitTestCase {
-
+class Test_Input_Tel extends WP_UnitTestCase {
 
 	/**
 	 * Hols the input type
 	 *
 	 * @var string
 	 */
-	protected $field_type = Input_Password::class;
+	protected $field_type = Input_Tel::class;
 
 	/**
 	 * Rendered instance of the field.
@@ -54,7 +53,7 @@ class Test_Input_Password extends WP_UnitTestCase {
 	 */
 	public function setup(): void {
 		parent::setup();
-		self::$field = Input_Password::create( 'key' );
+		self::$field = Input_Tel::create( 'key' );
 	}
 
 	/**
@@ -64,21 +63,7 @@ class Test_Input_Password extends WP_UnitTestCase {
 	 */
 	public function test_html_has_expected_properties(): void {
 		$html = self::$field->as_string();
-		$this->assertStringContainsString( 'type="password"', $html );
+		$this->assertStringContainsString( 'type="tel"', $html );
 	}
 
-	/**
-	 * Test that min and max lengths can be unset when passing a blank string, or no value.
-	 *
-	 * @return void
-	 */
-	public function test_can_set_unset_length_attributes() {
-		$min_length = Input_Password::create( 'min' )->minlength( 10 );
-		$this->assertNotEquals( '', $min_length->get_minlength() );
-		$this->assertEquals( '', $min_length->minlength( '' )->get_minlength() );
-
-		$max_length = Input_Password::create( 'max' )->maxlength( 85 );
-		$this->assertNotEquals( '', $max_length->get_maxlength() );
-		$this->assertEquals( '', $max_length->maxlength(  )->get_maxlength() );
-	}
 }
