@@ -42,6 +42,32 @@ trait Trait_Button_Tests {
 	}
 
 	/**
+	 * Test the form_target settings
+	 *
+	 * @return void
+	 */
+	public function test_form_target_attribute(): void {
+
+		// Set
+		self::$field->form_target( '_blank' );
+
+		// Get
+		$this->assertEquals( '_blank', self::$field->get_form_target() );
+
+		// In Attributes
+		$this->assertArrayHasKey( 'formtarget', self::$field->get_attributes() );
+		$this->assertEquals( '_blank', self::$field->get_attributes()['formtarget'] );
+		
+		// Rendered
+		$this->assertStringContainsString( 'formtarget="_blank"', self::$field->as_string() );
+
+		// Removed.
+		self::$field->form_target( '' );
+		$this->assertFalse( in_array( 'formtarget', self::$field->get_attributes() ) );
+		$this->assertStringNotContainsString( 'formtarget', self::$field->as_string() );
+	}
+
+	/**
 	 * Test the form_method settings
 	 *
 	 * @return void
