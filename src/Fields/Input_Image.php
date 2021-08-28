@@ -24,9 +24,12 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
+use PinkCrab\Form_Fields\Traits\Button;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
 class Input_Image extends Abstract_Input {
+
+	use Button;
 
 	/**
 	 * Sets the input type
