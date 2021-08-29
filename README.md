@@ -1,6 +1,6 @@
 # PinkCrab Form Fields #
 
-![alt text](https://img.shields.io/badge/Current_Version-0.1.6-yellow.svg?style=flat " ") 
+![alt text](https://img.shields.io/badge/Current_Version-0.1.7-yellow.svg?style=flat " ") 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 ![](https://github.com/Pink-Crab/Form-Fields/workflows/GitHub_CI/badge.svg " ")
 [![codecov](https://codecov.io/gh/Pink-Crab/Form-Fields/branch/master/graph/badge.svg?token=ZE140NBNPG)](https://codecov.io/gh/Pink-Crab/Form-Fields)
@@ -86,9 +86,10 @@ Input_Password::create('password')->render();
 ```
 
 ## Version ##
-**Release 0.1.6**
+**Release 0.1.7**
 
 ## Change Log
+* 0.1.7 - Added in missing URL field, also all tests cleaned up and all attributes are now just controlled by attributes, not custom properties. Added in the Datalist attribute to all valid input fields. Tests extended running over 1500 assertions
 * 0.1.6 - Added in missing fields [ Colour(inc alias Color), Week, Time, Month, File, Image, Submit & Tel ] and moved to a new abstract INPUT which is used to extend all \<INPUT\> fields from a base abstract input. Tests cleaned up and all attributes are now just controlled by attributes, not custom properties.
 * 0.1.5 - Allow numerical strings for select options.
 * 0.1.4 - Removed default as not implemented and not really suitable for this library. Also included the option to set custom name attributes to fields, falling back to the key (id) if not set.
