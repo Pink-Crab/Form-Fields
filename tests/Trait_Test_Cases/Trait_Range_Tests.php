@@ -34,6 +34,9 @@ trait Trait_Range_Tests {
 		$this->assertEquals( 0, self::$field->get_attributes()['min'] );
 		$this->assertNotEquals( '42', self::$field->get_attributes()['min'] );
 
+		// Unset
+		self::$field->min( '' );
+		$this->assertFalse( array_key_exists( 'min', self::$field->get_attributes() ) );
 	}
 
 	/**
@@ -55,6 +58,9 @@ trait Trait_Range_Tests {
 		$this->assertEquals( 99, self::$field->get_attributes()['max'] );
 		$this->assertNotEquals( '42', self::$field->get_attributes()['max'] );
 
+		// Unset
+		self::$field->max( '' );
+		$this->assertFalse( array_key_exists( 'max', self::$field->get_attributes() ) );
 	}
 
 	/**
@@ -76,5 +82,8 @@ trait Trait_Range_Tests {
 		$this->assertEquals( 5, self::$field->get_attributes()['step'] );
 		$this->assertNotEquals( '42', self::$field->get_attributes()['step'] );
 
+		// Unset
+		self::$field->step( '' );
+		$this->assertFalse( array_key_exists( 'step', self::$field->get_attributes() ) );
 	}
 }
