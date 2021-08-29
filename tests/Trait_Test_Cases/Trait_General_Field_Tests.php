@@ -41,6 +41,10 @@ trait Trait_General_Field_Tests {
 		$this->assertArrayHasKey( 'value', self::$field->get_attributes() );
 		$this->assertEquals( 'CURRENT', self::$field->get_attributes()['value'] );
 		$this->assertNotEquals( 'NOTCURRENT', self::$field->get_attributes()['value'] );
+
+		// Unset current with empty values.
+		self::$field->current( '' );
+		$this->assertFalse( array_key_exists( 'value', self::$field->get_attributes() ) );
 	}
 
 	/**
@@ -195,5 +199,23 @@ trait Trait_General_Field_Tests {
 		$this->assertStringContainsString( '<label for="key">label', $html );
 		$this->assertStringContainsString( 'class="class"', $html );
 		$this->assertStringContainsString( 'name="name"', $html );
+	}
+
+	/** @testdox It should be possible to set and unset the field as read only. */
+	public function test_set_read_only(): void {
+		// Set with empty
+		self::$field->read_only();
+		$this->assertEquals( array( 'readonly' => 'readonly' ), self::$field->get_attributes() );
+
+		// Unset
+		self::$field->read_only( false );
+		$this->assertEmpty( self::$field->get_attributes() );
+
+		// Set with strict true
+		self::$field->read_only( true );
+		$this->assertEquals( array( 'readonly' => 'readonly' ), self::$field->get_attributes() );
+
+		// Should render.
+		$this->assertStringContainsString( 'readonly="readonly"', self::$field->as_string() );
 	}
 }
