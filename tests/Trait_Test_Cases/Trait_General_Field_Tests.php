@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Trait_Test_Cases;
 
+use Gin0115\WPUnit_Helpers\Output;
 use Gin0115\WPUnit_Helpers\Objects;
 
 trait Trait_General_Field_Tests {
@@ -25,9 +26,8 @@ trait Trait_General_Field_Tests {
 		$this->assertEquals( 'key', self::$field->get_key() );
 	}
 
-	public function test_custom_name(): void
-	{
-		$this->assertEquals( 'name', self::$field->name('name')->get_name() );
+	public function test_custom_name(): void {
+		$this->assertEquals( 'name', self::$field->name( 'name' )->get_name() );
 	}
 
 	/**
@@ -119,7 +119,6 @@ trait Trait_General_Field_Tests {
 
 		self::$field->label( 'label' );
 
-
 		// As True
 		self::$field->show_label( true );
 		$this->assertTrue( self::$field->label_config()->is_visible() );
@@ -154,5 +153,47 @@ trait Trait_General_Field_Tests {
 		self::$field->attribute( 'key', 'attribute' );
 		$this->assertEquals( array( 'key' => 'attribute' ), self::$field->get_attributes() );
 		$this->assertNotEquals( array( 'key' => 'NOTattribute' ), self::$field->get_attributes() );
+	}
+
+	/** @testdox It should be possible to render the HTML direct to the output. */
+	public function test_render_field(): void {
+		self::$field
+			->attribute( 'key', 'attribute' )
+			->label( 'label' )
+			->class( 'class' )
+			->name( 'name' )
+			->show_label();
+
+		$html = Output::buffer(
+			function() {
+				self::$field->render();
+			}
+		);
+
+		$html = str_replace( "\r\n", '', $html );
+		$html = str_replace( \PHP_EOL, '', $html );
+		$this->assertStringContainsString( 'key="attribute"', $html );
+		$this->assertStringContainsString( '<label for="key">label', $html );
+		$this->assertStringContainsString( 'class="class"', $html );
+		$this->assertStringContainsString( 'name="name"', $html );
+	}
+
+	/** @testdox It should be possible to return the field as HTML for printing later. */
+	public function test_print_field(): void {
+		self::$field
+			->attribute( 'key', 'attribute' )
+			->label( 'label' )
+			->class( 'class' )
+			->name( 'name' )
+			->show_label();
+
+		$html = self::$field->as_string();
+
+		$html = str_replace( "\r\n", '', $html );
+		$html = str_replace( \PHP_EOL, '', $html );
+		$this->assertStringContainsString( 'key="attribute"', $html );
+		$this->assertStringContainsString( '<label for="key">label', $html );
+		$this->assertStringContainsString( 'class="class"', $html );
+		$this->assertStringContainsString( 'name="name"', $html );
 	}
 }
