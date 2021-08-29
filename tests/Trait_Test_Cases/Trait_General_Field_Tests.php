@@ -218,4 +218,10 @@ trait Trait_General_Field_Tests {
 		// Should render.
 		$this->assertStringContainsString( 'readonly="readonly"', self::$field->as_string() );
 	}
+
+	/** @testdox If an array is set as an attribute, skip. */
+	public function test_skip_rendering_attribute_if_an_array() {
+		self::$field->set_attributes( array( 'test' => array( 'array' ) ) );
+		$this->assertEquals( '', self::$field->render_attributes() );
+	}
 }
