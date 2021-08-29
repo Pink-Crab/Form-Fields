@@ -191,7 +191,7 @@ class Select extends Abstract_Field {
 	public function generate_field_html(): string {
 
 		// Maybe generate multiple options.
-		$name = $this->render_multiple() !== '' ? "{$this->get_key()}[]" : $this->get_key();
+		$name = $this->render_multiple() !== '' ? "{$this->get_name()}[]" : $this->get_name();
 
 		return <<<HTML
 <select {$this->render_class()}name="{$name}" id="{$this->get_key()}"{$this->render_attributes()} {$this->render_disabled()}{$this->render_multiple()}> 

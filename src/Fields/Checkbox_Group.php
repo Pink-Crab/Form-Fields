@@ -83,13 +83,14 @@ class Checkbox_Group extends Abstract_Field {
 
 		// Compose assets.
 		$inputs     = $this->generate_checkboxes();
-		$name       = $this->get_key();
+		$id         = $this->get_key();
+		$name       = $this->get_name();
 		$attributes = $this->render_attributes();
 		$classes    = $this->render_class();
 		$disabled   = $this->render_disabled();
 
 		return <<<HTML
-		<fieldset name="$name" id="$name" $classes $attributes $disabled>
+		<fieldset name="$name" id="$id" $classes $attributes $disabled>
 			$inputs
 		</fieldset>
 HTML;

@@ -24,5 +24,9 @@ trait Trait_Placeholder_Tests {
 		$this->assertArrayHasKey( 'placeholder', self::$field->get_attributes() );
 		$this->assertEquals( 'placeholder', self::$field->get_attributes()['placeholder'] );
 		$this->assertNotEquals( 'NOTplaceholder', self::$field->get_attributes()['placeholder'] );
+	
+		// Unset
+		self::$field->placeholder( '' );
+		$this->assertFalse( array_key_exists( 'placeholder', self::$field->get_attributes() ) );
 	}
 }
