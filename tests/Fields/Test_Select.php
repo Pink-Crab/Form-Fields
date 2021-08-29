@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Fields\Select;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Multiple_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Select extends WP_UnitTestCase {
+class Test_Select extends TestCase {
 
 	use Trait_General_Field_Tests,
 		Trait_Multiple_Tests,
@@ -177,5 +177,20 @@ class Test_Select extends WP_UnitTestCase {
 
 		$this->assertStringContainsString( 'value="3" SELECTED="selected"', $html );
 		$this->assertStringContainsString( 'value="5" SELECTED="selected"', $html );
+	}
+
+	/** @testdox If any "empty" value is passed, the current will set as an empty array, not as an array of NULL or FALSE */
+	public function test_current_defaults_to_array(): void {
+		// If empty
+		$this->assertIsArray( self::$field->current( null )->get_current() );
+		$this->assertIsArray( self::$field->current( false )->get_current() );
+		$this->assertIsArray( self::$field->current( '' )->get_current() );
+	}
+
+	/** @testdox All values passed for selected should be cast to an array */
+	public function test_current_is_cast_to_array() {
+		self::$field->current( 'apple' );
+		$this->assertIsArray( self::$field->get_current() );
+		$this->assertContains( 'apple', self::$field->get_current() );
 	}
 }

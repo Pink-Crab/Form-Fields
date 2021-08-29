@@ -12,13 +12,14 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Fields\Input_Range;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Range_Tests;
+use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Datalist_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Placeholder_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Range extends WP_UnitTestCase {
+class Test_Input_Range extends TestCase {
 
 
 	/**
@@ -40,7 +41,8 @@ class Test_Input_Range extends WP_UnitTestCase {
 	 */
 	use Trait_General_Field_Tests,
 		Trait_Placeholder_Tests,
-		Trait_Range_Tests;
+		Trait_Range_Tests,
+		Trait_Datalist_Tests;
 
 	/**
 	 * Create new input.
@@ -76,7 +78,7 @@ class Test_Input_Range extends WP_UnitTestCase {
 	 * @param Type $var
 	 * @return void
 	 */
-	public function test_with_markers_from_options( Type $var = null ) {
+	public function test_with_markers_from_options() {
 		$html = self::$field
 			->min( 0 )
 			->max( 100 )
@@ -98,8 +100,8 @@ class Test_Input_Range extends WP_UnitTestCase {
 			)
 			->as_string();
 
-		$this->assertStringContainsString( 'list="key_hash_marks"', $html );
-		$this->assertStringContainsString( '<datalist id="key_hash_marks">', $html );
+		$this->assertStringContainsString( 'list="_key__list"', $html );
+		$this->assertStringContainsString( '<datalist id="_key__list">', $html );
 		$this->assertStringContainsString( 'value="0" label="0%"', $html );
 		$this->assertStringContainsString( 'value="10"', $html );
 		$this->assertStringContainsString( 'value="70"', $html );

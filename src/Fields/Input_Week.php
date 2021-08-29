@@ -26,13 +26,14 @@ namespace PinkCrab\Form_Fields\Fields;
 
 use PinkCrab\Form_Fields\Traits\Range;
 use PinkCrab\Form_Fields\Traits\Pattern;
+use PinkCrab\Form_Fields\Traits\Datalist;
 use PinkCrab\Form_Fields\Traits\Placeholder;
 use PinkCrab\Form_Fields\Traits\Autocomplete;
 use PinkCrab\Form_Fields\Fields\Abstract_Input;
 
 class Input_Week extends Abstract_Input {
 
-	use Autocomplete, Placeholder, Pattern, Range;
+	use Autocomplete, Placeholder, Pattern, Range, Datalist;
 
 	/**
 	 * Sets the input type

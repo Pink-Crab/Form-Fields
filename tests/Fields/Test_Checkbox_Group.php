@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use Gin0115\WPUnit_Helpers\Objects;
 use Symfony\Component\DomCrawler\Crawler;
 use PinkCrab\Form_Fields\Fields\Checkbox_Group;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Checkbox_Group extends WP_UnitTestCase {
+class Test_Checkbox_Group extends TestCase {
 
 	/**
 	 * Holds the input type

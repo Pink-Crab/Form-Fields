@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields\Rendered;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DomCrawler\Crawler;
 use PinkCrab\Form_Fields\Fields\Checkbox_Group;
 
-class Test_Checkbox_Group_Rendered extends WP_UnitTestCase {
+class Test_Checkbox_Group_Rendered extends TestCase {
 
 	/** @testdox It should be possible to render a group with 2 values. */
 	public function test_can_render_2_fields_no_current(): void {

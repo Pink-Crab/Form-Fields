@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Abstract_Field;
 use PinkCrab\Form_Fields\Fields\Raw_HTML;
 
-class Test_Raw_HTML extends WP_UnitTestCase {
+class Test_Raw_HTML extends TestCase {
 
 
 	/**
@@ -91,7 +91,19 @@ class Test_Raw_HTML extends WP_UnitTestCase {
 				}
 			)
 			->as_string();
-		
+
 		$this->assertStringContainsString( 'label for="key"', $html );
+	}
+
+	/** @testdox It should be possible to get teh contents set. */
+	public function test_get_contents() {
+		$html = self::$field
+			->current( 'foo' )
+			->content(
+				function( Abstract_Field $field ): string {
+					return $field->get_current();
+				}
+			);
+		$this->assertEquals( 'foo', $html->get_content() );
 	}
 }

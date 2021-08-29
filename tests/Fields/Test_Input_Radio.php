@@ -12,13 +12,13 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Tests\Fields;
 
-use WP_UnitTestCase;
+use PHPUnit\Framework\TestCase;
 use PinkCrab\Form_Fields\Fields\Input_Radio;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Checked_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_Multiple_Tests;
 use PinkCrab\Form_Fields\Tests\Trait_Test_Cases\Trait_General_Field_Tests;
 
-class Test_Input_Radio extends WP_UnitTestCase {
+class Test_Input_Radio extends TestCase {
 
 
 
@@ -145,5 +145,26 @@ class Test_Input_Radio extends WP_UnitTestCase {
 			->read_only()
 			->as_string();
 		$this->assertEquals( 2, substr_count( $html, 'readonly="readonly' ) );
+	}
+
+
+	/** @testdox If any "empty" value is passed, the current will set as an empty array, not as an array of NULL or FALSE */
+	public function test_current_defaults_to_array(): void {
+		// If empty
+		$this->assertIsArray( self::$field->current( null )->get_current() );
+		$this->assertIsArray( self::$field->current( false )->get_current() );
+		$this->assertIsArray( self::$field->current( '' )->get_current() );
+	}
+
+	/** @testdox All values passed for selected should be cast to an array */
+	public function test_current_is_cast_to_array() {
+		self::$field->current( 'apple' );
+		$this->assertIsArray( self::$field->get_current() );
+		$this->assertContains( 'apple', self::$field->get_current() );
+	}
+
+	/** @test Attempting to render the HTML directly, should not return anything. */
+	public function test_generate_field_html_cant_be_used(): void {
+		$this->assertEquals( '', self::$field->generate_field_html() );
 	}
 }

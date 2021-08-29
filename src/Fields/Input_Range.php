@@ -24,12 +24,9 @@ declare(strict_types=1);
 
 namespace PinkCrab\Form_Fields\Fields;
 
-use PinkCrab\Form_Fields\Traits\Options;
 use PinkCrab\Form_Fields\Fields\Input_Number;
 
 class Input_Range extends Input_Number {
-
-	use Options;
 
 	/**
 	 * Sets the input type
@@ -38,58 +35,5 @@ class Input_Range extends Input_Number {
 	 */
 	protected $input_type = 'range';
 
-		/**
-	 * Returns the input HTML
-	 *
-	 * @return string
-	 */
-	public function generate_field_html(): string {
-		$this->maybe_include_list_attribute();
-		return parent::generate_field_html() . $this->generate_hash_marks();
-	}
 
-	/**
-	 * Maybe add the list attribute if has hash.
-	 *
-	 * @return void
-	 */
-	protected function maybe_include_list_attribute() {
-		if ( ! empty( $this->options ) ) {
-			$this->attribute( 'list', $this->hash_list_key() );
-		}
-	}
-
-	/**
-	 * Generates the hash list ID.
-	 *
-	 * @return string
-	 */
-	protected function hash_list_key(): string {
-		return $this->get_key() . '_hash_marks';
-	}
-
-	/**
-	 * Generates a hash mark list if options set.
-	 *
-	 * @return string
-	 */
-	protected function generate_hash_marks(): string {
-		if ( empty( $this->options ) ) {
-			return '';
-		}
-		return sprintf(
-			"\n<datalist id=\"%s\">%s\n</datalist>",
-			$this->hash_list_key(),
-			join(
-				array_map(
-					function( $key ) {
-						return ! empty( $this->options[ $key ] )
-							? sprintf( "\n\t<option value=\"%s\" label=\"%s\"></option>", $key, $this->options[ $key ] )
-							: sprintf( "\n\t<option value=\"%s\"></option>", $key );
-					},
-					array_keys( $this->options )
-				)
-			)
-		);
-	}
 }
