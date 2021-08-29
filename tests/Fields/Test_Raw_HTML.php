@@ -91,7 +91,19 @@ class Test_Raw_HTML extends TestCase {
 				}
 			)
 			->as_string();
-		
+
 		$this->assertStringContainsString( 'label for="key"', $html );
+	}
+
+	/** @testdox It should be possible to get teh contents set. */
+	public function test_get_contents() {
+		$html = self::$field
+			->current( 'foo' )
+			->content(
+				function( Abstract_Field $field ): string {
+					return $field->get_current();
+				}
+			);
+		$this->assertEquals( 'foo', $html->get_content() );
 	}
 }
