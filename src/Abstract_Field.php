@@ -87,7 +87,7 @@ abstract class Abstract_Field {
 	protected $current;
 
 	/**
-	 * Holds additonal attributes for the field.
+	 * Holds additional attributes for the field.
 	 *
 	 * @var array<string,  mixed>
 	 */
@@ -247,6 +247,8 @@ abstract class Abstract_Field {
 	 */
 	public function label( string $label ): self {
 		$this->label = $label;
+		//show label if string length not 0
+		$this->show_label( mb_strlen( $label ) > 0 );
 		return $this;
 	}
 

@@ -142,7 +142,7 @@ class Label_Config {
 	}
 
 	/**
-	 * Get is the label visibilityed
+	 * Get is the label visibility
 	 *
 	 * @return bool
 	 */
