@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1649376627">
+  <project timestamp="1649376627">
+    <package name="PinkCrab\Form_Fields">
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Abstract_Field.php">
+        <class name="PinkCrab\Form_Fields\Abstract_Field" namespace="PinkCrab\Form_Fields" fullPackage="Abstract">
+          <metrics complexity="41" methods="31" coveredmethods="30" conditionals="0" coveredconditionals="0" statements="72" coveredstatements="70" elements="103" coveredelements="100"/>
+        </class>
+        <line num="123" type="method" name="__construct" visibility="protected" complexity="1" crap="1" count="579"/>
+        <line num="124" type="stmt" count="579"/>
+        <line num="125" type="stmt" count="579"/>
+        <line num="126" type="stmt" count="579"/>
+        <line num="127" type="stmt" count="579"/>
+        <line num="134" type="method" name="set_parser" visibility="protected" complexity="1" crap="1" count="569"/>
+        <line num="135" type="stmt" count="569"/>
+        <line num="136" type="stmt" count="569"/>
+        <line num="144" type="method" name="create" visibility="public" complexity="1" crap="1" count="579"/>
+        <line num="145" type="stmt" count="579"/>
+        <line num="161" type="method" name="render" visibility="public" complexity="1" crap="1" count="22"/>
+        <line num="163" type="stmt" count="22"/>
+        <line num="164" type="stmt" count="22"/>
+        <line num="171" type="method" name="as_string" visibility="public" complexity="1" crap="1" count="145"/>
+        <line num="172" type="stmt" count="145"/>
+        <line num="183" type="method" name="name" visibility="public" complexity="1" crap="1" count="80"/>
+        <line num="184" type="stmt" count="80"/>
+        <line num="185" type="stmt" count="80"/>
+        <line num="195" type="method" name="current" visibility="public" complexity="2" crap="2" count="31"/>
+        <line num="196" type="stmt" count="31"/>
+        <line num="197" type="stmt" count="31"/>
+        <line num="199" type="stmt" count="20"/>
+        <line num="201" type="stmt" count="31"/>
+        <line num="210" type="method" name="disabled" visibility="public" complexity="1" crap="1" count="26"/>
+        <line num="211" type="stmt" count="26"/>
+        <line num="212" type="stmt" count="26"/>
+        <line num="221" type="method" name="read_only" visibility="public" complexity="2" crap="2" count="25"/>
+        <line num="222" type="stmt" count="25"/>
+        <line num="223" type="stmt" count="25"/>
+        <line num="225" type="stmt" count="22"/>
+        <line num="228" type="stmt" count="25"/>
+        <line num="237" type="method" name="type" visibility="protected" complexity="1" crap="1" count="22"/>
+        <line num="238" type="stmt" count="22"/>
+        <line num="239" type="stmt" count="22"/>
+        <line num="248" type="method" name="label" visibility="public" complexity="1" crap="1" count="142"/>
+        <line num="249" type="stmt" count="142"/>
+        <line num="251" type="stmt" count="142"/>
+        <line num="252" type="stmt" count="142"/>
+        <line num="261" type="method" name="class" visibility="public" complexity="1" crap="1" count="69"/>
+        <line num="262" type="stmt" count="69"/>
+        <line num="263" type="stmt" count="69"/>
+        <line num="272" type="method" name="description" visibility="public" complexity="1" crap="1" count="22"/>
+        <line num="273" type="stmt" count="22"/>
+        <line num="274" type="stmt" count="22"/>
+        <line num="284" type="method" name="attribute" visibility="public" complexity="1" crap="1" count="197"/>
+        <line num="285" type="stmt" count="197"/>
+        <line num="286" type="stmt" count="197"/>
+        <line num="296" type="method" name="set_attributes" visibility="public" complexity="1" crap="1" count="44"/>
+        <line num="297" type="stmt" count="44"/>
+        <line num="298" type="stmt" count="44"/>
+        <line num="307" type="method" name="show_label" visibility="public" complexity="1" crap="1" count="143"/>
+        <line num="308" type="stmt" count="143"/>
+        <line num="309" type="stmt" count="143"/>
+        <line num="318" type="method" name="label_position" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="319" type="stmt" count="7"/>
+        <line num="320" type="stmt" count="7"/>
+        <line num="330" type="method" name="get_type" visibility="public" complexity="1" crap="1" count="22"/>
+        <line num="331" type="stmt" count="22"/>
+        <line num="339" type="method" name="get_label" visibility="public" complexity="1" crap="1" count="76"/>
+        <line num="340" type="stmt" count="76"/>
+        <line num="349" type="method" name="get_class" visibility="public" complexity="1" crap="1" count="186"/>
+        <line num="350" type="stmt" count="186"/>
+        <line num="358" type="method" name="get_disabled" visibility="public" complexity="1" crap="1" count="186"/>
+        <line num="359" type="stmt" count="186"/>
+        <line num="367" type="method" name="get_description" visibility="public" complexity="1" crap="1" count="22"/>
+        <line num="368" type="stmt" count="22"/>
+        <line num="376" type="method" name="get_key" visibility="public" complexity="1" crap="1" count="211"/>
+        <line num="377" type="stmt" count="211"/>
+        <line num="386" type="method" name="get_name" visibility="public" complexity="1" crap="1" count="203"/>
+        <line num="387" type="stmt" count="203"/>
+        <line num="395" type="method" name="get_current" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="396" type="stmt" count="3"/>
+        <line num="397" type="stmt" count="3"/>
+        <line num="398" type="stmt" count="3"/>
+        <line num="406" type="method" name="get_attributes" visibility="public" complexity="1" crap="1" count="173"/>
+        <line num="407" type="stmt" count="173"/>
+        <line num="415" type="method" name="label_config" visibility="public" complexity="1" crap="1" count="233"/>
+        <line num="416" type="stmt" count="233"/>
+        <line num="425" type="method" name="unset_attribute" visibility="protected" complexity="2" crap="2" count="107"/>
+        <line num="426" type="stmt" count="107"/>
+        <line num="427" type="stmt" count="107"/>
+        <line num="429" type="stmt" count="107"/>
+        <line num="438" type="method" name="render_disabled" visibility="public" complexity="2" crap="2" count="164"/>
+        <line num="439" type="stmt" count="164"/>
+        <line num="447" type="method" name="render_class" visibility="public" complexity="2" crap="2" count="164"/>
+        <line num="448" type="stmt" count="164"/>
+        <line num="449" type="stmt" count="47"/>
+        <line num="450" type="stmt" count="164"/>
+        <line num="458" type="method" name="render_attributes" visibility="public" complexity="4" crap="4.05" count="186"/>
+        <line num="459" type="stmt" count="186"/>
+        <line num="460" type="stmt" count="186"/>
+        <line num="464" type="stmt" count="157"/>
+        <line num="465" type="stmt" count="22"/>
+        <line num="468" type="stmt" count="135"/>
+        <line num="469" type="stmt" count="135"/>
+        <line num="470" type="stmt" count="135"/>
+        <line num="471" type="stmt" count="0"/>
+        <line num="472" type="stmt" count="135"/>
+        <line num="473" type="stmt" count="135"/>
+        <line num="474" type="stmt" count="0"/>
+        <line num="475" type="stmt" count="135"/>
+        <line num="477" type="stmt" count="186"/>
+        <line num="478" type="stmt" count="186"/>
+        <metrics loc="482" ncloc="217" classes="1" methods="31" coveredmethods="30" conditionals="0" coveredconditionals="0" statements="72" coveredstatements="70" elements="103" coveredelements="100"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Label_Config.php">
+        <class name="PinkCrab\Form_Fields\Label_Config" namespace="PinkCrab\Form_Fields" fullPackage="Label">
+          <metrics complexity="12" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="24" coveredelements="24"/>
+        </class>
+        <line num="73" type="method" name="set_position" visibility="public" complexity="1" crap="1" count="8"/>
+        <line num="74" type="stmt" count="8"/>
+        <line num="75" type="stmt" count="8"/>
+        <line num="76" type="stmt" count="8"/>
+        <line num="86" type="method" name="visibility" visibility="public" complexity="1" crap="1" count="144"/>
+        <line num="87" type="stmt" count="144"/>
+        <line num="88" type="stmt" count="144"/>
+        <line num="98" type="method" name="classes" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="99" type="stmt" count="1"/>
+        <line num="100" type="stmt" count="1"/>
+        <line num="110" type="method" name="wrapped" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="111" type="stmt" count="10"/>
+        <line num="112" type="stmt" count="10"/>
+        <line num="121" type="method" name="position_before" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="122" type="stmt" count="10"/>
+        <line num="123" type="stmt" count="10"/>
+        <line num="131" type="method" name="is_wrapped" visibility="public" complexity="1" crap="1" count="59"/>
+        <line num="132" type="stmt" count="59"/>
+        <line num="140" type="method" name="is_positioned_before" visibility="public" complexity="1" crap="1" count="59"/>
+        <line num="141" type="stmt" count="59"/>
+        <line num="149" type="method" name="is_visible" visibility="public" complexity="1" crap="1" count="235"/>
+        <line num="150" type="stmt" count="235"/>
+        <line num="158" type="method" name="get_classes" visibility="public" complexity="3" crap="3" count="56"/>
+        <line num="159" type="stmt" count="56"/>
+        <metrics loc="162" ncloc="66" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="24" coveredelements="24"/>
+      </file>
+    </package>
+    <package name="PinkCrab\Form_Fields\Fields">
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Abstract_Input.php">
+        <class name="PinkCrab\Form_Fields\Fields\Abstract_Input" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Abstract">
+          <metrics complexity="5" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
+        </class>
+        <line num="44" type="method" name="get_input_type" visibility="protected" complexity="2" crap="2" count="126"/>
+        <line num="45" type="stmt" count="126"/>
+        <line num="46" type="stmt" count="126"/>
+        <line num="47" type="stmt" count="126"/>
+        <line num="55" type="method" name="include_datalist" visibility="protected" complexity="2" crap="2" count="132"/>
+        <line num="56" type="stmt" count="132"/>
+        <line num="57" type="stmt" count="88"/>
+        <line num="58" type="stmt" count="132"/>
+        <line num="66" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="126"/>
+        <line num="67" type="stmt" count="126"/>
+        <line num="70" type="stmt" count="126"/>
+        <line num="71" type="stmt" count="126"/>
+        <metrics loc="75" ncloc="34" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="12" coveredelements="12"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Checkbox_Group.php">
+        <class name="PinkCrab\Form_Fields\Fields\Checkbox_Group" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Checkbox">
+          <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="28" coveredelements="28"/>
+        </class>
+        <line num="55" type="method" name="current" visibility="public" complexity="3" crap="3" count="2"/>
+        <line num="56" type="stmt" count="2"/>
+        <line num="57" type="stmt" count="2"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="2"/>
+        <line num="72" type="method" name="checked_value" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="73" type="stmt" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="82" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="85" type="stmt" count="7"/>
+        <line num="86" type="stmt" count="7"/>
+        <line num="87" type="stmt" count="7"/>
+        <line num="88" type="stmt" count="7"/>
+        <line num="89" type="stmt" count="7"/>
+        <line num="90" type="stmt" count="7"/>
+        <line num="93" type="stmt" count="7"/>
+        <line num="94" type="stmt" count="7"/>
+        <line num="104" type="method" name="generate_checkboxes" visibility="protected" complexity="3" crap="3" count="7"/>
+        <line num="105" type="stmt" count="7"/>
+        <line num="108" type="stmt" count="7"/>
+        <line num="110" type="stmt" count="4"/>
+        <line num="111" type="stmt" count="4"/>
+        <line num="112" type="stmt" count="4"/>
+        <line num="113" type="stmt" count="4"/>
+        <line num="114" type="stmt" count="4"/>
+        <line num="115" type="stmt" count="4"/>
+        <line num="116" type="stmt" count="4"/>
+        <line num="119" type="stmt" count="7"/>
+        <metrics loc="122" ncloc="65" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="28" coveredelements="28"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Checkbox.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Checkbox" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="50" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="8"/>
+        <line num="52" type="stmt" count="8"/>
+        <metrics loc="57" ncloc="25" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Color.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Color" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="29" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Colour.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Colour" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Date.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Date" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="21" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Date_Time.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Date_Time" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input.Date">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="37" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Email.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Email" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+        </class>
+        <line num="51" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="52" type="stmt" count="6"/>
+        <line num="55" type="stmt" count="6"/>
+        <line num="56" type="stmt" count="6"/>
+        <metrics loc="61" ncloc="32" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_File.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_File" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="18" coveredelements="18"/>
+        </class>
+        <line num="46" type="method" name="get_accept" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="58" type="method" name="accept" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="73" type="method" name="get_capture" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="75" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="85" type="method" name="capture" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="1"/>
+        <line num="92" type="stmt" count="1"/>
+        <metrics loc="94" ncloc="48" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="18" coveredelements="18"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Hidden.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Hidden" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="37" ncloc="13" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Image.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Image" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="16" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="28" elements="36" coveredelements="36"/>
+        </class>
+        <line num="46" type="method" name="get_src" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="58" type="method" name="src" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="73" type="method" name="get_height" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="75" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="85" type="method" name="height" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="1"/>
+        <line num="92" type="stmt" count="1"/>
+        <line num="100" type="method" name="get_alt" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="102" type="stmt" count="1"/>
+        <line num="103" type="stmt" count="1"/>
+        <line num="112" type="method" name="alt" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="113" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="116" type="stmt" count="1"/>
+        <line num="119" type="stmt" count="1"/>
+        <line num="127" type="method" name="get_width" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="128" type="stmt" count="1"/>
+        <line num="129" type="stmt" count="1"/>
+        <line num="130" type="stmt" count="1"/>
+        <line num="139" type="method" name="width" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="140" type="stmt" count="1"/>
+        <line num="141" type="stmt" count="1"/>
+        <line num="143" type="stmt" count="1"/>
+        <line num="146" type="stmt" count="1"/>
+        <metrics loc="149" ncloc="81" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="28" elements="36" coveredelements="36"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Month.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Month" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="21" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Number.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Number" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="44" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Password.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Password" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Radio.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Radio" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="7" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+        </class>
+        <line num="51" type="method" name="set_parser" visibility="protected" complexity="1" crap="1" count="10"/>
+        <line num="52" type="stmt" count="10"/>
+        <line num="53" type="stmt" count="10"/>
+        <line num="58" type="method" name="current" visibility="public" complexity="3" crap="3" count="3"/>
+        <line num="59" type="stmt" count="3"/>
+        <line num="60" type="stmt" count="2"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="3"/>
+        <line num="70" type="method" name="get_current" visibility="public" complexity="2" crap="2" count="9"/>
+        <line num="71" type="stmt" count="9"/>
+        <line num="72" type="stmt" count="3"/>
+        <line num="73" type="stmt" count="9"/>
+        <line num="82" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="83" type="stmt" count="1"/>
+        <metrics loc="87" ncloc="41" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Range.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Range" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="39" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Search.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Search" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="46" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Submit.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Submit" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+        </class>
+        <line num="48" type="method" name="value" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="58" type="method" name="get_value" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <metrics loc="63" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Tel.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Tel" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="46" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Text.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Text" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Time.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Time" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="21" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_URL.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_URL" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="19" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Input_Week.php">
+        <class name="PinkCrab\Form_Fields\Fields\Input_Week" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Input">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="45" ncloc="21" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Raw_HTML.php">
+        <class name="PinkCrab\Form_Fields\Fields\Raw_HTML" namespace="PinkCrab\Form_Fields\Fields" fullPackage="Raw">
+          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+        </class>
+        <line num="50" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="51" type="stmt" count="3"/>
+        <line num="59" type="method" name="get_content" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="69" type="method" name="content" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="70" type="stmt" count="4"/>
+        <line num="71" type="stmt" count="4"/>
+        <metrics loc="75" ncloc="30" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Select.php">
+        <class name="PinkCrab\Form_Fields\Fields\Select" namespace="PinkCrab\Form_Fields\Fields">
+          <metrics complexity="16" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="51" elements="59" coveredelements="59"/>
+        </class>
+        <line num="51" type="method" name="current" visibility="public" complexity="3" crap="3" count="6"/>
+        <line num="52" type="stmt" count="6"/>
+        <line num="53" type="stmt" count="5"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="6"/>
+        <line num="65" type="method" name="get_current" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="66" type="stmt" count="3"/>
+        <line num="74" type="method" name="generate_options" visibility="protected" complexity="3" crap="3" count="9"/>
+        <line num="75" type="stmt" count="9"/>
+        <line num="76" type="stmt" count="9"/>
+        <line num="77" type="stmt" count="1"/>
+        <line num="81" type="stmt" count="9"/>
+        <line num="82" type="stmt" count="9"/>
+        <line num="83" type="stmt" count="9"/>
+        <line num="84" type="stmt" count="9"/>
+        <line num="86" type="stmt" count="6"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="88" type="stmt" count="6"/>
+        <line num="89" type="stmt" count="9"/>
+        <line num="101" type="method" name="option_builder" visibility="protected" complexity="1" crap="1" count="9"/>
+        <line num="102" type="stmt" count="9"/>
+        <line num="103" type="stmt" count="9"/>
+        <line num="106" type="stmt" count="5"/>
+        <line num="108" type="stmt" count="5"/>
+        <line num="109" type="stmt" count="5"/>
+        <line num="110" type="stmt" count="5"/>
+        <line num="111" type="stmt" count="5"/>
+        <line num="113" type="stmt" count="5"/>
+        <line num="114" type="stmt" count="9"/>
+        <line num="115" type="stmt" count="9"/>
+        <line num="127" type="method" name="option_factory" visibility="protected" complexity="1" crap="1" count="6"/>
+        <line num="133" type="stmt" count="6"/>
+        <line num="134" type="stmt" count="6"/>
+        <line num="135" type="stmt" count="6"/>
+        <line num="146" type="method" name="generate_option_html" visibility="public" complexity="4" crap="4" count="6"/>
+        <line num="147" type="stmt" count="6"/>
+        <line num="148" type="stmt" count="3"/>
+        <line num="149" type="stmt" count="6"/>
+        <line num="152" type="stmt" count="6"/>
+        <line num="154" type="stmt" count="6"/>
+        <line num="155" type="stmt" count="6"/>
+        <line num="156" type="stmt" count="6"/>
+        <line num="158" type="stmt" count="6"/>
+        <line num="159" type="stmt" count="6"/>
+        <line num="169" type="method" name="generate_option_group_html" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="170" type="stmt" count="1"/>
+        <line num="171" type="stmt" count="1"/>
+        <line num="172" type="stmt" count="1"/>
+        <line num="173" type="stmt" count="1"/>
+        <line num="174" type="stmt" count="1"/>
+        <line num="175" type="stmt" count="1"/>
+        <line num="176" type="stmt" count="1"/>
+        <line num="178" type="stmt" count="1"/>
+        <line num="179" type="stmt" count="1"/>
+        <line num="180" type="stmt" count="1"/>
+        <line num="191" type="method" name="generate_field_html" visibility="public" complexity="2" crap="2" count="9"/>
+        <line num="194" type="stmt" count="9"/>
+        <line num="197" type="stmt" count="9"/>
+        <line num="198" type="stmt" count="9"/>
+        <metrics loc="204" ncloc="122" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="51" elements="59" coveredelements="59"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Fields/Textarea.php">
+        <class name="PinkCrab\Form_Fields\Fields\Textarea" namespace="PinkCrab\Form_Fields\Fields">
+          <metrics complexity="13" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="29" coveredelements="29"/>
+        </class>
+        <line num="76" type="method" name="get_columns" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="77" type="stmt" count="5"/>
+        <line num="86" type="method" name="columns" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="88" type="stmt" count="1"/>
+        <line num="96" type="method" name="get_rows" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="97" type="stmt" count="5"/>
+        <line num="106" type="method" name="rows" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="107" type="stmt" count="1"/>
+        <line num="108" type="stmt" count="1"/>
+        <line num="116" type="method" name="render_current_value" visibility="protected" complexity="1" crap="1" count="5"/>
+        <line num="117" type="stmt" count="5"/>
+        <line num="125" type="method" name="render" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="126" type="stmt" count="1"/>
+        <line num="127" type="stmt" count="1"/>
+        <line num="128" type="stmt" count="1"/>
+        <line num="136" type="method" name="generate_field_html" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="137" type="stmt" count="5"/>
+        <line num="139" type="stmt" count="5"/>
+        <line num="140" type="stmt" count="5"/>
+        <line num="152" type="method" name="populate_attributes" visibility="protected" complexity="4" crap="4" count="5"/>
+        <line num="153" type="stmt" count="5"/>
+        <line num="154" type="stmt" count="1"/>
+        <line num="156" type="stmt" count="5"/>
+        <line num="157" type="stmt" count="1"/>
+        <line num="159" type="stmt" count="5"/>
+        <line num="160" type="stmt" count="1"/>
+        <line num="161" type="stmt" count="1"/>
+        <line num="163" type="stmt" count="5"/>
+        <metrics loc="167" ncloc="80" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="29" coveredelements="29"/>
+      </file>
+    </package>
+    <file name="/shared/httpd/php/htdocs/Form-Fields/src/Parser.php">
+      <metrics loc="44" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="PinkCrab\Form_Fields\Parsers">
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Parsers/Field_Parser.php">
+        <class name="PinkCrab\Form_Fields\Parsers\Field_Parser" namespace="PinkCrab\Form_Fields\Parsers" fullPackage="Field">
+          <metrics complexity="14" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="28" elements="37" coveredelements="34"/>
+        </class>
+        <line num="39" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="569"/>
+        <line num="40" type="stmt" count="569"/>
+        <line num="41" type="stmt" count="569"/>
+        <line num="48" type="method" name="print" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="57" type="method" name="as_string" visibility="public" complexity="1" crap="1" count="160"/>
+        <line num="58" type="stmt" count="160"/>
+        <line num="66" type="method" name="compose_input" visibility="protected" complexity="3" crap="3" count="160"/>
+        <line num="69" type="stmt" count="160"/>
+        <line num="70" type="stmt" count="110"/>
+        <line num="73" type="stmt" count="54"/>
+        <line num="74" type="stmt" count="52"/>
+        <line num="77" type="stmt" count="2"/>
+        <line num="86" type="method" name="wrapped_in_label" visibility="protected" complexity="3" crap="3" count="52"/>
+        <line num="87" type="stmt" count="52"/>
+        <line num="88" type="stmt" count="52"/>
+        <line num="90" type="stmt" count="52"/>
+        <line num="91" type="stmt" count="52"/>
+        <line num="92" type="stmt" count="52"/>
+        <line num="93" type="stmt" count="52"/>
+        <line num="94" type="stmt" count="52"/>
+        <line num="95" type="stmt" count="52"/>
+        <line num="104" type="method" name="linked_to_label" visibility="protected" complexity="4" crap="4" count="2"/>
+        <line num="106" type="stmt" count="2"/>
+        <line num="107" type="stmt" count="2"/>
+        <line num="108" type="stmt" count="1"/>
+        <line num="109" type="stmt" count="2"/>
+        <line num="111" type="stmt" count="2"/>
+        <line num="112" type="stmt" count="2"/>
+        <line num="113" type="stmt" count="2"/>
+        <line num="114" type="stmt" count="2"/>
+        <line num="115" type="stmt" count="2"/>
+        <line num="116" type="stmt" count="2"/>
+        <line num="117" type="stmt" count="2"/>
+        <line num="126" type="method" name="no_label" visibility="protected" complexity="1" crap="1" count="110"/>
+        <line num="127" type="stmt" count="110"/>
+        <metrics loc="129" ncloc="69" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="28" elements="37" coveredelements="34"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Parsers/Radio_Parser.php">
+        <class name="PinkCrab\Form_Fields\Parsers\Radio_Parser" namespace="PinkCrab\Form_Fields\Parsers" fullPackage="Radio">
+          <metrics complexity="20" methods="9" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="36" elements="61" coveredelements="42"/>
+        </class>
+        <line num="43" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="45" type="stmt" count="10"/>
+        <line num="46" type="stmt" count="10"/>
+        <line num="53" type="method" name="print" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="62" type="method" name="as_string" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="63" type="stmt" count="7"/>
+        <line num="72" type="method" name="generate_input_html" visibility="protected" complexity="1" crap="1" count="7"/>
+        <line num="73" type="stmt" count="7"/>
+        <line num="74" type="stmt" count="7"/>
+        <line num="75" type="stmt" count="7"/>
+        <line num="77" type="stmt" count="7"/>
+        <line num="78" type="stmt" count="7"/>
+        <line num="79" type="stmt" count="7"/>
+        <line num="80" type="stmt" count="7"/>
+        <line num="91" type="method" name="generate_input" visibility="protected" complexity="4" crap="4.37" count="7"/>
+        <line num="96" type="stmt" count="7"/>
+        <line num="97" type="stmt" count="0"/>
+        <line num="101" type="stmt" count="7"/>
+        <line num="102" type="stmt" count="6"/>
+        <line num="103" type="stmt" count="1"/>
+        <line num="104" type="stmt" count="1"/>
+        <line num="106" type="stmt" count="0"/>
+        <line num="118" type="method" name="generate_input_field" visibility="protected" complexity="3" crap="3" count="7"/>
+        <line num="119" type="stmt" count="7"/>
+        <line num="120" type="stmt" count="7"/>
+        <line num="121" type="stmt" count="7"/>
+        <line num="122" type="stmt" count="7"/>
+        <line num="123" type="stmt" count="7"/>
+        <line num="125" type="stmt" count="7"/>
+        <line num="126" type="stmt" count="7"/>
+        <line num="127" type="stmt" count="7"/>
+        <line num="137" type="method" name="is_selected" visibility="public" complexity="2" crap="2" count="7"/>
+        <line num="138" type="stmt" count="7"/>
+        <line num="139" type="stmt" count="7"/>
+        <line num="140" type="stmt" count="7"/>
+        <line num="141" type="stmt" count="7"/>
+        <line num="149" type="method" name="wrap_input" visibility="protected" complexity="3" crap="3" count="1"/>
+        <line num="150" type="stmt" count="1"/>
+        <line num="151" type="stmt" count="1"/>
+        <line num="152" type="stmt" count="1"/>
+        <line num="154" type="stmt" count="1"/>
+        <line num="155" type="stmt" count="1"/>
+        <line num="156" type="stmt" count="1"/>
+        <line num="157" type="stmt" count="1"/>
+        <line num="158" type="stmt" count="1"/>
+        <line num="159" type="stmt" count="1"/>
+        <line num="168" type="method" name="link_to" visibility="protected" complexity="4" crap="20.00" count="0"/>
+        <line num="169" type="stmt" count="0"/>
+        <line num="170" type="stmt" count="0"/>
+        <line num="171" type="stmt" count="0"/>
+        <line num="172" type="stmt" count="0"/>
+        <line num="173" type="stmt" count="0"/>
+        <line num="175" type="stmt" count="0"/>
+        <line num="176" type="stmt" count="0"/>
+        <line num="177" type="stmt" count="0"/>
+        <line num="178" type="stmt" count="0"/>
+        <line num="179" type="stmt" count="0"/>
+        <line num="180" type="stmt" count="0"/>
+        <line num="181" type="stmt" count="0"/>
+        <metrics loc="184" ncloc="89" classes="1" methods="9" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="52" coveredstatements="36" elements="61" coveredelements="42"/>
+      </file>
+    </package>
+    <package name="PinkCrab\Form_Fields\Traits">
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Autocomplete.php">
+        <class name="Autocomplete" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="4" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+        </class>
+        <line num="35" type="method" name="autocomplete" visibility="public" complexity="2" crap="2" count="24"/>
+        <line num="36" type="stmt" count="24"/>
+        <line num="37" type="stmt" count="24"/>
+        <line num="39" type="stmt" count="11"/>
+        <line num="42" type="stmt" count="24"/>
+        <line num="50" type="method" name="get_autocomplete" visibility="public" complexity="2" crap="2" count="11"/>
+        <line num="51" type="stmt" count="11"/>
+        <line num="52" type="stmt" count="11"/>
+        <line num="53" type="stmt" count="11"/>
+        <metrics loc="56" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Button.php">
+        <class name="Button" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="22" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="37" elements="47" coveredelements="47"/>
+        </class>
+        <line num="34" type="method" name="get_form_action" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <line num="36" type="stmt" count="2"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="46" type="method" name="form_action" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="47" type="stmt" count="2"/>
+        <line num="48" type="stmt" count="2"/>
+        <line num="50" type="stmt" count="2"/>
+        <line num="53" type="stmt" count="2"/>
+        <line num="61" type="method" name="get_form_enctype" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="62" type="stmt" count="2"/>
+        <line num="63" type="stmt" count="2"/>
+        <line num="64" type="stmt" count="2"/>
+        <line num="73" type="method" name="form_enctype" visibility="public" complexity="3" crap="3" count="2"/>
+        <line num="74" type="stmt" count="2"/>
+        <line num="75" type="stmt" count="2"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="78" type="stmt" count="2"/>
+        <line num="81" type="stmt" count="2"/>
+        <line num="89" type="method" name="get_form_method" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="90" type="stmt" count="2"/>
+        <line num="91" type="stmt" count="2"/>
+        <line num="92" type="stmt" count="2"/>
+        <line num="101" type="method" name="form_method" visibility="public" complexity="3" crap="3" count="2"/>
+        <line num="102" type="stmt" count="2"/>
+        <line num="104" type="stmt" count="2"/>
+        <line num="105" type="stmt" count="2"/>
+        <line num="107" type="stmt" count="2"/>
+        <line num="110" type="stmt" count="2"/>
+        <line num="118" type="method" name="get_form_no_validate" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="119" type="stmt" count="2"/>
+        <line num="120" type="stmt" count="2"/>
+        <line num="121" type="stmt" count="2"/>
+        <line num="130" type="method" name="form_no_validate" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="131" type="stmt" count="2"/>
+        <line num="132" type="stmt" count="2"/>
+        <line num="134" type="stmt" count="2"/>
+        <line num="137" type="stmt" count="2"/>
+        <line num="145" type="method" name="get_form_target" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="146" type="stmt" count="2"/>
+        <line num="147" type="stmt" count="2"/>
+        <line num="148" type="stmt" count="2"/>
+        <line num="157" type="method" name="form_target" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="158" type="stmt" count="2"/>
+        <line num="159" type="stmt" count="2"/>
+        <line num="161" type="stmt" count="2"/>
+        <line num="164" type="stmt" count="2"/>
+        <metrics loc="166" ncloc="92" classes="1" methods="10" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="37" elements="47" coveredelements="47"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Checked.php">
+        <class name="Checked" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="4" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+        </class>
+        <line num="42" type="method" name="checked" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="43" type="stmt" count="6"/>
+        <line num="44" type="stmt" count="6"/>
+        <line num="52" type="method" name="is_checked" visibility="public" complexity="1" crap="1" count="9"/>
+        <line num="53" type="stmt" count="9"/>
+        <line num="61" type="method" name="render_checked" visibility="protected" complexity="2" crap="2" count="8"/>
+        <line num="62" type="stmt" count="8"/>
+        <metrics loc="64" ncloc="24" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Datalist.php">
+        <class name="Datalist" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="9" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="28" coveredelements="28"/>
+        </class>
+        <line num="45" type="method" name="get_datalist_key" visibility="protected" complexity="2" crap="2" count="37"/>
+        <line num="46" type="stmt" count="37"/>
+        <line num="49" type="stmt" count="37"/>
+        <line num="50" type="stmt" count="37"/>
+        <line num="51" type="stmt" count="37"/>
+        <line num="52" type="stmt" count="37"/>
+        <line num="62" type="method" name="datalist_key" visibility="public" complexity="1" crap="1" count="24"/>
+        <line num="63" type="stmt" count="24"/>
+        <line num="64" type="stmt" count="24"/>
+        <line num="72" type="method" name="maybe_render_datalist" visibility="public" complexity="2" crap="2" count="100"/>
+        <line num="74" type="stmt" count="100"/>
+        <line num="75" type="stmt" count="87"/>
+        <line num="79" type="stmt" count="13"/>
+        <line num="81" type="stmt" count="13"/>
+        <line num="91" type="method" name="option" visibility="public" complexity="2" crap="2" count="12"/>
+        <line num="92" type="stmt" count="12"/>
+        <line num="93" type="stmt" count="12"/>
+        <line num="101" type="method" name="generate_datalist" visibility="protected" complexity="2" crap="2" count="13"/>
+        <line num="102" type="stmt" count="13"/>
+        <line num="103" type="stmt" count="13"/>
+        <line num="104" type="stmt" count="13"/>
+        <line num="105" type="stmt" count="13"/>
+        <line num="106" type="stmt" count="13"/>
+        <line num="108" type="stmt" count="13"/>
+        <line num="109" type="stmt" count="13"/>
+        <line num="110" type="stmt" count="13"/>
+        <line num="111" type="stmt" count="13"/>
+        <line num="112" type="stmt" count="13"/>
+        <metrics loc="118" ncloc="58" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="28" coveredelements="28"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Length.php">
+        <class name="Length" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="8" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="18" coveredelements="18"/>
+        </class>
+        <line num="35" type="method" name="get_minlength" visibility="public" complexity="2" crap="2" count="4"/>
+        <line num="36" type="stmt" count="4"/>
+        <line num="37" type="stmt" count="4"/>
+        <line num="38" type="stmt" count="4"/>
+        <line num="47" type="method" name="minlength" visibility="public" complexity="2" crap="2" count="4"/>
+        <line num="48" type="stmt" count="4"/>
+        <line num="49" type="stmt" count="4"/>
+        <line num="51" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="4"/>
+        <line num="62" type="method" name="get_maxlength" visibility="public" complexity="2" crap="2" count="4"/>
+        <line num="63" type="stmt" count="4"/>
+        <line num="64" type="stmt" count="4"/>
+        <line num="65" type="stmt" count="4"/>
+        <line num="74" type="method" name="maxlength" visibility="public" complexity="2" crap="2" count="4"/>
+        <line num="75" type="stmt" count="4"/>
+        <line num="76" type="stmt" count="4"/>
+        <line num="78" type="stmt" count="1"/>
+        <line num="81" type="stmt" count="4"/>
+        <metrics loc="84" ncloc="43" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="18" coveredelements="18"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Multiple.php">
+        <class name="Multiple" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="4" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+        </class>
+        <line num="42" type="method" name="multiple" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="43" type="stmt" count="3"/>
+        <line num="44" type="stmt" count="3"/>
+        <line num="52" type="method" name="is_multiple" visibility="public" complexity="1" crap="1" count="17"/>
+        <line num="53" type="stmt" count="17"/>
+        <line num="61" type="method" name="render_multiple" visibility="protected" complexity="2" crap="2" count="15"/>
+        <line num="62" type="stmt" count="15"/>
+        <metrics loc="64" ncloc="24" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Options.php">
+        <class name="Options" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+        </class>
+        <line num="43" type="method" name="options" visibility="public" complexity="1" crap="1" count="45"/>
+        <line num="44" type="stmt" count="45"/>
+        <line num="45" type="stmt" count="45"/>
+        <line num="53" type="method" name="get_options" visibility="public" complexity="1" crap="1" count="27"/>
+        <line num="54" type="stmt" count="27"/>
+        <metrics loc="57" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Pattern.php">
+        <class name="Pattern" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="5" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+        </class>
+        <line num="35" type="method" name="pattern" visibility="public" complexity="2" crap="2" count="14"/>
+        <line num="36" type="stmt" count="14"/>
+        <line num="37" type="stmt" count="14"/>
+        <line num="39" type="stmt" count="11"/>
+        <line num="42" type="stmt" count="14"/>
+        <line num="50" type="method" name="get_pattern" visibility="public" complexity="3" crap="3" count="11"/>
+        <line num="51" type="stmt" count="11"/>
+        <line num="52" type="stmt" count="11"/>
+        <line num="53" type="stmt" count="11"/>
+        <metrics loc="56" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Placeholder.php">
+        <class name="Placeholder" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="4" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+        </class>
+        <line num="35" type="method" name="placeholder" visibility="public" complexity="2" crap="2" count="14"/>
+        <line num="36" type="stmt" count="14"/>
+        <line num="37" type="stmt" count="14"/>
+        <line num="39" type="stmt" count="11"/>
+        <line num="42" type="stmt" count="14"/>
+        <line num="50" type="method" name="get_placeholder" visibility="public" complexity="2" crap="2" count="9"/>
+        <line num="51" type="stmt" count="9"/>
+        <line num="52" type="stmt" count="1"/>
+        <line num="53" type="stmt" count="9"/>
+        <metrics loc="56" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+      </file>
+      <file name="/shared/httpd/php/htdocs/Form-Fields/src/Traits/Range.php">
+        <class name="Range" namespace="PinkCrab\Form_Fields\Traits">
+          <metrics complexity="12" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="27" coveredelements="27"/>
+        </class>
+        <line num="35" type="method" name="min" visibility="public" complexity="2" crap="2" count="13"/>
+        <line num="36" type="stmt" count="13"/>
+        <line num="37" type="stmt" count="13"/>
+        <line num="39" type="stmt" count="5"/>
+        <line num="42" type="stmt" count="13"/>
+        <line num="50" type="method" name="get_min" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="51" type="stmt" count="5"/>
+        <line num="52" type="stmt" count="5"/>
+        <line num="53" type="stmt" count="5"/>
+        <line num="62" type="method" name="max" visibility="public" complexity="2" crap="2" count="13"/>
+        <line num="63" type="stmt" count="13"/>
+        <line num="64" type="stmt" count="13"/>
+        <line num="66" type="stmt" count="5"/>
+        <line num="69" type="stmt" count="13"/>
+        <line num="77" type="method" name="get_max" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="78" type="stmt" count="5"/>
+        <line num="79" type="stmt" count="5"/>
+        <line num="80" type="stmt" count="5"/>
+        <line num="89" type="method" name="step" visibility="public" complexity="2" crap="2" count="8"/>
+        <line num="90" type="stmt" count="8"/>
+        <line num="91" type="stmt" count="8"/>
+        <line num="93" type="stmt" count="5"/>
+        <line num="96" type="stmt" count="8"/>
+        <line num="104" type="method" name="get_step" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="105" type="stmt" count="5"/>
+        <line num="106" type="stmt" count="5"/>
+        <line num="107" type="stmt" count="5"/>
+        <metrics loc="109" ncloc="57" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="27" coveredelements="27"/>
+      </file>
+    </package>
+    <metrics files="41" loc="3622" ncloc="1710" classes="25" methods="141" coveredmethods="136" conditionals="0" coveredconditionals="0" statements="463" coveredstatements="443" elements="604" coveredelements="579"/>
+  </project>
+</coverage>

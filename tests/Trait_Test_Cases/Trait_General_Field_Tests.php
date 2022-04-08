@@ -224,4 +224,16 @@ trait Trait_General_Field_Tests {
 		self::$field->set_attributes( array( 'test' => array( 'array' ) ) );
 		$this->assertEquals( '', self::$field->render_attributes() );
 	}
+
+	/** @testdox Whenever adding a label to an input, the visibility should be set if the length is greater than 1 */
+	public function test_auto_show_label_none_empty_string() {
+		self::$field->label( 'Im a label' );
+		$this->assertTrue( self::$field->label_config()->is_visible() );
+	}
+
+	/** @testdox Whenever adding a label to an input, the visibility should be set hidden if the length is empty */
+	public function test_auto_hide_label_empty_string() {
+		self::$field->show_label()->label( '' );
+		$this->assertFalse( self::$field->label_config()->is_visible() );
+	}
 }
