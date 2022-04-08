@@ -96,7 +96,7 @@ class Select extends Abstract_Field {
 	 * Builds the options array based on type.
 	 *
 	 * @param array<string, mixed> $options
-	 * @return array<int, object>
+	 * @return array<int, stdClass>
 	 */
 	protected function option_builder( array $options ): array {
 		return array_reduce(
